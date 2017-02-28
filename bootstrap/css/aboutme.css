@@ -19,3 +19,12 @@
   margin: 5em auto;
   border-radius: 7px;
 }
+
+.go-home {
+  margin: auto 40px;
+}
+
+.go-home-img {
+  width: 70px;
+  margin-top: 33px;
+}
