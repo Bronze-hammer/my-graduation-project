@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*页面背景图片 */
+.background {
+  display: block;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.aboutme-main {
+  width: 1000px;
+  height: 600px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.85);
+  margin: 5em auto;
+  border-radius: 7px;
+}
