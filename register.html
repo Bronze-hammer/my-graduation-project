@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh_CN">
     <head>
 			  <meta charset="utf-8">
 				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
@@ -33,18 +33,21 @@
 												<button type="submit" class="btn btn-success">Register</button>
 										</div>
 										<div class="col-md-6">
-												<button type="submit" class="btn btn-success" onclick="window.location.href("", "login.html")">Go to Login</button>
+												<button id="goto_loginpage" type="submit" class="btn btn-success">Go to Login</button>
 										</div>
 								</div>
 						</div>
-
-						<!--
-						<div class="register-button">
-								<button type="submit" class="btn btn-success">Register</button>
-								<button type="submit" class="btn btn-success" onclick="window.location.href("", "login.html")">Go to Login</button>
-						</div>
-					-->
 				</div>
 
+        <script src="bootstrap/js/jquery.min.js"></script>
+
+        <!--jquery实现点击按钮跳转到新的页面-->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#goto_loginpage").click(function(){
+                    location.href="login.html";
+                });
+            });
+        </script>
 		</body>
 <html>
