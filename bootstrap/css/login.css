@@ -13,3 +13,8 @@
 .login-button button {
   width: 150px;
 }
+
+.goto-register {
+  float: right;
+  font-size: 15px;
+}
