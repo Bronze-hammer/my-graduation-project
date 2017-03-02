@@ -56,7 +56,7 @@
                     <form id="all-blogs-catalog-main" v-clock>
                         <ul>
                             <li v-for="i in articles" style="margin: 40px 0">
-                                <h4>{{i.title}}</h4>
+                                <a v-bind:href="i.url"><h4>{{i.title}}</h4></a>
                                 <p>{{i.sketch}}</p>
                             </li>
                         </ul>
@@ -86,22 +86,27 @@
                     articles:[
                         {
                             "title": "What you need to konw about css variables",
+                            "url": "blog-show.html",
                             "sketch": "MVVM (Model-View-ViewModel) is a deviation from the classical MVC paradigm, developed by Microsoft, targeted at UI development, and used for Silverlight and WPF (Windows Presentation Foundation). Vue.js implements some of the basic MVVM principles for JavaScript, improving and cutting down development time for UI-related tasks. This is done thanks to Vue.js' special attention to building a very easy to use composable component system."
                         },
                         {
                             "title": "What you need to konw about css variables",
+                            "url": "blog-show.html",
                             "sketch": "MVVM (Model-View-ViewModel) is a deviation from the classical MVC paradigm, developed by Microsoft, targeted at UI development, and used for Silverlight and WPF (Windows Presentation Foundation). Vue.js implements some of the basic MVVM principles for JavaScript, improving and cutting down development time for UI-related tasks. This is done thanks to Vue.js' special attention to building a very easy to use composable component system."
                         },
                         {
                             "title": "What you need to konw about css variables",
+                            "url": "blog-show.html",
                             "sketch": "MVVM (Model-View-ViewModel) is a deviation from the classical MVC paradigm, developed by Microsoft, targeted at UI development, and used for Silverlight and WPF (Windows Presentation Foundation). Vue.js implements some of the basic MVVM principles for JavaScript, improving and cutting down development time for UI-related tasks. This is done thanks to Vue.js' special attention to building a very easy to use composable component system."
                         },
                         {
                             "title": "What you need to konw about css variables",
+                            "url": "blog-show.html",
                             "sketch": "MVVM (Model-View-ViewModel) is a deviation from the classical MVC paradigm, developed by Microsoft, targeted at UI development, and used for Silverlight and WPF (Windows Presentation Foundation). Vue.js implements some of the basic MVVM principles for JavaScript, improving and cutting down development time for UI-related tasks. This is done thanks to Vue.js' special attention to building a very easy to use composable component system."
                         },
                         {
                             "title": "What you need to konw about css variables",
+                            "url": "blog-show.html",
                             "sketch": "MVVM (Model-View-ViewModel) is a deviation from the classical MVC paradigm, developed by Microsoft, targeted at UI development, and used for Silverlight and WPF (Windows Presentation Foundation). Vue.js implements some of the basic MVVM principles for JavaScript, improving and cutting down development time for UI-related tasks. This is done thanks to Vue.js' special attention to building a very easy to use composable component system."
                         }
                     ]

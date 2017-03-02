@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+			  <meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+				<meta http-equiv="X-UA-Compalible" content="IE=edge">
+
+				<title>About me</title>
+
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/blog-show.css">
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		</head>
+
+		<body>
+
+				<!--main background photo-->
+				<img src="bootstrap/images/background1.jpg" class="bg">
+
+				<div id="root-container" class="container">
+						<div id="wrapper" class="columns">
+							  <!--顶部图片展示-->
+								<div class="top-photo">
+									  <img src="bootstrap/images/aboutmepage-top-photo.jpg">
+								</div>
+
+								<!-- 导航条 -->
+                <div id="menu_nav" class="menu-nav">
+                    <nav class="navbar navbar-inverse navigation">
+                        <div class="nav-container">
+                            <div class="collapse navbar-collapse" id="demo-navbar">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="index.html">首页</a></li>
+                                    <li><a href="aboutme.html">关于</a></li>
+                                    <li><a href="blog-catalog.html">归档</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#remind-no-content">留言</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#tab-html5">HTML5</a></li>
+                                            <li><a href="#tab-javascript">JavaScript</a></li>
+                                            <li><a href="#tab-angularjs">Angular.js</a></li>
+                                            <li><a href="#tab-python">Python</a></li>
+                                            <!-- <li class="divider"></li> -->
+                                            <li><a href="#tab-nodejs">Node.js</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </nav>
+                </div>
+
+
+								<!-- Copyright -->
+                <div id="copyright">
+                    <div class="copyright-end">
+                        <span id="text">
+                            © Copyright © 2017  xuzihui
+                        </span>
+                    </div>
+
+                </div>
+						</div>
+				</div>
+
+				<script src="bootstrap/js/jquery-3.1.1.min.js"></script>
+				<script src="bootstrap/js/bootstrap.min.js"></script>
+		</body>
+</html>
+
+
+
+
+
+
+
+
+@charset "UTF-8";
+
+.bg {
+	  display: block;
+		min-height: 100%;
+		min-width: 1024px;
+		width: 100%;
+		height: auto;
+		position: fixed;
+		top: 0;
+		left: 0;
+}
+
+.container {
+	  margin: 40px auto;
+		position: relative;
+		width: 960px;
+		padding: 0;
+
+}
+
+#wrapper {
+	  background: #fff url("../images/content-bg.gif") repeat;
+		box-shadow: 0 5px 15px #444;
+		-moz-box-shadow: 0 5px 15px #444;
+		-webkit-box-shadow: 0 5px 15px #444;
+    margin: 0 auto;
+}
+
+.container .columns {
+	  width: 960px;
+}
+
+/*top-photo*/
+.top-photo img {
+	  width: 100%
+}
+
+/*导航栏*/
+.menu-nav {
+  padding: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+.navigation {
+  height: 55px;
+  margin-top: -40px;
+}
+
+.nav-container {
+  margin: 0 auto;
+  width: 358px;
+}
+
+
+
+#copyright {
+	background: #333;
+	color: #ccc;
+	font-size: 12px;
+	height: 50px;
+	padding: 17px 0;
+}
+
+
+.copyright-end {
+  margin: 0 50px;
+  text-align: center;
+}
