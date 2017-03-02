@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+			  <meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+				<meta http-equiv="X-UA-Compalible" content="IE=edge">
+
+				<title>About me</title>
+
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/message-board.css">
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		</head>
+
+		<body>
+
+				<!--main background photo-->
+				<img src="bootstrap/images/background1.jpg" class="bg">
+
+				<div id="root-container" class="container">
+						<div id="wrapper" class="columns">
+							  <!--顶部图片展示-->
+								<div class="top-photo">
+									  <img src="bootstrap/images/messageboaed-top-photo.jpg">
+								</div>
+
+								<!-- 导航条 -->
+                <div id="menu_nav" class="menu-nav">
+                    <nav class="navbar navbar-inverse navigation">
+                        <div class="nav-container">
+                            <div class="collapse navbar-collapse" id="demo-navbar">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="index.html">首页</a></li>
+                                    <li><a href="aboutme.html">关于</a></li>
+                                    <li><a href="blog-catalog.html">归档</a></li>
+                                    <li><a href="message-board.html">留言</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#tab-html5">HTML5</a></li>
+                                            <li><a href="#tab-javascript">JavaScript</a></li>
+                                            <li><a href="#tab-angularjs">Angular.js</a></li>
+                                            <li><a href="#tab-python">Python</a></li>
+                                            <!-- <li class="divider"></li> -->
+                                            <li><a href="#tab-nodejs">Node.js</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </nav>
+                </div>
+
+								<!--message-board-list -->
+								<div id="message-board-list">
+									  <div class="row a-message" v-for="message in messages">
+											  <div class="col-md-2" style="text-align: center; margin: auto 0;">
+													  <img v-bind:src="message.headphoto" />
+												</div>
+												<div class="col-md-10">
+													  <span style="font-weight: bold">{{message.name}}</span>
+														<span style="font-style: italic; color: #aaa;">{{message.time}}</span>
+														<p style="font-size: 15px; margin-top: 10px">{{message.detail}}</p>
+												</div>
+										</div>
+								</div>
+
+								<!--message-board-->
+								<div class="message-board">
+										<div style="margin-top: 50px">
+												<div class="form-group">
+														<label>姓名:</label>
+														<input class="form-control" id="messageInputname" placeholder="Name">
+												</div>
+												<div class="form-group">
+														<label>邮箱:</label>
+														<input class="form-control" id="messageInputemail" placeholder="Email">
+												</div>
+												<div class="form-group">
+														<label>评论:</label><br>
+														<textarea style="width: 100%; height: 200px;" id="messageInput" placeholder="please input comment in here...">
+														</textarea>
+												</div>
+												<div class="form-group">
+														<div class="submit">
+																<button style="width: 100px" type="submit" class="btn btn-success">提交</button>
+														</div>
+												</div>
+										</div>
+								</div>
+
+								<!-- Copyright -->
+                <div id="copyright">
+                    <div class="copyright-end">
+                        <span id="text">
+                            © Copyright © 2017  xuzihui
+                        </span>
+                    </div>
+
+                </div>
+						</div>
+				</div>
+
+				<script src="bootstrap/js/jquery-3.1.1.min.js"></script>
+				<script src="bootstrap/js/bootstrap.min.js"></script>
+				<script src="bootstrap/js/vue.js"></script>
+
+				<script type="text/javascript">
+            var demo = new Vue({
+							  el: '#message-board-list',
+								data:{
+										messages: [
+												{
+														"headphoto": "bootstrap/images/message-board-head/message-board-head1.jpg",
+														"name": "message-board-head1",
+														"time": "2017-02-11 10:45:33",
+														"detail": "I am chinese!!"
+												},
+												{
+														"headphoto": "bootstrap/images/message-board-head/message-board-head2.jpg",
+														"name": "message-board-head2",
+														"time": "2017-02-11 10:45:33",
+														"detail": "I am in China, i love China!"
+												},
+												{
+														"headphoto": "bootstrap/images/message-board-head/message-board-head3.jpg",
+														"name": "message-board-head3",
+														"time": "2017-02-11 10:45:33",
+														"detail": "i use H5 CSS3 JavaScript"
+												},
+												{
+														"headphoto": "bootstrap/images/message-board-head/message-board-head4.jpg",
+														"name": "message-board-head4",
+														"time": "2017-02-11 10:45:33",
+														"detail": "bootstrap ionic Yii2"
+												},
+												{
+														"headphoto": "bootstrap/images/message-board-head/message-board-head5.jpg",
+														"name": "message-board-head15",
+														"time": "2017-02-11 10:45:33",
+														"detail": "jQuery Angulerjs Nodejs"
+												}
+										]
+								}
+
+						});
+				</script>
+		</body>
+</html>

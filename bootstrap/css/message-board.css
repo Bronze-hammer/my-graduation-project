@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+.bg {
+	  display: block;
+		min-height: 100%;
+		min-width: 1024px;
+		width: 100%;
+		height: auto;
+		position: fixed;
+		top: 0;
+		left: 0;
+}
+
+.container {
+	  margin: 40px auto;
+		position: relative;
+		width: 960px;
+		padding: 0;
+
+}
+
+#wrapper {
+	  background: #fff url("../images/content-bg.gif") repeat;
+		box-shadow: 0 5px 15px #444;
+		-moz-box-shadow: 0 5px 15px #444;
+		-webkit-box-shadow: 0 5px 15px #444;
+    margin: 0 auto;
+}
+
+.container .columns {
+	  width: 960px;
+}
+
+/*top-photo*/
+.top-photo img {
+	  width: 100%
+}
+
+/*导航栏*/
+.menu-nav {
+  padding: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+.navigation {
+  height: 55px;
+  margin-top: -40px;
+}
+
+.nav-container {
+  margin: 0 auto;
+  width: 358px;
+}
+
+/*message-board-list*/
+#message-board-list {
+	width: 660px;
+	margin: 50px auto;
+}
+
+.a-message {
+	margin-top: 20px;
+	border-bottom: 1px solid #000;
+}
+
+/*message-board*/
+.message-board {
+	width: 660px;
+	margin: 50px auto;
+}
+
+#copyright {
+	background: #333;
+	color: #ccc;
+	font-size: 12px;
+	height: 50px;
+	padding: 17px 0;
+}
+
+
+.copyright-end {
+  margin: 0 50px;
+  text-align: center;
+}
