@@ -54,16 +54,12 @@
   width: 358px;
 }
 
-/*my detail*/
-.my-detail {
-	text-align: center;
+/*all-blogs-catalog*/
+#all-blogs-catalog {
+  margin: 50px 150px;
 }
 
-.introduce {
-	width: 660px;
-	text-align: center;
-	margin: 20px auto;
-}
+/*copyright*/
 
 #copyright {
 	background: #333;
