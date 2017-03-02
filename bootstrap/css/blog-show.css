@@ -55,9 +55,15 @@
 }
 
 /*content*/
+/*
 .blog-content iframe {
 	width: 100%;
 	height: 500px;
+}
+*/
+#blog-content {
+	width: 660px;
+	margin: 100px auto;
 }
 
 #copyright {
