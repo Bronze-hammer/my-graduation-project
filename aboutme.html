@@ -1,51 +1,89 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+			  <meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+				<meta http-equiv="X-UA-Compalible" content="IE=edge">
 
-        <title>About me</title>
+				<title>About me</title>
 
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/aboutme.css">
-    </head>
-    <body>
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/aboutme.css">
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		</head>
 
-        <img src="bootstrap/images/background-aboutme.jpg" class="background">
+		<body>
 
-        <div class="aboutme-main">
-            <div class="go-home">
-                <a href="index.html"><img src="bootstrap/images/go-home.png" class="go-home-img"></a>
-            </div>
-            <div class="person-info">
-                <div class="avatar">
-                    <img style="width: 150px" src="bootstrap/images/avatar.png">
+				<!--main background photo-->
+				<img src="bootstrap/images/background1.jpg" class="bg">
+
+				<div id="root-container" class="container">
+						<div id="wrapper" class="columns">
+							  <!--顶部图片展示-->
+								<div class="top-photo">
+									  <img src="bootstrap/images/aboutmepage-top-photo.jpg">
+								</div>
+
+								<!-- 导航条 -->
+                <div id="menu_nav" class="menu-nav">
+                    <nav class="navbar navbar-inverse navigation">
+                        <div class="nav-container">
+                            <div class="collapse navbar-collapse" id="demo-navbar">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="index.html">首页</a></li>
+                                    <li><a href="aboutme.html">关于</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#remind-no-content">归档</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#remind-no-content">留言</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#tab-html5">HTML5</a></li>
+                                            <li><a href="#tab-javascript">JavaScript</a></li>
+                                            <li><a href="#tab-angularjs">Angular.js</a></li>
+                                            <li><a href="#tab-python">Python</a></li>
+                                            <!-- <li class="divider"></li> -->
+                                            <li><a href="#tab-nodejs">Node.js</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </nav>
                 </div>
-                <div class="basic-info">
-                    <p>姓名: xuzihui</p>
-                    <p>邮箱: zihui_xu@126.com</p>
-                    <p>Github: https://github.com/Bronze-hammer</p>
-                    <p>Blog: http://specterxu.iteye.com</p>
-                    <p style="text-indent: 30px; margin: 40px 0">
-                      本人学生一枚，幽默风趣，易于交友，爱生活，爱学习，对计算机科学感兴趣，喜欢学习编程语言。
-                      有事喜欢读读书，有时喜欢去外面旅游，见识见识美好的事物。但总体上来说，我其实是个宅男。
-                      这样的表现我就得用一个词形容自己--程序猿+单身狗！！！好吧，这是两个词 -_-||</p>
+
+								<!--my detail-->
+								<div class="my-detail">
+										<div class="avatar">
+												<img style="width: 150px" src="bootstrap/images/avatar.png">
+										</div>
+										<div class="basic-info">
+												<p>姓名: xuzihui</p>
+												<p>邮箱: zihui_xu@126.com</p>
+												<p>Github: https://github.com/Bronze-hammer</p>
+												<p>Blog: http://specterxu.iteye.com</p>
+
+										</div>
+										<div class="introduce">
+											  <p style="text-indent: 30px; margin: 40px 0">
+												本人学生一枚，幽默风趣，易于交友，爱生活，爱学习，对计算机科学感兴趣，喜欢学习编程语言。
+												有事喜欢读读书，有时喜欢去外面旅游，见识见识美好的事物。但总体上来说，我其实是个宅男。
+												这样的表现我就得用一个词形容自己--程序猿+单身狗！！！好吧，这是两个词 -_-||</p>
+										</div>
+								</div>
+
+								<!-- Copyright -->
+                <div id="copyright">
+                    <div class="copyright-end">
+                        <span id="text">
+                            © Copyright © 2017  xuzihui
+                        </span>
+                    </div>
+
                 </div>
-            </div>
+						</div>
+				</div>
 
-            <!-- Copyright -->
-            <div class="aboutme-copyright">
-                <div class="aboutme-copyright-end">
-                    <span id="text">
-                        © Copyright © 2017  xuzihui
-                    </span>
-                </div>
-
-            </div>
-
-        </div>
-        <script src="bootstrap/js/jquery-3.1.1.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-
-    </body>
+				<script src="bootstrap/js/jquery-3.1.1.min.js"></script>
+				<script src="bootstrap/js/bootstrap.min.js"></script>
+		</body>
 </html>

@@ -49,10 +49,6 @@
   width: 358px;
 }
 
-.copyright-end {
-  margin: 0 50px;
-  text-align: center;
-}
 
 .grid-video {
   text-align: center;
@@ -90,4 +86,10 @@
   font-size: 12px;
   height: 50px;
   padding: 17px 0;
+}
+
+
+.copyright-end {
+  margin: 0 50px;
+  text-align: center;
 }
