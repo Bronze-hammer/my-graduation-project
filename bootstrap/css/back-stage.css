@@ -1,0 +1,19 @@
+/*导航栏*/
+.navbar-brand {
+	color: #fff;
+	background: #283643;
+	width: 250px;
+}
+
+/*信息提示*/
+.information-prompt {
+	margin-top: 4px;
+	margin-right: 10px;
+}
+
+
+.information-prompt li {
+	display: inline-block;
+}
+
+/*侧栏*/
