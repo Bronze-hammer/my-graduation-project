@@ -1,5 +1,12 @@
 
 
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
 
 .top-navbar {
 	background: #1cc09f;
@@ -33,7 +40,27 @@
 
 /*侧栏*/
 
+.navbar-side-style {
+	width: 250px;
+	background: #8fe5ad;
+
+}
+
 .sidebar-collapse {
 	width: 250px;
 	background: #aaf0ed;
+}
+
+
+
+.firsy{
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+
+.second{
+	width: 100px;
+	height: 100px;
+	background: blue;
 }
