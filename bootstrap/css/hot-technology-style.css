@@ -44,10 +44,18 @@
 
 .nav-container {
   margin: 0 auto;
-  width: 444px;
+  width: 502px;
 }
 
+/*hot-tachnology-article-catalog*/
+.hot-tachnology-article-catalog {
+  max-width: 660px;
+	margin: 0 100px;
+}
 
+.hot-tachnology-article-catalog img {
+	max-width: 550px;
+}
 
 #copyright {
 	background: #333;

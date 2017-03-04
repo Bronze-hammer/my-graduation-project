@@ -305,7 +305,7 @@ body {
 				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 				<meta http-equiv="X-UA-Compalible" content="IE=edge">
 
-				<title>About me</title>
+				<title>Hot Technology</title>
 
 				<link rel="stylesheet" type="text/css" href="../bootstrap/css/hot-technology-style.css">
 				<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
@@ -323,11 +323,12 @@ body {
 												<div class="nav-container">
 														<div class="collapse navbar-collapse" id="demo-navbar">
 																<ul class="nav navbar-nav">
-																	  <li><a href="#">HTML5</a></li>
-																		<li style="background: #0f6d46;"><a href="#">JavaScript</a></li>
-																		<li><a href="#">Angular.js</a></li>
-																		<li><a href="#">Python</a></li>
-																		<li><a href="#">Node.js</a></li>
+																	  <li><a href="../index.html">首页</a></li>
+																		<li><a href="html5-page.html">HTML5</a></li>
+																		<li><a href="javascript-page.html">JavaScript</a></li>
+																		<li style="background: #0f6d46;"><a href="angularjs-page.html">Angular.js</a></li>
+																		<li><a href="python-page.html">Python</a></li>
+																		<li><a href="nodejs-page.html">Node.js</a></li>
 
 																</ul>
 														</div>
@@ -352,7 +353,6 @@ body {
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
 		</body>
 </html>
-
 
 
 
@@ -402,7 +402,7 @@ body {
 
 .nav-container {
   margin: 0 auto;
-  width: 444px;
+  width: 502px;
 }
 
 

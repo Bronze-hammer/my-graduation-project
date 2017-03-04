@@ -15,14 +15,16 @@
 
 				<!--main background photo-->
 				<img src="../bootstrap/images/background1.jpg" class="bg">
-				<!-- 导航条-->
+
 				<div id="root-container" class="container">
 						<div id="wrapper" class="columns">
+							  <!-- 导航条-->
 								<div class="menu-nav">
 										<nav class="nav navbar-default navbar-inverse" role="navigation">
 												<div class="nav-container">
 														<div class="collapse navbar-collapse" id="demo-navbar">
 																<ul class="nav navbar-nav">
+																	  <li><a href="../index.html">首页</a></li>
 																		<li style="background: #0f6d46;"><a href="html5-page.html">HTML5</a></li>
 																		<li><a href="javascript-page.html">JavaScript</a></li>
 																		<li><a href="angularjs-page.html">Angular.js</a></li>
@@ -31,11 +33,22 @@
 
 																</ul>
 														</div>
-
 												</div>
 										</nav>
 								</div>
 
+								<!--content-->
+								<div class="hot-tachnology-article-catalog">
+									  <form id="hot-technology-article-catalog-main" v-clock>
+												<ul>
+														<li v-for="catalog in catalogs" style="margin: 40px 60px 0 0">
+																<img v-bind:src="catalog.img" />
+																<h4 style="font-weight: bold">{{catalog.title}}</h4>
+																<p>{{catalog.sketch}}</p>
+														</li>
+												</ul>
+										</form>
+								</div>
 
 								<!-- Copyright-->
                 <div id="copyright">
@@ -50,5 +63,42 @@
 
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
+				<script src="../bootstrap/js/vue.js"></script>
+
+				<script type="text/javascript">
+				    var demo = new Vue({
+							  el: '#hot-technology-article-catalog-main',
+								data: {
+									  catalogs: [
+											  {
+													  "img": "../bootstrap/images/hot-technology-article-catalog-img.jpg",
+														"title": "This is a technology article about computer language",
+														"sketch": "Prometheus has a sophisticated local storage subsystem. For indexes, it uses LevelDB. For the bulk sample data, it has its own custom storage layer, which organizes sample data in chunks of constant size (1024 bytes payload). "
+												},
+												{
+													  "img": "../bootstrap/images/hot-technology-article-catalog-img.jpg",
+														"title": "this is a technology article about computer language",
+														"sketch": "Prometheus has a sophisticated local storage subsystem. For indexes, it uses LevelDB. For the bulk sample data, it has its own custom storage layer, which organizes sample data in chunks of constant size (1024 bytes payload). "
+												},
+												{
+													  "img": "../bootstrap/images/hot-technology-article-catalog-img.jpg",
+														"title": "this is a technology article about computer language",
+														"sketch": "Prometheus has a sophisticated local storage subsystem. For indexes, it uses LevelDB. For the bulk sample data, it has its own custom storage layer, which organizes sample data in chunks of constant size (1024 bytes payload). "
+												},
+												{
+													  "img": "../bootstrap/images/hot-technology-article-catalog-img.jpg",
+														"title": "this is a technology article about computer language",
+														"sketch": "Prometheus has a sophisticated local storage subsystem. For indexes, it uses LevelDB. For the bulk sample data, it has its own custom storage layer, which organizes sample data in chunks of constant size (1024 bytes payload). "
+												},
+												{
+													  "img": "../bootstrap/images/hot-technology-article-catalog-img.jpg",
+														"title": "this is a technology article about computer language",
+														"sketch": "Prometheus has a sophisticated local storage subsystem. For indexes, it uses LevelDB. For the bulk sample data, it has its own custom storage layer, which organizes sample data in chunks of constant size (1024 bytes payload). "
+												}
+										]
+								}
+						});
+
+				</script>
 		</body>
 </html>
