@@ -24,12 +24,13 @@
 		box-shadow: 0 5px 15px #444;
 		-moz-box-shadow: 0 5px 15px #444;
 		-webkit-box-shadow: 0 5px 15px #444;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .container .columns {
 	  width: 960px;
 }
+
 
 /*导航栏*/
 .menu-nav {
@@ -37,19 +38,26 @@
   margin-top: 15px;
 }
 
+.navigation {
+  height: 55px;
+  margin-top: -40px;
+}
+
 .nav-container {
   margin: 0 auto;
   width: 502px;
 }
 
-/*hot-tachnology-article-catalog*/
-.hot-tachnology-article-catalog {
-  max-width: 660px;
-	margin: 0 100px;
+/*content*/
+.blog-content {
+	width: 660px;
+	margin: 100px auto;
 }
 
-.hot-tachnology-article-catalog img {
-	max-width: 550px;
+/*评论*/
+.comment {
+	width: 660px;
+	margin: 100px auto;
 }
 
 #copyright {

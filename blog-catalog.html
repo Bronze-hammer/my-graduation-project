@@ -56,7 +56,9 @@
                     <form id="all-blogs-catalog-main" v-clock>
                         <ul>
                             <li v-for="i in articles" style="margin: 40px 0">
-                                <a v-bind:href="i.url"><h4>{{i.title}}</h4></a>
+                                <a v-bind:href="i.url" target="_blank">
+                                    <h4>{{i.title}}</h4>
+                                </a>
                                 <p>{{i.sketch}}</p>
                             </li>
                         </ul>
