@@ -8,6 +8,10 @@ body {
 	height: 100%;
 }
 
+#wrapper {
+	height: 100%;
+}
+
 .top-navbar {
 	background: #1cc09f;
 }
@@ -42,25 +46,12 @@ body {
 
 .navbar-side-style {
 	width: 250px;
-	background: #8fe5ad;
-
+	background: #080808;
+	padding-top: 50px;
+	height: 100%;
 }
 
 .sidebar-collapse {
 	width: 250px;
 	background: #aaf0ed;
-}
-
-
-
-.firsy{
-	width: 100px;
-	height: 100px;
-	background: red;
-}
-
-.second{
-	width: 100px;
-	height: 100px;
-	background: blue;
 }

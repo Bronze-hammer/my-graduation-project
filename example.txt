@@ -1,3 +1,5 @@
+//主页面的通用样式
+
 <!DOCTYPE html>
 <html lang="zh_CN">
     <head>
@@ -71,77 +73,6 @@
 
 
 
-
-<nav class="nav navbar-fixed-top top-navbar" role="navigation">
-    <!-- navbar-header 当宽度小于一定值时显示的内容 -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#demo-navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="back-stage.html">Back Stage</a>
-    </div>
-
-    <ul class="nav navbar-right information-prompt">
-        <li class="dropdown">
-            <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                <i class="glyphicon glyphicon-envelope"></i>
-                <i class="glyphicon glyphicon-triangle-bottom"></i>
-            </a>
-        </li>
-        <li class="dropdown">
-            <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                <i class="glyphicon glyphicon-bell"></i>
-                <i class="glyphicon glyphicon-triangle-bottom"></i>
-            </a>
-        </li>
-        <li class="dropdown">
-            <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                <i class="glyphicon glyphicon-user"></i>
-                <i class="glyphicon glyphicon-triangle-bottom"></i>
-            </a>
-        </li>
-    </ul>
-</nav>
-
-
-<!--sidebar-->
-<nav class="navbar-side navbar-side-style" role="navigation">
-    <ul class="nav">
-        <li>
-            <a class="active-menu" href="#">
-                <i></i>Dashboard
-            </a>
-        </li>
-        <li>
-            <a class="active-menu" href="#">
-                <i></i>UI Elements
-            </a>
-        </li>
-        <li>
-            <a class="active-menu" href="#">
-                <i></i>Responsive Tables
-            </a>
-        </li>
-        <li>
-            <a class="active-menu" href="#">
-                <i></i>Forms
-            </a>
-          </li>
-          <li>
-              <a class="active-menu" href="#">
-                  <i></i>Multi-Level Dropdown
-              </a>
-          </li>
-      </ul>
-</nav>
-
-
-
-
-
 @charset "UTF-8";
 
 .bg {
@@ -212,4 +143,155 @@
 .copyright-end {
   margin: 0 50px;
   text-align: center;
+}
+
+
+//骺端页面的通用布局
+
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+			  <meta charset="utf-8">
+			  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+				<title>Back stage</title>
+
+				<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+				<link href="../bootstrap/css/back-stage.css" rel="stylesheet">
+				<link href="../bootstrap/css/font-awesome.css" rel="stylesheet">
+
+		</head>
+
+		<body>
+			  <div id="wrapper">
+            <nav class="nav navbar-fixed-top top-navbar" role="navigation">
+                <!-- navbar-header 当宽度小于一定值时显示的内容 -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#demo-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="back-stage.html">Back Stage</a>
+                </div>
+
+                <ul class="nav navbar-right information-prompt">
+                    <li class="dropdown">
+                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            <i class="glyphicon glyphicon-triangle-bottom"></i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <i class="glyphicon glyphicon-bell"></i>
+                            <i class="glyphicon glyphicon-triangle-bottom"></i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <i class="glyphicon glyphicon-triangle-bottom"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--sidebar-->
+            <nav class="navbar-side navbar-side-style" role="navigation">
+                <ul class="nav">
+                    <li>
+                        <a class="active-menu" href="#">
+                            <i></i>Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="#">
+                            <i></i>UI Elements
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="#">
+                            <i></i>Responsive Tables
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="#">
+                            <i></i>Forms
+                        </a>
+                      </li>
+                      <li>
+                          <a class="active-menu" href="#">
+                              <i></i>Multi-Level Dropdown
+                          </a>
+                      </li>
+                  </ul>
+            </nav>
+
+				</div>
+
+
+				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
+				<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+		</body>
+
+</html>
+
+
+
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+#wrapper {
+	height: 100%;
+}
+
+.top-navbar {
+	background: #1cc09f;
+}
+
+/*导航栏*/
+.navbar-brand {
+	color: #fff;
+	background: #283643;
+	width: 250px;
+}
+.navbar-brand:hover {
+	color: 	#1cc09f;
+}
+
+/*消息提示*/
+.information-prompt {
+	margin-top: 4px;
+	margin-right: 10px;
+}
+
+
+.information-prompt li {
+	display: inline-block;
+}
+
+.information-prompt a {
+	color: #f5f5f5;
+
+}
+
+/*侧栏*/
+
+.navbar-side-style {
+	width: 250px;
+	background: #080808;
+	padding-top: 50px;
+	height: 100%;
+}
+
+.sidebar-collapse {
+	width: 250px;
+	background: #aaf0ed;
 }
