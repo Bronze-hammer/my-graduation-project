@@ -303,14 +303,13 @@ body {
 
 /*右侧内容*/
 .page-wrapper{
+	height: 100%;
 	margin: 0 0 0 250px;
-	padding: 50px 30px;
+	padding: 50px 30px 0 30px;
 	min-height: 120px;
-	background: blue;
+	background: #f3f3f3;
 	position: relative;
-	top: 50px;
 }
-
 
 
 //热门技术展示页面模板
