@@ -49,9 +49,16 @@ body {
 	background: #080808;
 	padding-top: 50px;
 	height: 100%;
+	position: fixed;
 }
 
-.sidebar-collapse {
-	width: 250px;
-	background: #aaf0ed;
+
+/*右侧内容*/
+.page-wrapper{
+	margin: 0 0 0 250px;
+	padding: 50px 30px;
+	min-height: 120px;
+	background: blue;
+	position: relative;
+	top: 50px;
 }

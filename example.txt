@@ -146,7 +146,7 @@
 }
 
 
-//骺端页面的通用布局
+//后端页面的通用布局
 
 <!DOCTYPE html>
 <html lang="zh_CN">
@@ -156,7 +156,7 @@
 				<title>Back stage</title>
 
 				<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-				<link href="../bootstrap/css/back-stage.css" rel="stylesheet">
+				<link href="../bootstrap/css/back-stage-share.css" rel="stylesheet">
 				<link href="../bootstrap/css/font-awesome.css" rel="stylesheet">
 
 		</head>
@@ -193,6 +193,9 @@
                             <i class="glyphicon glyphicon-user"></i>
                             <i class="glyphicon glyphicon-triangle-bottom"></i>
                         </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Log out</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -227,6 +230,8 @@
                   </ul>
             </nav>
 
+            <!-- page-wrapper -->
+            <div class="page-wrapper"></div>
 				</div>
 
 
@@ -236,6 +241,9 @@
 		</body>
 
 </html>
+
+
+
 
 
 
@@ -289,12 +297,20 @@ body {
 	background: #080808;
 	padding-top: 50px;
 	height: 100%;
+	position: fixed;
 }
 
-.sidebar-collapse {
-	width: 250px;
-	background: #aaf0ed;
+
+/*右侧内容*/
+.page-wrapper{
+	margin: 0 0 0 250px;
+	padding: 50px 30px;
+	min-height: 120px;
+	background: blue;
+	position: relative;
+	top: 50px;
 }
+
 
 
 //热门技术展示页面模板
