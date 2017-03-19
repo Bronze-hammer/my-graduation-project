@@ -44,10 +44,14 @@
 
 .nav-container {
   margin: 0 auto;
+	height: 100px;
   width: 502px;
 }
 
-
+/*content*/
+.slide-photo-content{
+	padding: 80px;
+}
 
 #copyright {
 	background: #333;
