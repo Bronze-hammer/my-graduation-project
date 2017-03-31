@@ -198,7 +198,10 @@
             });
 
             $("#gotoBackstage").click(function(){
-                if (localStorage.getItem("") !== "" && localStorage.getItem("") !== "") {
+                //var a = localStorage.getItem("username");
+                //var a = localStorage.getItem("password");
+
+                if (localStorage.getItem("username") !== null || localStorage.getItem("username") !== "") {
                     window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
                 } else {
                     window.location.href="login.html";
