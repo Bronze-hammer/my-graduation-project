@@ -164,7 +164,7 @@
                             </div>
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>个人操作</h4>
-                                <a href="login.html" target="_blank"><p>进入控制台</p></a>
+                                <a id="gotoBackstage" target="_blank"><p>进入控制台</p></a>
                             </div>
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>人生三境界</h4>
@@ -195,6 +195,15 @@
         <script type="text/javascript">
             $("button").click(function(){
               window.location.href="slide-photo-content-show.html"
+            });
+
+            $("#gotoBackstage").click(function(){
+                if (localStorage.getItem("") !== "" && localStorage.getItem("") !== "") {
+                    window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+                } else {
+                    window.location.href="login.html";
+                }
+
             });
         </script>
 
