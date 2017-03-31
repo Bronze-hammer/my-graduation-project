@@ -200,10 +200,11 @@
             $("#gotoBackstage").click(function(){
                 var username = localStorage.getItem("username");
 
-                if (username !== null || username !== "") {
-                    window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
-                } else {
+                if (username == null || username == "") {
+
                     window.location.href="login.html";
+                } else {
+                    window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
                 }
 
             });
