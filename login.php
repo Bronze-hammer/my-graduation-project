@@ -52,12 +52,19 @@
             $username = "root";
             $password = "xuzihui";
 
+            //连接数据库
             $conn = new mysqli($servername, $username. $password);
 
             if($conn) {
-                echo 'ok';
+                //echo 'ok';
+                mysql_query("set names 'utf-8'");
+                mysql_select_db($graduation_data);  //打开数据库
+
+                $sql = "select * from userinfo";  //SQL查询
+
+                $result = mysql_query($sql, $conn);  //查询
             } else {
-                echo 'error';
+                echo '数据库连接失败';
             }
         ?>
 
