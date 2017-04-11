@@ -51,18 +51,32 @@
             $servername = "localhost";
             $username = "root";
             $password = "xuzihui";
+            $graduation_data  = "graduation_data";
 
             //连接数据库
-            $conn = new mysqli($servername, $username. $password);
+            $conn = new mysqli($servername, $username, $password);
 
             if($conn) {
                 //echo 'ok';
-                mysql_query("set names 'utf-8'");
-                mysql_select_db($graduation_data);  //打开数据库
+                //mysql_query("set names 'utf-8'");
+                mysqli_select_db($conn, "graduation_data");  //打开数据库
 
                 $sql = "select * from userinfo";  //SQL查询
 
-                $result = mysql_query($sql, $conn);  //查询
+                $result = mysqli_query($conn, $sql);  //查询
+
+                if(!$result){
+                    printf("Error:%s\n", mysqli_error($conn));
+                    exit();
+                }
+
+                while($row = mysqli_fetch_array($result))
+                {
+                    echo $row['id']."</br>";
+                    echo $row['username']."</br>";
+                    echo $row['password']."</br>";
+                }
+
             } else {
                 echo '数据库连接失败';
             }
