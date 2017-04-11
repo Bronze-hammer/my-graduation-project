@@ -51,10 +51,10 @@
             $servername = "localhost";
             $username = "root";
             $password = "xuzihui";
-            $graduation_data  = "graduation_data";
+            //$graduation_data  = "graduation_data";
 
             //连接数据库
-            $conn = new mysqli($servername, $username, $password);
+            $conn = new mysqli($servername, $username, $password, 'graduation_data');
 
             if($conn) {
                 //echo 'ok';
@@ -68,6 +68,8 @@
                 if(!$result){
                     printf("Error:%s\n", mysqli_error($conn));
                     exit();
+                } else {
+                    echo "ok";
                 }
 
                 while($row = mysqli_fetch_array($result))
@@ -76,6 +78,8 @@
                     echo $row['username']."</br>";
                     echo $row['password']."</br>";
                 }
+
+                mysqli_close($conn);
 
             } else {
                 echo '数据库连接失败';
