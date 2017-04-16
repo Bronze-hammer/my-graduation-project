@@ -11,7 +11,7 @@
 
     <body>
         <div class="login-page">
-	          <form class="form-horizontal">
+	          <form class="form-horizontal" action="logincheck.php" method="post">
           	    <!--
           	    <div class="form-group">
           		  <label>登录身份</label>
@@ -23,72 +23,45 @@
           	    -->
     	          <div class="form-group">
     		            <label for="exampleInputEmail1">登录邮箱</label>
-    		            <input type="email" class="form-control" id="useremail" placeholder="Email">
+    		            <input type="email" name="email" class="form-control" id="useremail" placeholder="Email">
     	          </div>
     	          <div class="form-group">
     		            <label for="exampleInputPassword1">登录密码</label>
-    		            <input type="password" class="form-control" id="userpassword" placeholder="Password">
+    		            <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password">
     	          </div>
+                <div class="form-group">
+                    <div class="login-button">
+                        <input type="submit" name="submit" class="btn btn-success" style="width: 150px;" value="Log in">
+                    </div>
+                    <div class="login-button">
+    		                <button id="gotohomepage" type="button" class="btn btn-success">Back HomePage</button>
+    		            </div>
+                </div>
+                <!--
     	          <div class="form-group">
     		            <div class="login-button">
-    		                <button id="loginbutton" type="button" class="btn btn-success">Log in</button>
+    		                <button id="loginbutton" type="button" class="btn btn-success" value="login">Log in</button>
     		            </div>
     		            <div class="login-button">
     		                <button id="gotohomepage" type="button" class="btn btn-success">Back HomePage</button>
     		            </div>
 
     	          </div>
-          	    <!--
+
           		  <div class="goto-register">
           			    <a href="register.html"><p class="text-primary">No account? Please click me to register...</p></a>
           		  </div>
-          	    -->
+
     	          <p id="tishi"></p>
+                -->
 	          </form>
 	      </div>
 
-        <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "xuzihui";
-            //$graduation_data  = "graduation_data";
-
-            //连接数据库
-            $conn = new mysqli($servername, $username, $password, 'graduation_data');
-
-            if($conn) {
-                //echo 'ok';
-                //mysql_query("set names 'utf-8'");
-                mysqli_select_db($conn, "graduation_data");  //打开数据库
-
-                $sql = "select * from userinfo";  //SQL查询
-
-                $result = mysqli_query($conn, $sql);  //查询
-
-                if(!$result){
-                    printf("Error:%s\n", mysqli_error($conn));
-                    exit();
-                } else {
-                    echo "ok";
-                }
-
-                while($row = mysqli_fetch_array($result))
-                {
-                    echo $row['id']."</br>";
-                    echo $row['username']."</br>";
-                    echo $row['password']."</br>";
-                }
-
-                mysqli_close($conn);
-
-            } else {
-                echo '数据库连接失败';
-            }
-        ?>
 
         <script src="bootstrap/js/jquery-3.1.1.min.js"></script>
 
         <script type="text/javascript">
+            /*
             $("#loginbutton").click(function(){
                 var useremail = $("#useremail").val();
                 var userpassword = $("#userpassword").val();
@@ -101,7 +74,7 @@
                     $("#userpassword").val("");
                 };
             });
-
+            */
             $("#gotohomepage").click(function(){
                 window.location.href="index.html";
             });
