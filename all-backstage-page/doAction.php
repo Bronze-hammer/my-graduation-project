@@ -1,7 +1,7 @@
 <?php
-
+    header('content-type:text/html;charset=utf-8');
     //$_FILES： 文件上传文件
-    print_r($_FILES);
+    //print_r($_FILES);
 
     $filename = $_FILES['myfile']['name'];
     $type  = $_FILES['myfile']['type'];
@@ -14,6 +14,10 @@
     UPLOAD_ERR_INI_SIZE: 其值为1，上传的文件超过了php.ini中upload_max_filesize选项限制的值
     UPLOAD_ERR_FORM_SIZE: 其值为2，上传文件的大小超过了HTML表单中 MAX_FILE_SIZE选项指定的值
     UPLOAD_ERR_PARTIAL: 其值为3，文件只是部分被上传
+    UPLOAD_ERR_NO_FILE: 其值为4，没有文件被上传
+    UPLOAD_ERR_NO_TMP_DIR: 其值为6，找不到临时文件夹
+    UPLOAD_ERR_CANT_WRITE: 其值为7，文件写入失败
+    UPLOAD_ERR_EXTENSION:  其值为8，上传的文件被PHP扩展程序中断
     */
 
     //将服务器上的临时文件移动指定目录下
@@ -22,6 +26,40 @@
 
     //move_uploaded_file($tmp_name, $destination):将服务器上的临时文件移动到指定目录下叫什么名字，移动成功返回true，否则返回false
     //move_uploaded_file($tmp_name, "uploads/".$filename);
+
+    if($error == UPLOAD_ERR_OK){
+        if(move_uploaded_file($tmp_name, "uploads/".$filename)){
+            echo "文件".$filename."上传成功";
+        } else {
+            echo "文件".$filename."上传失败";
+        }
+    } else {
+        switch($error){
+            case 1:
+                echo '上传文件超过了PHP配置文件中upload_max_filesize选项的值';
+                break;
+            case 2:
+                echo "超过了表单 MAX_FILE_SIZE 限制的大小";
+                break;
+            case 3:
+                echo "文件部分被上传";
+                break;
+            case 4:
+                echo "没有文件被上传";
+                break;
+            case 6:
+                echo "找不到临时文件夹";
+                break;
+            case 7:
+                echo "文件写入失败";
+                break;
+            case 8:
+                echo "上传的文件被PHP扩展程序中断";
+                break;
+        }
+    }
+
+
 
     /*服务器端配置
     file_uploads = On, 支持HTTP上传
