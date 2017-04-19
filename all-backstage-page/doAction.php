@@ -1,7 +1,7 @@
 <?php
     header('content-type:text/html;charset=utf-8');
     //$_FILES： 文件上传文件
-    //print_r($_FILES);
+    print_r($_FILES);
 
     $filename = $_FILES['myfile']['name'];
     $type  = $_FILES['myfile']['type'];
@@ -28,11 +28,13 @@
     //move_uploaded_file($tmp_name, "uploads/".$filename);
 
     if($error == UPLOAD_ERR_OK){
+
         if(move_uploaded_file($tmp_name, "uploads/".$filename)){
             echo "文件".$filename."上传成功";
         } else {
             echo "文件".$filename."上传失败";
         }
+        
     } else {
         switch($error){
             case 1:

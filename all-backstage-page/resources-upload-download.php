@@ -104,7 +104,7 @@
                     <div>
                         <form action="doAction.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <input type="hidden" name="MAX_FILE_SIZE" value="176943" />
+                                <input type="hidden" name="MAX_FILE_SIZE"/>
                                 <label>选择要上传的资源文件:</label>
                                 <input type="file" name="myfile" /></br />
                                 <input type="submit" value="上传文件" />
