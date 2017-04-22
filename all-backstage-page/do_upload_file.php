@@ -1,5 +1,5 @@
 <?php
-    header('content-type:text/html;charset=utf-8');
+    header('content-type:text/html;charset=utf8');
     //$_FILES： 文件上传文件
     //print_r($_FILES);
     $file_abstract = $_POST['upload_file_abstract'];
@@ -55,7 +55,8 @@
             if (!$conn) {
                 die('error'.mysqli_error);
             }
-            mysqli_select_db($conn, "graduation_data");  //打开数据库
+            mysqli_query($conn, "set names 'utf8'");
+            mysqli_select_db($conn, "graduation-data");  //打开数据库
             $insert_action = "insert into upload_file_info (identification, filename, filetype, file_tmp_name, filesize, fileabstract, file_upload_time) values ('$uniName', '$filename', '$type', '$path', '$size', '$file_abstract', '$file_upload_time')";
             $insert_result = mysqli_query($conn, $insert_action);
 

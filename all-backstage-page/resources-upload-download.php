@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
     <head>
-			  <meta charset="utf-8">
+			  <meta charset="utf8">
 			  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
         <title>Back stage</title>
 
@@ -84,7 +84,7 @@
                           </a>
                       </li>
                       <li>
-                          <a class="active-menu" href="resources-upload-download.html">
+                          <a class="active-menu" href="resources-upload-download.php">
                               <i>资源上传下载</i>
                           </a>
                       </li>
@@ -124,7 +124,8 @@
                                 if (!$conn) {
                                     die('error'.mysqli_error);
                                 }
-                                mysqli_select_db($conn, "graduation_data");  //打开数据库
+                                mysqli_query($conn, "set names 'utf8'");
+                                mysqli_select_db($conn, "graduation-data");  //打开数据库
                                 $sql = "select * from upload_file_info";
                                 $result = mysqli_query($conn, $sql);
 
@@ -134,21 +135,21 @@
                                 }
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo '<div>';
-                                    echo '<table class="table table-hover">';
+                                    echo '<table style="margin: 0" class="table table-hover">';
                                     echo '<tr>';
-                                    echo '<td>';
+                                    echo '<td style="width: 30px">';
                                     echo $row['id'];
                                     echo '</td>';
-                                    echo '<td>';
+                                    echo '<td class="active" style="width: 210px">';
                                     echo $row['filename'];
                                     echo '</td>';
-                                    echo '<td>';
-                                    echo $row['filesize']."byte";
-                                    echo '</td>';
-                                    echo '<td>';
+                                    echo '<td class="success">';
                                     echo $row['fileabstract'];
                                     echo '</td>';
-                                    echo '<td>';
+                                    echo '<td class="warning" style="width: 100px">';
+                                    echo $row['filesize']."byte";
+                                    echo '</td>';
+                                    echo '<td style="width: 100px">';
                                     echo $row['file_upload_time'];
                                     echo '</td>';
                                     echo '</tr>';
