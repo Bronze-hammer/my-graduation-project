@@ -17,3 +17,13 @@ CREATE TABLE upload_file_info
     fileabstract VARCHAR(500),
     file_upload_time VARCHAR(30)
 );
+
+CREATE TABLE personalinfo
+(
+	 name VARCHAR(20),
+    email VARCHAR(20),
+    github_id VARCHAR(30),
+    blog_id VARCHAR(30),
+    self_introduction VARCHAR(500)
+
+);

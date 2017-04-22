@@ -45,7 +45,9 @@
                             <i class="glyphicon glyphicon-triangle-bottom"></i>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Log out</a></li>
+                            <li style="padding-left: 46px;">
+                                <a id="exit">Exit</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -98,39 +100,42 @@
 
             <!-- 右侧内容 -->
             <div class="page-wrapper">
-							  <!-- 留言管理 -->
+							  <!-- 个人信息-->
 								<div class="slide-photo-content-recommend">
 									  <h2>个人信息</h2>
                     <div style="max-width: 700px;">
                         <form class="form-horizontal">
                             <div class="form-group">
+                                <button id="do_save" type="button" style="float: right;margin-top:50px" class="btn btn-success">保存</button>
+                            </div>
+                            <div class="form-group">
                               <label class="col-sm-2 control-label">姓名:</label>
                               <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="name">
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label">邮箱</label>
                               <div class="col-sm-10">
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" id="email">
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Github:</label>
                               <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="github_id">
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label">Blog:</label>
                               <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="blog_id">
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label">自我简介:</label>
                               <div class="col-sm-10">
-                                <textarea type="text" class="form-control"></textarea>
+                                <textarea type="text" class="form-control" id="introduction"></textarea>
                               </div>
                             </div>
                         </form>
@@ -142,6 +147,37 @@
 
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            $("#do_save").click(function(){
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var github_id = $("#github_id").val();
+                var blog_id = $("#blog_id").val();
+                var introduction = $("#introduction");
+
+                $.ajax({
+                    type: "POST",
+                    url: "save-self-introduction.php",
+                    dataType: "JSON",
+                    data: {
+                        "name": name,
+                        "email": email,
+                        "github_id": github_id,
+                        "blog_id": blog_id,
+                        "introduction": introduction
+                    }
+                })
+            });
+        </script>
+
+        <script type="text/javascript">
+            $("#exit").click(function(){
+                localStorage.setItem("useremail", "");
+                window.location.href="../login.html";
+
+            });
+        </script>
 
 		</body>
 
