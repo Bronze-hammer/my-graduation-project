@@ -10,7 +10,7 @@
     $username = "root";
     $password = "xuzihui";
     //连接数据库
-    $conn = new mysqli($servername, $username, $password, 'graduation_data');
+    $conn = new mysqli($servername, $username, $password);
     if (!$conn) {
         die('error'.mysqli_error);
     }

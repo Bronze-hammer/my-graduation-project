@@ -115,7 +115,48 @@
                             </div>
                             <input type="submit" value="上传文件" />
                             <hr>
-                            <div>
+                            <?php
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "xuzihui";
+                                //连接数据库
+                                $conn = new mysqli($servername, $username, $password);
+                                if (!$conn) {
+                                    die('error'.mysqli_error);
+                                }
+                                mysqli_select_db($conn, "graduation_data");  //打开数据库
+                                $sql = "select * from upload_file_info";
+                                $result = mysqli_query($conn, $sql);
+
+                                if (!$result) {
+                                    printf("error:%s\n", mysqli_error($conn));
+                                    exit();
+                                }
+                                while ($row = mysqli_fetch_array($result)) {
+                                    echo '<div>';
+                                    echo '<table class="table table-hover">';
+                                    echo '<tr>';
+                                    echo '<td>';
+                                    echo $row['id'];
+                                    echo '</td>';
+                                    echo '<td>';
+                                    echo $row['filename'];
+                                    echo '</td>';
+                                    echo '<td>';
+                                    echo $row['filesize']."byte";
+                                    echo '</td>';
+                                    echo '<td>';
+                                    echo $row['fileabstract'];
+                                    echo '</td>';
+                                    echo '<td>';
+                                    echo $row['file_upload_time'];
+                                    echo '</td>';
+                                    echo '</tr>';
+                                    echo '</table>';
+                                    echo '</div>';
+                                }
+                            ?>
+                            <!-- <div>
                                 <table class="table table-hover">
                                     <tr class="active">
                                         <td class="active">1</td>
@@ -136,7 +177,7 @@
 
                                     </tr>
                                 </table>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
 								</div>
