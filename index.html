@@ -196,11 +196,11 @@
             });
 
             $("#gotoBackstage").click(function(){
-                var username = localStorage.getItem("username");
+                var useremail = localStorage.getItem("useremail");
 
-                if (username == null || username == "") {
+                if (useremail == null || useremail == "") {
 
-                    window.location.href="login.php";
+                    window.location.href="login.html";
                 } else {
                     window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
                 }

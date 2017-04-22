@@ -60,9 +60,25 @@
                         dataType: "JSON",
                         data: {
                             "useremail": useremail,
-                            "password": userpassword
+                            "userpassword": userpassword
                         },
-                        
+                        success: function(data){
+                            switch(data){
+                                case 1:  //登录成功
+                                    //$.cookie("useremail", useremail);
+                                    //$.cookie("limit", 0);
+                                    localStorage.setItem("useremail", useremail);
+                                    localStorage.setItem("limit", 0);
+                                    window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+                                    break;
+                                case 2:
+                                    alert("密码错误！");
+                                    break;
+                                case 3:
+                                    alert("用户不存在！")
+                                    break;
+                            }
+                        }
                     })
                 } else {
                     //$("#tishi").text("密码错误！");

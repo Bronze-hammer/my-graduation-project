@@ -2,6 +2,8 @@
     header('content-type:text/html;charset=utf-8');
     //$_FILES： 文件上传文件
     //print_r($_FILES);
+    $file_abstract = $_POST['upload_file_abstract'];
+    $file_upload_time = date('Y-m-d H:i:s', time());
 
     $filename = $_FILES['myfile']['name'];
     $type  = $_FILES['myfile']['type'];
@@ -29,6 +31,8 @@
     //move_uploaded_file($tmp_name, $destination):将服务器上的临时文件移动到指定目录下叫什么名字，移动成功返回true，否则返回false
     //move_uploaded_file($tmp_name, "uploads/".$filename);
 
+
+
     if($error == UPLOAD_ERR_OK){
         if($size > $maxSize){
             exit('上传文件过大！');
@@ -43,9 +47,28 @@
         $uniName = md5(uniqid(microtime(true), true)).'.'.$ext;
         $destination = $path.'/'.$uniName;
         if(move_uploaded_file($tmp_name, $destination)){
-            echo "文件上传成功！";
+            $servername = "localhost";
+            $username = "root";
+            $password = "xuzihui";
+            //连接数据库
+            $conn = new mysqli($servername, $username, $password);
+            if (!$conn) {
+                die('error'.mysqli_error);
+            }
+            mysqli_select_db($conn, "graduation_data");  //打开数据库
+            $insert_action = "insert into upload_file_info (identification, filename, filetype, file_tmp_name, filesize, fileabstract, file_upload_time) values ('$uniName', '$filename', '$type', '$path', '$size', '$file_abstract', '$file_upload_time')";
+            $insert_result = mysqli_query($conn, $insert_action);
+
+            if($insert_result){
+                echo "文件".$filename."上传成功！";
+            } else {
+                echo "文件信息录入数据库失败！";
+                printf("Error:%s\n", mysqli_error($conn));
+                exit();
+            }
+
         } else {
-            echo "文件上传失败！";
+            echo "文件".$filename."上传失败！";
         }
     } else {
         switch($error){

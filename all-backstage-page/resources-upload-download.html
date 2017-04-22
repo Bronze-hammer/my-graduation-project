@@ -109,8 +109,10 @@
                             </div>
                             <div class="form-group">
                                 <label>上传文件的摘要介绍:</label>
-                                <textarea class="form-control" placeholder="摘要"></textarea>
+                                <textarea class="form-control" placeholder="摘要" id="upload_file_abstract"></textarea>
                             </div>
+                            <button type="button" id="upload_file">上传</button>
+                            <hr>
                             <div>
                                 <table class="table table-hover">
                                     <tr class="active">
@@ -142,6 +144,31 @@
 
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+
+            $("#upload_file").click(function(){
+                 var upload_file_abstract = $("#upload_file_abstract").val();
+                 $.ajax({
+                     type: "POST",
+                     url: "do.php",
+                     dataType: "JSON",
+                     data: {
+                         "upload_file_abstract": upload_file_abstract
+                     },
+                     success: function(data){
+                       switch (data) {
+                         case 1:
+                             alert('111111111111');
+                             break;
+
+
+                       }
+                     }
+                 })
+            })
+
+        </script>
 
 		</body>
 

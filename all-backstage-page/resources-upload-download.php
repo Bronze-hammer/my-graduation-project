@@ -102,17 +102,19 @@
 								<div class="slide-photo-content-recommend">
 									  <h2>资源上传下载</h2>
                     <div>
-                        <form action="doAction.php" method="post" enctype="multipart/form-data">
+                        <form action="do_upload_file.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <input type="hidden" name="MAX_FILE_SIZE"/>
                                 <label>选择要上传的资源文件:</label>
-                                <input type="file" name="myfile" /></br />
-                                <input type="submit" value="上传文件" />
+                                <input type="file" name="myfile" />
+
                             </div>
                             <div class="form-group">
                                 <label>上传文件的摘要介绍:</label>
-                                <textarea class="form-control" placeholder="摘要"></textarea>
+                                <textarea class="form-control" placeholder="摘要" name="upload_file_abstract"></textarea>
                             </div>
+                            <input type="submit" value="上传文件" />
+                            <hr>
                             <div>
                                 <table class="table table-hover">
                                     <tr class="active">
