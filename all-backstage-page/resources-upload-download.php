@@ -153,8 +153,8 @@
                                     echo $row['file_upload_time'];
                                     echo '</td>';
                                     echo '<td style="width: 50px">';
-                                    echo '<a href="'.$row['file_tmp_name'].'/'.$row['identification'].'">下载</a>';
-                                    //echo $row['file_tmp_name'].'/'.$row['identification'];
+                                    //echo '<a href="'.$row['file_tmp_name'].'/'.$row['identification'].'">下载</a>';
+                                    echo '<a href="do_download_file.php?filename='.$row['filename'].'&file_tmp_name='.$row['file_tmp_name'].'&identification='.$row['identification'].'">下载</a>';
                                     echo '</td>';
                                     echo '</tr>';
                                     echo '</table>';
