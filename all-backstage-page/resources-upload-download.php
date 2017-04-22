@@ -134,13 +134,13 @@
                                     exit();
                                 }
                                 while ($row = mysqli_fetch_array($result)) {
-                                    echo '<div>';
+                                    echo '<div style="font-size: 1px">';
                                     echo '<table style="margin: 0" class="table table-hover">';
                                     echo '<tr>';
                                     echo '<td style="width: 30px">';
                                     echo $row['id'];
                                     echo '</td>';
-                                    echo '<td class="active" style="width: 210px">';
+                                    echo '<td class="active" style="width: 190px">';
                                     echo $row['filename'];
                                     echo '</td>';
                                     echo '<td class="success">';
@@ -151,6 +151,10 @@
                                     echo '</td>';
                                     echo '<td style="width: 100px">';
                                     echo $row['file_upload_time'];
+                                    echo '</td>';
+                                    echo '<td style="width: 50px">';
+                                    echo '<a href="'.$row['file_tmp_name'].'/'.$row['identification'].'">下载</a>';
+                                    //echo $row['file_tmp_name'].'/'.$row['identification'];
                                     echo '</td>';
                                     echo '</tr>';
                                     echo '</table>';
