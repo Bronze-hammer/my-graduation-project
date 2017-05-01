@@ -106,37 +106,79 @@
                     <div style="max-width: 700px;">
                         <form class="form-horizontal">
                             <div class="form-group">
+                                <button id="do_update" type="button" style="float: right;margin-top:50px" class="btn btn-success">编辑</button>
                                 <button id="do_save" type="button" style="float: right;margin-top:50px" class="btn btn-success">保存</button>
+                                <button id="cancel" type="button" style="float: right;margin-top:50px" class="btn btn-success">取消</button>
                             </div>
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">姓名:</label>
-                              <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name">
-                              </div>
+                            <div id="showdate">
+                            <?php
+                                $servername = "localhost";
+                                $username = "root";
+                                $password = "xuzihui";
+                                //连接数据库
+                                $conn = new mysqli($servername, $username, $password);
+                                if (!$conn) {
+                                    die('error'.mysqli_error);
+                                }
+                                mysqli_query($conn, "set names 'utf8'");
+                                mysqli_select_db($conn, "graduation-data");  //打开数据库
+                                $select_action = "select * from personalinfo";
+                                $select_result = mysqli_query($conn, $select_action);
+                                while ($row = mysqli_fetch_array($select_result)) {
+                                    echo '<div class="form-group">';
+                                    echo '<label class="col-md-2">姓名：</label>';
+                                    echo '<div class="col-md-10">'.$row['name'].'</div>';
+                                    echo '</div>';
+                                    echo '<div class="form-group">';
+                                    echo '<label class="col-md-2">邮箱：</label>';
+                                    echo '<div class="col-md-10">'.$row['email'].'</div>';
+                                    echo '</div>';
+                                    echo '<div class="form-group">';
+                                    echo '<label class="col-md-2">Github：</label>';
+                                    echo '<div class="col-md-10">'.$row['github_id'].'</div>';
+                                    echo '</div>';
+                                    echo '<div class="form-group">';
+                                    echo '<label class="col-md-2">Blog：</label>';
+                                    echo '<div class="col-md-10">'.$row['blog_id'].'</div>';
+                                    echo '</div>';
+                                    echo '<div class="form-group">';
+                                    echo '<label class="col-md-2">自我简介：</label>';
+                                    echo '<div class="col-md-10">'.$row['self_introduction'].'</div>';
+                                    echo '</div>';
+                                }
+                            ?>
                             </div>
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">邮箱</label>
-                              <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">Github:</label>
-                              <div class="col-sm-10">
-                                <input type="text" class="form-control" id="github_id">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">Blog:</label>
-                              <div class="col-sm-10">
-                                <input type="text" class="form-control" id="blog_id">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label">自我简介:</label>
-                              <div class="col-sm-10">
-                                <textarea type="text" class="form-control" id="introduction"></textarea>
-                              </div>
+                            <div id="update">
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">姓名:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">邮箱</label>
+                                  <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Github:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="github_id">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">Blog:</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="blog_id">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">自我简介:</label>
+                                  <div class="col-sm-10">
+                                    <textarea type="text" class="form-control" id="introduction"></textarea>
+                                  </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -149,6 +191,34 @@
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
+
+            $(document).ready(function(){
+                $("#do_save").hide();
+                $("#cancel").hide();
+                $("#update").hide();
+
+            });
+            $("#do_update").click(function(){
+                $("#do_save").show();
+                $("#cancel").show();
+                $("#update").show();
+                $("#do_update").hide();
+                $("#showdate").hide();
+            });
+            $("#do_save").click(function(){
+                $("#do_update").show();
+                $("#showdate").show();
+                $("#do_save").hide();
+                $("#cancel").hide();
+                $("#update").hide();
+            });
+            $("#cancel").click(function(){
+                $("#do_update").show();
+                $("#showdate").show();
+                $("#do_save").hide();
+                $("#cancel").hide();
+                $("#update").hide();
+            });
             $("#do_save").click(function(){
                 var name = $("#name").val();
                 var email = $("#email").val();
@@ -173,12 +243,14 @@
                         switch (data) {
                           case 0:
                               alert("信息插入成功！");
+                              window.location.reload();
                               break;
                           case 1:
                               alert("信息插入失败！");
                               break;
                           case 2:
                               alert("信息更新成功！");
+                              window.location.reload();
                               break;
                           case 3:
                               alert("信息更新失败！");

@@ -53,7 +53,7 @@
                 </div>
 
 								<!--my detail-->
-								<div class="my-detail">
+								<!-- <div class="my-detail">
 										<div class="avatar">
 												<img style="width: 150px" src="bootstrap/images/avatar.png">
 										</div>
@@ -68,10 +68,49 @@
 											  <p style="text-indent: 30px; margin: 40px 0">
 												本人学生一枚，幽默风趣，易于交友，爱生活，爱学习，对计算机科学感兴趣，喜欢学习编程语言。
 												有事喜欢读读书，有时喜欢去外面旅游，见识见识美好的事物。但总体上来说，我其实是个宅男。
-												这样的表现我就得用一个词形容自己--程序猿+单身狗！！！好吧，这是两个词 -_-||</p>
+												这样的表现我就得用一个词形容自己:程序猿+单身狗！！！好吧，这是两个词 -_-||</p>
 										</div>
-								</div>
-
+								</div> -->
+                <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "xuzihui";
+                    //连接数据库
+                    $conn = new mysqli($servername, $username, $password);
+                    if (!$conn) {
+                        die('error'.mysqli_error);
+                    }
+                    mysqli_query($conn, "set names 'utf8'");
+                    mysqli_select_db($conn, "graduation-data");  //打开数据库
+                    $select_action = "select * from personalinfo";
+                    $select_result = mysqli_query($conn, $select_action);
+                    while ($row = mysqli_fetch_array($select_result)) {
+                        echo '<div class="my-detail">';
+                        echo '<div class="avatar">
+    												  <img style="width: 150px" src="bootstrap/images/avatar.png">
+    										      </div>';
+                        echo '<div style="margin: 40px 0;">';
+                        echo '<p>';
+                        echo "姓名：".$row['name'];
+                        echo '</p>';
+                        echo '<p>';
+                        echo "邮箱：".$row['email'];
+                        echo '</p>';
+                        echo '<p>';
+                        echo "Github：".$row['github_id'];
+                        echo '</p>';
+                        echo '<p>';
+                        echo "Blog：".$row['blog_id'];
+                        echo '</p>';
+                        echo '<div class="introduce">';
+                        echo '<p style="margin: 40px 0;">';
+                        echo $row['self_introduction'];
+                        echo '</p>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                ?>
                 <!-- footer -->
                 <div id="footer">
                     <div class="footer-content">

@@ -161,28 +161,6 @@
                                     echo '</div>';
                                 }
                             ?>
-                            <!-- <div>
-                                <table class="table table-hover">
-                                    <tr class="active">
-                                        <td class="active">1</td>
-                                        <td class="success">2</td>
-                                        <td class="warning">3</td>
-
-                                    </tr>
-                                    <tr class="active">
-                                        <td class="active">1</td>
-                                        <td class="success">2</td>
-                                        <td class="warning">3</td>
-
-                                    </tr>
-                                    <tr class="active">
-                                        <td class="active">1</td>
-                                        <td class="success">2</td>
-                                        <td class="warning">3</td>
-
-                                    </tr>
-                                </table>
-                            </div> -->
                         </form>
                     </div>
 								</div>
