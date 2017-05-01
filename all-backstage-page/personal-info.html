@@ -155,6 +155,7 @@
                 var github_id = $("#github_id").val();
                 var blog_id = $("#blog_id").val();
                 var introduction = $("#introduction").val();
+                var useremail = localStorage.getItem("useremail");
 
                 $.ajax({
                     type: "POST",
@@ -165,7 +166,8 @@
                         "_email": email,
                         "_github_id": github_id,
                         "_blog_id": blog_id,
-                        "_introduction": introduction
+                        "_introduction": introduction,
+                        "_useremail": useremail
                     },
                     success: function(data){
                         switch (data) {

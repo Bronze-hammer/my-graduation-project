@@ -7,6 +7,7 @@
     $github_id = $_POST['_github_id'];
     $blog_id = $_POST['_blog_id'];
     $introduction = $_POST['_introduction'];
+    $useremail = $_POST['_useremail'];
 
     //echo $name.'/'.$email.'/'.$github_id.'/'.$blog_id.'/'.$introduction;
 
@@ -19,8 +20,8 @@
         die('error'.mysqli_error);
     }
     mysqli_query($conn, "set names 'utf8'");
-    mysqli_select_db($conn, "graduation_data");
-    $insert_action = "insert into personalinfo values ('$name', '$email', '$github_id', '$blog_id', '$introduction')";
+    mysqli_select_db($conn, "graduation_data");  //打开数据库
+    $insert_action = "insert into personalinfo (name, email, github_id, blog_id, self_introduction) values ('$name', '$email', '$github_id', '$blog_id', '$introduction')";
     $insert_result = mysqli_query($conn, $insert_action);
     if($insert_result){
         echo 0;  //信息插入成功
