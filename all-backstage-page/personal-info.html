@@ -158,14 +158,25 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "../all-backstage-page/save-self-introduction.php",
+                    url: "save-self-introduction.php",
                     dataType: "JSON",
                     data: {
-                        "name": name,
-                        "email": email,
-                        "github_id": github_id,
-                        "blog_id": blog_id,
-                        "introduction": introduction
+                        "_name": name,
+                        "_email": email,
+                        "_github_id": github_id,
+                        "_blog_id": blog_id,
+                        "_introduction": introduction
+                    },
+                    success: function(data){
+                        switch (data) {
+                          case 0:
+                              alert("信息插入成功！");
+                              break;
+                          case 1:
+                              alert("信息插入失败！");
+                              break;
+
+                        }
                     }
                 })
             });
