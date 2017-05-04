@@ -106,6 +106,10 @@
                     <div>
                         <form>
                             <div class="form-group">
+                                <label>详细内容：</label>
+                                <div id="editor" style="min-height: 150px;"></div>
+                            </div>
+                            <div class="form-group">
                                 <label>选择背景图片</label>
                                 <input type="file">
                             </div>
@@ -116,10 +120,6 @@
                             <div class="form-group">
                                 <label>图片上所显示的内容摘要:</label>
                                 <textarea class="form-control" placeholder="摘要"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>详细内容：</label>
-                                <div id="editor" style="min-height: 150px;"></div>
                             </div>
                             <div class="form-group">
                                 <button id="submit_recommend_content" type="button" style="width: 100px;" class="btn btn-success">提交</button>
@@ -140,7 +140,7 @@
         <script type="text/javascript">
             var editor = new wangEditor('editor');
 
-            editor.config.uploadImgUrl = '/recommend-content-img';
+            editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
             editor.config.hideLinkImg = true;
 
             editor.create();
@@ -153,10 +153,10 @@
                 window.location.href="../login.html";
 
             });
-            // $("#submit_recommend_content").click(function(){
-            //     var content = $("#editor").html();
-            //     alert(content);
-            // });
+            $("#submit_recommend_content").click(function(){
+                var content = $("#editor").html();
+                alert(content);
+            });
         </script>
 		</body>
 
