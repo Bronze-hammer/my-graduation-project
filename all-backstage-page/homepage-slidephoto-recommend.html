@@ -104,22 +104,22 @@
 								<div class="slide-photo-content-recommend">
 									  <h2>页面页首滑动图片内容推荐</h2>
                     <div>
-                        <form>
+                        <form action="slide-recommend-upload.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>详细内容：</label>
-                                <div id="editor" style="min-height: 150px;"></div>
+                                <div id="content" style="min-height: 150px;"></div>
                             </div>
                             <div class="form-group">
                                 <label>选择背景图片</label>
-                                <input type="file" id="slide-background-img">
+                                <input id="slide-background-img" type="file">
                             </div>
                             <div class="form-group">
                                 <label>图片上所显示的题目:</label>
-                                <input class="form-control" placeholder="题目">
+                                <input id="content_title" class="form-control" placeholder="题目">
                             </div>
                             <div class="form-group">
                                 <label>图片上所显示的内容摘要:</label>
-                                <textarea class="form-control" placeholder="摘要"></textarea>
+                                <textarea id="content_abstract" class="form-control" placeholder="摘要"></textarea>
                             </div>
                             <div class="form-group">
                                 <button id="submit_recommend_content" type="button" style="width: 100px;" class="btn btn-success">提交</button>
@@ -138,8 +138,8 @@
 
         <!-- 实例化编辑器 -->
         <script type="text/javascript">
-            var editor = new wangEditor('editor');
-            editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
+            var editor = new wangEditor('content');
+            //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
             editor.config.hideLinkImg = true;
             editor.create();
 
@@ -154,8 +154,32 @@
             $("#submit_recommend_content").click(function(){
                 // var content = $("#editor").html();
                 // alert(content);
-                var formData = new FormData(document.getElementById("form"));
+                var content_title = $("#content_title").val();
+                var content_abstract = $("#content_abstract").val();
+                var content = $("#content").html();
 
+                $.ajax({
+                    type: "POST",
+                    url: "slide-recommend-upload.php",
+                    dataType: "JSON",
+                    data:{
+                        "_content_title": content_title,
+                        "_content_abstract": content_abstract,
+                        "_content": content
+                    },
+                    success: function(data){
+                        switch (data) {
+                            case 0:
+                                alert("文章上传成功！");
+                                window.location.reload();
+                                break;
+                            case 1:
+                                alert("文章上传失败！");
+                                window.location.reload();
+                                break;
+                        }
+                    }
+                })
 
             });
             // $(":file").change(function(){
