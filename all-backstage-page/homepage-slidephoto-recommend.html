@@ -111,7 +111,7 @@
                             </div>
                             <div class="form-group">
                                 <label>选择背景图片</label>
-                                <input id="slide-background-img" type="file">
+                                <input id="slide-background-img" type="file" name="photo">
                             </div>
                             <div class="form-group">
                                 <label>图片上所显示的题目:</label>
@@ -123,6 +123,7 @@
                             </div>
                             <div class="form-group">
                                 <button id="submit_recommend_content" type="button" style="width: 100px;" class="btn btn-success">提交</button>
+                                <!-- <input id="submit_recommend_content" type="submit" value="提交" class="btn btn_success"> -->
                             </div>
                         </form>
                     </div>
@@ -136,16 +137,8 @@
         <script src="../wangeditor/js/wangEditor.min.js"></script>
         <!-- 编辑器源码文件 -->
 
-        <!-- 实例化编辑器
         <script type="text/javascript">
-            var editor = new wangEditor('content');
-            //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
-            editor.config.hideLinkImg = true;
-            editor.create();
-
-        </script>
-        -->
-        <script type="text/javascript">
+            //实例化编辑器
             var editor = new wangEditor('content');
             //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
             editor.config.hideLinkImg = true;
@@ -156,42 +149,46 @@
                 window.location.href="../login.html";
 
             });
-            $(":file").change(function(){
-                var file = this.files[0];
-                $("#submit_recommend_content").click(function(){
 
-                    name = file.name;
-                    size = file.size;
-                    type = file.type;
-                    var content_title = $("#content_title").val();
-                    var content_abstract = $("#content_abstract").val();
-                    var content = $("#content").html();
-
-                    $.ajax({
-                        type: "POST",
-                        url: "slide-recommend-upload.php",
-                        dataType: "JSON",
-                        data:{
-                            "_content_title": content_title,
-                            "_content_abstract": content_abstract,
-                            "_content": content
-                        },
-                        success: function(data){
-                            switch (data) {
-                              case 3:
-                                  alert("文章上传成功！");
-                                  //window.location.reload();
-                                  break;
-                              case 4:
-                                  alert("文章上传失败！");
-                                  break;
-
-                            }
-                        }
-                    })
-
-                });
-            });
+            // $(":file").change(function(){
+            //     var file = this.files[0];
+            //     $("#submit_recommend_content").click(function(){
+            //
+            //         var photo_name = file.name;
+            //         var photo_size = file.size;
+            //         var photo_type = file.type;
+            //         var content_title = $("#content_title").val();
+            //         var content_abstract = $("#content_abstract").val();
+            //         var content = $("#content").html();
+            //
+            //         $.ajax({
+            //             type: "POST",
+            //             url: "slide-recommend-upload.php",
+            //             dataType: "JSON",
+            //             data:{
+            //                 "_content_title": content_title,
+            //                 "_content_abstract": content_abstract,
+            //                 "_content": content,
+            //                 "_photo_name": photo_name,
+            //                 "_photo_size": photo_size,
+            //                 "_photo_type": photo_type
+            //             },
+            //             success: function(data){
+            //                 switch (data) {
+            //                   case 0:
+            //                       alert("文章上传成功！");
+            //                       //window.location.reload();
+            //                       break;
+            //                   case 1:
+            //                       alert("文章上传失败！");
+            //                       break;
+            //
+            //                 }
+            //             }
+            //         })
+            //
+            //     });
+            // });
 
             // $(":file").change(function(){
             //     var file = this.files[0];
