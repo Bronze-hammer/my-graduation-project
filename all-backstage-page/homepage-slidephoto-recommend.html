@@ -136,7 +136,7 @@
         <script src="../wangeditor/js/wangEditor.min.js"></script>
         <!-- 编辑器源码文件 -->
 
-        <!-- 实例化编辑器 -->
+        <!-- 实例化编辑器
         <script type="text/javascript">
             var editor = new wangEditor('content');
             //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
@@ -144,16 +144,20 @@
             editor.create();
 
         </script>
-
+        -->
         <script type="text/javascript">
+            var editor = new wangEditor('content');
+            //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
+            editor.config.hideLinkImg = true;
+            editor.create();
+
             $("#exit").click(function(){
                 localStorage.setItem("useremail", "");
                 window.location.href="../login.html";
 
             });
             $("#submit_recommend_content").click(function(){
-                // var content = $("#editor").html();
-                // alert(content);
+                
                 var content_title = $("#content_title").val();
                 var content_abstract = $("#content_abstract").val();
                 var content = $("#content").html();
@@ -169,14 +173,14 @@
                     },
                     success: function(data){
                         switch (data) {
-                            case 0:
-                                alert("文章上传成功！");
-                                window.location.reload();
-                                break;
-                            case 1:
-                                alert("文章上传失败！");
-                                window.location.reload();
-                                break;
+                          case 0:
+                              alert("文章上传成功！");
+                              //window.location.reload();
+                              break;
+                          case 1:
+                              alert("文章上传失败！");
+                              break;
+
                         }
                     }
                 })
