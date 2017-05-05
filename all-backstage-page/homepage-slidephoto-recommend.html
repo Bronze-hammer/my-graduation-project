@@ -111,7 +111,7 @@
                             </div>
                             <div class="form-group">
                                 <label>选择背景图片</label>
-                                <input type="file">
+                                <input type="file" id="slide-background-img">
                             </div>
                             <div class="form-group">
                                 <label>图片上所显示的题目:</label>
@@ -139,10 +139,8 @@
         <!-- 实例化编辑器 -->
         <script type="text/javascript">
             var editor = new wangEditor('editor');
-
             editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
             editor.config.hideLinkImg = true;
-
             editor.create();
 
         </script>
@@ -154,9 +152,18 @@
 
             });
             $("#submit_recommend_content").click(function(){
-                var content = $("#editor").html();
-                alert(content);
+                // var content = $("#editor").html();
+                // alert(content);
+                var formData = new FormData(document.getElementById("form"));
+
+
             });
+            // $(":file").change(function(){
+            //     var file = this.files[0];
+            //     name = file.name;
+            //     size = file.size;
+            //     type = file.type;
+            // });
         </script>
 		</body>
 
