@@ -4,11 +4,11 @@
 
     $content_upload_time = date('Y-m-d H:i:s', time());
 
-    $filename = $_FILES['myfile']['name'];
-    $type  = $_FILES['myfile']['type'];
-    $tmp_name = $_FILES['myfile']['tmp_name'];
-    $size = $_FILES['myfile']['size'];
-    $error = $_FILES['myfile']['error'];
+    // $filename = $_FILES['myfile']['name'];
+    // $type  = $_FILES['myfile']['type'];
+    // $tmp_name = $_FILES['myfile']['tmp_name'];
+    // $size = $_FILES['myfile']['size'];
+    // $error = $_FILES['myfile']['error'];
 
     $content_title = $_POST['_content_title'];
     $content_abstract = $_POST['_content_abstract'];
@@ -26,9 +26,14 @@
     mysqli_select_db($conn, "graduation-data");  //打开数据库
     $insert_action = "insert into recommend_content_info (content_title, content_abstract, detail_content, content_time) values ('$content_title', '$content_abstract', '$content', '$content_upload_time')";
     $insert_result = mysqli_query($conn, $insert_action);
-    if($insert_result){
-        echo 0;  //文章上传成功
-    } else {
-        echo 1;  //文章上传失败
+    if($insert_result) {
+        echo 3;
+    }else {
+        echo 4;
     }
+    // if($insert_result){
+    //     echo 0;  //文章上传成功
+    // } else {
+    //     echo 1;  //文章上传失败
+    // }
 ?>

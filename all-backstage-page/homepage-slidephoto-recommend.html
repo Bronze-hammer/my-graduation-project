@@ -104,7 +104,7 @@
 								<div class="slide-photo-content-recommend">
 									  <h2>页面页首滑动图片内容推荐</h2>
                     <div>
-                        <form action="slide-recommend-upload.php" method="post" enctype="multipart/form-data">
+                        <form>
                             <div class="form-group">
                                 <label>详细内容：</label>
                                 <div id="content" style="min-height: 150px;"></div>
@@ -157,7 +157,7 @@
 
             });
             $("#submit_recommend_content").click(function(){
-                
+
                 var content_title = $("#content_title").val();
                 var content_abstract = $("#content_abstract").val();
                 var content = $("#content").html();
@@ -173,11 +173,11 @@
                     },
                     success: function(data){
                         switch (data) {
-                          case 0:
+                          case 3:
                               alert("文章上传成功！");
                               //window.location.reload();
                               break;
-                          case 1:
+                          case 4:
                               alert("文章上传失败！");
                               break;
 
