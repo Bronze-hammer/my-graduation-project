@@ -3,7 +3,7 @@
     header('content-type:text/html;charset=utf8');
 
     $content_upload_time = date('Y-m-d H:i:s', time());
-
+    print_r($_FILES);
     // $filename = $_FILES['myfile']['name'];
     // $type  = $_FILES['myfile']['type'];
     // $tmp_name = $_FILES['myfile']['tmp_name'];
