@@ -4,28 +4,22 @@
     $url = "homepage-slidephoto-recommend.html";
 
     //print_r($_FILES);
-    $content_title = $_POST['_content_title'];
-    //$tmp_name = $_FILES['photo']['tmp_name'];
-    // echo $content_title;
-    if($content_title){
-      echo '<script>alert("提交成功！");location.href="'.$url.'"</script>';
-    }else {
-      echo '<script>alert("提交失败！");location.href="'.$url.'"</script>';
-    }
-    //$content_upload_time = date('Y-m-d H:i:s', time());
+    // $content_upload_time = date('Y-m-d H:i:s', time());
+    // $content_title = $_POST['content_title'];
+    // $content_abstract = $_POST['content_abstract'];
+    $content = $_POST['content'];
+    // $filename = $_FILES['photo']['name'];
+    // $type  = $_FILES['photo']['type'];
+    // $tmp_name = $_FILES['photo']['tmp_name'];
+    // $size = $_FILES['photo']['size'];
+    // $error = $_FILES['photo']['error'];
+    echo $content;
+    // if($content_title){
+    //   echo '<script>alert("提交成功！");location.href="'.$url.'"</script>';
+    // }else {
+    //   echo '<script>alert("提交失败！");location.href="'.$url.'"</script>';
+    // }
 
-    // $content_title = $_POST['_content_title'];
-    // $content_abstract = $_POST['_content_abstract'];
-    // $content = $_POST['_content'];
-    // $photoname = $_FILES['photo']['name'];
-    // echo $content_title;
-    // echo $photoname;
-    // $photo_name = $_POST['photo_name'];
-    // $photo_size = $_POST['photo_size'];
-    // $photo_type = $_POST['photo_type'];
-    // echo $content_title;
-    // echo $content_abstract;
-    // echo $content;
     // $servername = "localhost";
     // $username = "root";
     // $password = "xuzihui";
@@ -40,8 +34,8 @@
     // $insert_result = mysqli_query($conn, $insert_action);
     //
     // if($insert_result){
-    //     echo 0;  //文章上传成功
+    //     echo '<script>alert("提交成功！");location.href="'.$url.'"</script>';  //文章上传成功
     // } else {
-    //     echo 1;  //文章上传失败
+    //     echo '<script>alert("提交失败！");location.href="'.$url.'"</script>';  //文章上传失败
     // }
 ?>
