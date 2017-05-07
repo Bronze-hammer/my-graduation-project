@@ -149,7 +149,39 @@
                 window.location.href="../login.html";
 
             });
-
+            $('#submit_recommend_content').click(function(){
+                var content_title = $("#content_title").val();
+                $.ajax({
+                    type: "POST",
+                    url: "slide-recommend-upload.php",
+                    dataType: "JSON",
+                    data:{
+                        "_content_title": content_title
+                    },
+                    success: function(data){
+                        switch (data) {
+                          case 0:
+                            alert("000");
+                            break;
+                          case 1:
+                            alert("111");
+                            break;
+                        }
+                    }
+                    // success: function(data){
+                    //     switch (data) {
+                    //       case 0:
+                    //           alert("文章上传成功！");
+                    //           //window.location.reload();
+                    //           break;
+                    //       case 1:
+                    //           alert("文章上传失败！");
+                    //           break;
+                    //
+                    //     }
+                    // }
+                })
+            })
             // $(":file").change(function(){
             //     var file = this.files[0];
             //     $("#submit_recommend_content").click(function(){
