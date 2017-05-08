@@ -3,6 +3,8 @@
     //$_FILES： 文件上传文件
     //print_r($_FILES);
     $file_abstract = $_POST['upload_file_abstract'];
+    //设置时区(中国标准时间)
+    date_default_timezone_set('PRC');
     $file_upload_time = date('Y-m-d H:i:s', time());
 
     $filename = $_FILES['myfile']['name'];

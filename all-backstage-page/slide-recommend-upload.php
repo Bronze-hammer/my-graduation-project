@@ -1,19 +1,34 @@
 <?php
 
     header('content-type:text/html;charset=utf8');
-    $url = "homepage-slidephoto-recommend.html";
+    if (isset($_POST['upload'])) {
+        var_dump($_FILES);
+        $content_title = $_POST['_content_title'];
+        $filename = $_FILES['upfile']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES['upfile']['tmp_name'], 'recommend-content-img/'.time().'.'.$ext);
+        //header('location: test.php');
+        exit;
+    }
+
+
+
+
+
+
+    // $url = "homepage-slidephoto-recommend.html";
 
     //print_r($_FILES);
     // $content_upload_time = date('Y-m-d H:i:s', time());
     // $content_title = $_POST['content_title'];
     // $content_abstract = $_POST['content_abstract'];
-    $content = $_POST['content'];
+    // $content = $_POST['content'];
     // $filename = $_FILES['photo']['name'];
     // $type  = $_FILES['photo']['type'];
     // $tmp_name = $_FILES['photo']['tmp_name'];
     // $size = $_FILES['photo']['size'];
     // $error = $_FILES['photo']['error'];
-    echo $content;
+    // echo $content;
     // if($content_title){
     //   echo '<script>alert("提交成功！");location.href="'.$url.'"</script>';
     // }else {
