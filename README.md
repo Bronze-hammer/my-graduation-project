@@ -32,3 +32,48 @@ if($content_title){
   echo '<script>alert("提交失败！");location.href="'.$url.'"</script>';
 }
 ```
+### 2017.05.08
+##### 原生jQuery实现文件上传功能
+```html
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>HTML5 Ajax Uploader</title>
+        <script src="jquery-3.1.1.min.js"></script>
+    </head>
+
+    <body>
+        <p><input type="file" id="upfile" name="upfile"></p>
+        <p><input type="button" id="upJQuery" value="用jQuery上传"></p>
+        <script>
+
+            $('#upJQuery').on('click', function() {
+               var fd = new FormData();
+               fd.append("upload", 1);
+               fd.append("upfile", $("#upfile").get(0).files[0]);
+               $.ajax({
+                   url: "index.php",
+                   type: "POST",
+                   processData: false,
+                   contentType: false,
+                   data: fd,
+                   success: function(d) {
+                      console.log(d);
+                   }
+               });
+            });
+        </script>
+    </body>
+</html>
+```
+
+```php
+if (isset($_POST['upload'])) {
+    var_dump($_FILES);
+    $ext = pathinfo($_FILES['upfile']['name'], PATHINFO_EXTENSION);
+    move_uploaded_file($_FILES['upfile']['tmp_name'], 'up_tmp/'.time().'.dat');
+    //header('location: test.php');
+    exit;
+}
+```
