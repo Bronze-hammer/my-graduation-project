@@ -44,7 +44,7 @@ if($content_title){
     </head>
 
     <body>
-        <p><input type="file" id="upfile" name="upfile"></p>
+        <p><input type="file" id="upfile"></p>
         <p><input type="button" id="upJQuery" value="用jQuery上传"></p>
         <script>
 
@@ -71,8 +71,9 @@ if($content_title){
 ```php
 if (isset($_POST['upload'])) {
     var_dump($_FILES);
-    $ext = pathinfo($_FILES['upfile']['name'], PATHINFO_EXTENSION);
-    move_uploaded_file($_FILES['upfile']['tmp_name'], 'up_tmp/'.time().'.dat');
+    $filename = $_FILES['upfile']['name'];
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    move_uploaded_file($_FILES['upfile']['tmp_name'], 'up_tmp/'.time().'.'.$ext);
     //header('location: test.php');
     exit;
 }
