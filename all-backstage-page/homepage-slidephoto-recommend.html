@@ -128,6 +128,11 @@
                         </form> -->
                         <form name="form" id="form">
                             <div class="form-group">
+                                <label>详细内容：</label>
+                                <div id="content" style="min-height: 150px;"></div>
+                            </div>
+                            </div>
+                            <div class="form-group">
                                 <label>图片上所显示的题目：</label>
                                 <input name="content_title" class="form-control" placeholder="题目">
                             </div>
@@ -153,10 +158,10 @@
         <script src="../wangeditor/js/wangEditor.min.js"></script>
         <script type="text/javascript">
             //实例化编辑器
-            // var editor = new wangEditor('content');
-            // //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
-            // editor.config.hideLinkImg = true;
-            // editor.create();
+            var editor = new wangEditor('content');
+            //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
+            editor.config.hideLinkImg = true;
+            editor.create();
 
             $("#exit").click(function(){
                 localStorage.setItem("useremail", "");
@@ -165,6 +170,7 @@
             });
             $("#button_recommend_content").click(function(){
                 var data = new FormData($('#form')[0]);
+                data.append("content", $("#content").html());
                 $.ajax({
                     url: 'slide-recommend-upload.php',
                     type: 'POST',
@@ -178,7 +184,8 @@
                         var result = '';
                         result += 'content_title=' + ret['content_title'] + '<br>';
                         result += 'content_abstract=' + ret['content_abstract'] + '<br>';
-                        result += '<img src="' + ret['photo']  + '" width="100">';
+                        result += 'content=' + ret['content'] + '<br>';
+                        result += '<img src="recommend-content-img/' + ret['photo']  + '" width="100">';
                         $('#result').html(result);
                     }else{
                         alert('提交失敗');
@@ -186,78 +193,7 @@
                 });
                 return false;
             })
-            // $('#button_recommend_content').on('click', function() {
-            //     var data = new FormData($("#form")[0]);
-            //     $.ajax({
-            //         url: "slide-recommend-upload.php",
-            //         type: "POST",
-            //         data: data,
-            //         dataType: "JSON",
-            //         cache: false,
-            //         processData: false,
-            //         contentType: false
-            //     }).done(function(ret){
-            //         if(ret['isSuccess']) {
-            //             var result = '';
-            //             //result += 'content=' + ret['content'] + '<br>';
-            //             result += 'content_title=' + ret['content_title'] + '<br>';
-            //             result += 'content_abstract=' + ret['content_abstract'] + '<br>';
-            //             result += 'filename=' + ret['filename'] + '<br>';
-            //             result += 'tmp_name=' + ret['tmp_name'] + '<br>';
-            //             $('#result').html(result);
-            //         } else {
-            //             alert("提交失败");
-            //         }
-            //     });
-            //     return false;
-            // });
-
-            // $(":file").change(function(){
-            //     var file = this.files[0];
-            //     $("#submit_recommend_content").click(function(){
-            //
-            //         var photo_name = file.name;
-            //         var photo_size = file.size;
-            //         var photo_type = file.type;
-            //         var content_title = $("#content_title").val();
-            //         var content_abstract = $("#content_abstract").val();
-            //         var content = $("#content").html();
-            //
-            //         $.ajax({
-            //             type: "POST",
-            //             url: "slide-recommend-upload.php",
-            //             dataType: "JSON",
-            //             data:{
-            //                 "_content_title": content_title,
-            //                 "_content_abstract": content_abstract,
-            //                 "_content": content,
-            //                 "_photo_name": photo_name,
-            //                 "_photo_size": photo_size,
-            //                 "_photo_type": photo_type
-            //             },
-            //             success: function(data){
-            //                 switch (data) {
-            //                   case 0:
-            //                       alert("文章上传成功！");
-            //                       //window.location.reload();
-            //                       break;
-            //                   case 1:
-            //                       alert("文章上传失败！");
-            //                       break;
-            //
-            //                 }
-            //             }
-            //         })
-            //
-            //     });
-            // });
-
-            // $(":file").change(function(){
-            //     var file = this.files[0];
-            //     name = file.name;
-            //     size = file.size;
-            //     type = file.type;
-            // });
+            
         </script>
 		</body>
 
