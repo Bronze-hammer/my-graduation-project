@@ -1,15 +1,60 @@
 <?php
 
     header('content-type:text/html;charset=utf8');
-    if (isset($_POST['upload'])) {
-        var_dump($_FILES);
-        $content_title = $_POST['_content_title'];
-        $filename = $_FILES['upfile']['name'];
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES['upfile']['tmp_name'], 'recommend-content-img/'.time().'.'.$ext);
-        //header('location: test.php');
-        exit;
+
+    $content_title = isset($_POST['content_title'])? $_POST['content_title'] : '';
+    $content_abstract = isset($_POST['content_abstract'])? $_POST['content_abstract'] : '';
+
+    $filename = time().substr($_FILES['photo']['name'], strrpos($_FILES['photo']['name'],'.'));
+
+    $response = array();
+
+    if(move_uploaded_file($_FILES['photo']['tmp_name'], $filename)){
+        $response['isSuccess'] = true;
+        $response['content_title'] = $content_title;
+        $response['content_abstract'] = $content_abstract;
+        $response['photo'] = $filename;
+    }else{
+        $response['isSuccess'] = false;
     }
+
+    echo json_encode($response);
+
+
+    //$content = isset($_POST['content'] ? $_POST['content'] : '');
+    // $content_title = isset($_POST['content_title'] ? $_POST['content_title'] : '');
+    // $content_abstract = isset($_POST['content_abstract'] ? $_POST['content_abstract'] : '');
+    // $filename = $_FILES['slide_background_img']['name'];
+    // $type  = $_FILES['slide_background_img']['type'];
+    // $tmp_name = $_FILES['slide_background_img']['tmp_name'];
+    // $size = $_FILES['slide_background_img']['size'];
+    // $error = $_FILES['slide_background_img']['error'];
+    //
+    // $response = array();
+    //
+    // if(move_uploaded_file($_FILES['upfile']['tmp_name'], 'recommend-content-img/'.time().'.'.$ext)){
+    //     $response['isSuccess'] = true;
+    //     //$response['content'] = $content;
+    //     $response['content_title'] = $content_title;
+    //     $response['content_abstract'] = $content_abstract;
+    //     $response['filename'] = $filename;
+    //     $response['tmp_name'] = $tmp_name;
+    // } else {
+    //     $response['isSuccess'] = false;
+    // }
+    //
+    // echo json_encode($response);
+
+
+    // if (isset($_POST['upload'])) {
+    //     var_dump($_FILES);
+    //     $content_title = $_POST['_content_title'];
+    //     $filename = $_FILES['upfile']['name'];
+    //     $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    //     move_uploaded_file($_FILES['upfile']['tmp_name'], 'recommend-content-img/'.time().'.'.$ext);
+    //     //header('location: test.php');
+    //     exit;
+    // }
 
 
 
