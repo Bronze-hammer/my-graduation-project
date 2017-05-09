@@ -183,6 +183,7 @@
                     switch (ret) {
                         case 0:
                           alert("文章上传成功！");
+                          window.location.reload();
                           break;
                         case 1:
                           alert("文章上传失败！");
@@ -195,16 +196,6 @@
                           break;
 
                     }
-                    // if(ret['isSuccess']){
-                    //     var result = '';
-                    //     result += 'content_title=' + ret['content_title'] + '<br>';
-                    //     result += 'content_abstract=' + ret['content_abstract'] + '<br>';
-                    //     result += 'content=' + ret['content'] + '<br>';
-                    //     result += '<img src="recommend-content-img/' + ret['photo']  + '" width="100">';
-                    //     $('#result').html(result);
-                    // }else{
-                    //     alert('提交失敗');
-                    // }
                 });
                 return false;
             })
