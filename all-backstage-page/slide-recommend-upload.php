@@ -1,43 +1,51 @@
 <?php
 
     header('content-type:text/html;charset=utf8');
+    //设置时区(中国标准时间)
+    date_default_timezone_set('PRC');
+    $content_upload_time = date('Y-m-d H:i:s', time());
 
     $content_title = isset($_POST['content_title'])? $_POST['content_title'] : '';
     $content_abstract = isset($_POST['content_abstract'])? $_POST['content_abstract'] : '';
     $content = isset($_POST['content'])? $_POST['content'] : '';
-
     $filename = time().substr($_FILES['photo']['name'], strrpos($_FILES['photo']['name'],'.'));
 
-    $response = array();
-
     if(move_uploaded_file($_FILES['photo']['tmp_name'], 'recommend-content-img/'.$filename)){
-        $response['isSuccess'] = true;
-        $response['content_title'] = $content_title;
-        $response['content_abstract'] = $content_abstract;
-        $response['content'] = $content;
-        $response['photo'] = $filename;
-    }else{
-        $response['isSuccess'] = false;
+        $servername = "localhost";
+        $username = "root";
+        $password = "xuzihui";
+        //连接数据库
+        $conn = new mysqli($servername, $username, $password);
+        if (!$conn) {
+            die('error'.mysqli_error);
+        }
+        mysqli_query($conn, "set names 'utf8'");
+        mysqli_select_db($conn, "graduation-data");  //打开数据库
+        $insert_action = "insert into recommend_content_info (content_title, content_abstract, detail_content, content_time) values ('$content_title', '$content_abstract', '$content', '$content_upload_time')";
+        $insert_result = mysqli_query($conn, $insert_action);
+        if($insert_result) {
+            echo 0;
+        } else {
+            echo 1;
+        }
+    } else {
+        echo 2;  //文章上传失败
     }
 
-    echo json_encode($response);
 
 
 
-
-    // if (isset($_POST['upload'])) {
-    //     var_dump($_FILES);
-    //     $content_title = $_POST['_content_title'];
-    //     $filename = $_FILES['upfile']['name'];
-    //     $ext = pathinfo($filename, PATHINFO_EXTENSION);
-    //     move_uploaded_file($_FILES['upfile']['tmp_name'], 'recommend-content-img/'.time().'.'.$ext);
-    //     //header('location: test.php');
-    //     exit;
+    // $response = array();
+    // if(move_uploaded_file($_FILES['photo']['tmp_name'], 'recommend-content-img/'.$filename)){
+    //     $response['isSuccess'] = true;
+    //     $response['content_title'] = $content_title;
+    //     $response['content_abstract'] = $content_abstract;
+    //     $response['content'] = $content;
+    //     $response['photo'] = $filename;
+    // }else{
+    //     $response['isSuccess'] = false;
     // }
-
-
-
-
+    // echo json_encode($response);
 
 
     // $url = "homepage-slidephoto-recommend.html";
