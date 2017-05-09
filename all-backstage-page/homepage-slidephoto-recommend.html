@@ -182,13 +182,16 @@
                 }).done(function(ret){
                     switch (ret) {
                         case 0:
-                          alert("ok");
+                          alert("文章上传成功！");
                           break;
                         case 1:
-                          alert("error");
+                          alert("文章上传失败！");
                           break;
                         case 2:
-                          alert("文章上传失败");
+                          alert("图片上传失败！");
+                          break;
+                        case 3:
+                          alert("请补全要上传的信息！");
                           break;
 
                     }

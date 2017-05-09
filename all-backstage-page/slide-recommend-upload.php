@@ -8,8 +8,8 @@
     $content_title = isset($_POST['content_title'])? $_POST['content_title'] : '';
     $content_abstract = isset($_POST['content_abstract'])? $_POST['content_abstract'] : '';
     $content = isset($_POST['content'])? $_POST['content'] : '';
+    $tmp_name = $_FILES['photo']['tmp_name'];
     $filename = time().substr($_FILES['photo']['name'], strrpos($_FILES['photo']['name'],'.'));
-
     if(move_uploaded_file($_FILES['photo']['tmp_name'], 'recommend-content-img/'.$filename)){
         $servername = "localhost";
         $username = "root";
@@ -21,7 +21,7 @@
         }
         mysqli_query($conn, "set names 'utf8'");
         mysqli_select_db($conn, "graduation-data");  //打开数据库
-        $insert_action = "insert into recommend_content_info (content_title, content_abstract, detail_content, content_time) values ('$content_title', '$content_abstract', '$content', '$content_upload_time')";
+        $insert_action = "insert into recommend_content_info (content_title, content_abstract, backgroundImg, detail_content, content_time) values ('$content_title', '$content_abstract', '$filename', '$content', '$content_upload_time')";
         $insert_result = mysqli_query($conn, $insert_action);
         if($insert_result) {
             echo 0;
@@ -31,6 +31,8 @@
     } else {
         echo 2;  //文章上传失败
     }
+
+
 
 
 
