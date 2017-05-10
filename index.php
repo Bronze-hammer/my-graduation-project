@@ -30,37 +30,54 @@
                     mysqli_select_db($conn, "graduation-data");  //打开数据库
                     echo '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
                     //Indicators
-                    //$result = mysqli_query($conn, "select * from recommend_content_info");
-                    //echo '<div>'.mysqli_num_rows($result).'</div>';
-                    // echo '<ol class="carousel-indicators">';
-                    //$count = mysqli_query($conn, "select count(*) from recommend_content_info");
-                    // for ($i=0; $i < mysqli_num_rows($result) ; $i++) {
-                    //     echo '<li data-target="#carousel-example-generic" data-slide-to="'.$i.'"></li>';
-                    // }
-                    // echo '</ol>';
+                    // $result = mysqli_query($conn, "select * from recommend_content_info");
+                    // echo '<div>'.mysqli_num_rows($result).'</div>';
+                    echo '<ol class="carousel-indicators">';
+                    $count = mysqli_query($conn, "select * from recommend_content_info");
+                    for ($i=0; $i < mysqli_num_rows($count) || $i > 4; $i++) {
+                        echo '<li data-target="#carousel-example-generic" data-slide-to="'.$i.'"></li>';
+                    }
+                    echo '</ol>';
                     // Wrapper for slides
                     echo '<div class="carousel-inner" role="listbox">';
                     $result = mysqli_query($conn, "select * from recommend_content_info");
+                    $a = 0;
                     while ($row = mysqli_fetch_array($result)) {
-                        echo '<div class="item">';
-                        echo '<img src="all-backstage-page/recommend-content-img/'.$row['backgroundImg'].'" alt="">';
-                        echo '<div class="carousel-caption">';
-                        echo '<h1>'.$row['content_title'].'</h1>';
-                        echo '<p>'.$row['content_abstract'].'</p>';
-                        echo '<button type="button" class="btn btn-success">'."点击进入".'</button>';
-                        echo '</div>';
-                        echo '</div>';
+                        if ($a == 0) {
+                            echo '<div class="item active">';
+                            echo '<img src="all-backstage-page/recommend-content-img/'.$row['backgroundImg'].'" alt="">';
+                            echo '<div class="carousel-caption">';
+                            echo '<h1>'.$row['content_title'].'</h1>';
+                            echo '<p>'.$row['content_abstract'].'</p>';
+                            echo '<button type="button" class="btn btn-success">'."点击进入".'</button>';
+                            echo '</div>';
+                            echo '</div>';
+                            $a = $a+1;
+                        } else if($a > 4){
+                            break;
+                        } else {
+                            echo '<div class="item">';
+                            echo '<img src="all-backstage-page/recommend-content-img/'.$row['backgroundImg'].'" alt="">';
+                            echo '<div class="carousel-caption">';
+                            echo '<h1>'.$row['content_title'].'</h1>';
+                            echo '<p>'.$row['content_abstract'].'</p>';
+                            echo '<button type="button" class="btn btn-success">'."点击进入".'</button>';
+                            echo '</div>';
+                            echo '</div>';
+                            $a = $a+1;
+                        }
+
                     }
                     echo '</div>';
                     //Controls
-                    // echo '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
-                    // echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
-                    // echo '<span class="sr-only">Previous</span>';
-                    // echo '</a>';
-                    // echo '<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">';
-                    // echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
-                    // echo '<span class="sr-only">Next</span>';
-                    // echo '</a>';
+                    echo '<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">';
+                    echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
+                    echo '<span class="sr-only">Previous</span>';
+                    echo '</a>';
+                    echo '<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">';
+                    echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
+                    echo '<span class="sr-only">Next</span>';
+                    echo '</a>';
                     echo '</div>';
 
 
