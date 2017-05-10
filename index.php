@@ -49,7 +49,9 @@
                             echo '<div class="carousel-caption">';
                             echo '<h1>'.$row['content_title'].'</h1>';
                             echo '<p>'.$row['content_abstract'].'</p>';
-                            echo '<button type="button" class="btn btn-success">'."点击进入".'</button>';
+                            echo '<button type="button" class="btn btn-success" onclick="location.href=';
+                            echo "'slide-photo-content-show.html?content_id=".$row['content_id']."'";
+                            echo '">'."点击进入".'</button>';
                             echo '</div>';
                             echo '</div>';
                             $a = $a+1;
@@ -61,7 +63,9 @@
                             echo '<div class="carousel-caption">';
                             echo '<h1>'.$row['content_title'].'</h1>';
                             echo '<p>'.$row['content_abstract'].'</p>';
-                            echo '<button type="button" class="btn btn-success">'."点击进入".'</button>';
+                            echo '<button type="button" class="btn btn-success" onclick="location.href=';
+                            echo "'slide-photo-content-show.html?content_id=".$row['content_id']."'";
+                            echo '">'."点击进入".'</button>';
                             echo '</div>';
                             echo '</div>';
                             $a = $a+1;
@@ -254,9 +258,9 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
-            $("button").click(function(){
-              window.location.href="slide-photo-content-show.html"
-            });
+            // $("button").click(function(){
+            //   window.location.href="slide-photo-content-show.html"
+            // });
 
             $("#gotoBackstage").click(function(){
                 var useremail = localStorage.getItem("useremail");

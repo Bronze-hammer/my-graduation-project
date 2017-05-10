@@ -78,3 +78,23 @@ if (isset($_POST['upload'])) {
     exit;
 }
 ```
+
+### 2017.05.10
+##### PHP环境下，利用`<button>`标签的onclick()方法传递数据到另一个页面，并且在另一个页面中接收传过来的数据。
+###### index.php
+```php
+<?php
+    $name = "xxx";
+    echo '<button type="button" onclick="location.href=';
+    echo "'do.php?name=$name'";
+    echo '">'."onclick".'</button>';
+?>
+
+```
+###### do.php
+```php
+<?php
+    $name = $_GET['name'];
+    echo $name;
+?>
+```
