@@ -20,14 +20,13 @@
         <div id="root-container" class="container">
             <div id="wrapper" class="columns">
                 <?php
-
-                    //图片轮播
                     $servername = "localhost";
                     $username = "root";
                     $password = "xuzihui";
                     $conn = new mysqli($servername, $username, $password);  //连接数据库
                     mysqli_query($conn, "set names 'utf8'");
                     mysqli_select_db($conn, "graduation-data");  //打开数据库
+                    //图片轮播
                     echo '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
                     //Indicators
                     // $result = mysqli_query($conn, "select * from recommend_content_info");
@@ -50,7 +49,7 @@
                             echo '<h1>'.$row['content_title'].'</h1>';
                             echo '<p>'.$row['content_abstract'].'</p>';
                             echo '<button type="button" class="btn btn-success" onclick="location.href=';
-                            echo "'slide-photo-content-show.html?content_id=".$row['content_id']."'";
+                            echo "'slide-photo-content-show.php?content_id=".$row['content_id']."'";
                             echo '">'."点击进入".'</button>';
                             echo '</div>';
                             echo '</div>';
@@ -64,7 +63,7 @@
                             echo '<h1>'.$row['content_title'].'</h1>';
                             echo '<p>'.$row['content_abstract'].'</p>';
                             echo '<button type="button" class="btn btn-success" onclick="location.href=';
-                            echo "'slide-photo-content-show.html?content_id=".$row['content_id']."'";
+                            echo "'slide-photo-content-show.php?content_id=".$row['content_id']."'";
                             echo '">'."点击进入".'</button>';
                             echo '</div>';
                             echo '</div>';

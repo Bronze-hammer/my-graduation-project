@@ -45,12 +45,12 @@
 .nav-container {
   margin: 0 auto;
 	height: 100px;
-  width: 502px;
+  width: 100%;
 }
 
 /*content*/
 .slide-photo-content{
-	padding: 80px;
+	padding: 50px;
 }
 
 #copyright {
