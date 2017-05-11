@@ -5,9 +5,14 @@
     date_default_timezone_set('PRC');
     $content_upload_time = date('Y-m-d H:i:s', time());
     $time = time();
-    $content_title = isset($_POST['content_title'])? $_POST['content_title'] : '';
-    $content_abstract = isset($_POST['content_abstract'])? $_POST['content_abstract'] : '';
-    $content = isset($_POST['content'])? $_POST['content'] : '';
+    // $content_type = isset($_POST['technology_content_type'])? $_POST['technology_content_type'] : '';
+    // $content_title = isset($_POST['technology_content_title'])? $_POST['technology_content_title'] : '';
+    // $content_abstract = isset($_POST['technology_content_abstract'])? $_POST['technology_content_abstract'] : '';
+    // $content = isset($_POST['technology_content'])? $_POST['technology_content'] : '';
+    $content_type = $_POST['technology_content_type'];
+    $content_title = $_POST['technology_content_title'];
+    $content_abstract = $_POST['technology_content_abstract'];
+    $content = $_POST['technology_content'];
 
     $servername = "localhost";
     $username = "root";
@@ -16,7 +21,7 @@
     $conn = new mysqli($servername, $username, $password);
     mysqli_query($conn, "set names 'utf8'");
     mysqli_select_db($conn, "graduation-data");  //打开数据库
-    $insert_action = "insert into hot_technology_content values ('$time', '$content_title', '$content_abstract', '$content', '$content_upload_time')";
+    $insert_action = "insert into hot_technology_content values ('$time', '$content_type', '$content_title', '$content_abstract', '$content', '$content_upload_time')";
     $insert_result = mysqli_query($conn, $insert_action);
     if($insert_result) {
         echo 0;

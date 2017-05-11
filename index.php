@@ -98,7 +98,7 @@
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="hot-technology/html5-page.html" target="_blank">HTML5</a></li>
+                                                <li><a href="hot-technology/html5-page.php" target="_blank">HTML5</a></li>
                                                 <li><a href="hot-technology/javascript-page.html" target="_blank">JavaScript</a></li>
                                                 <li><a href="hot-technology/angularjs-page.html" target="_blank">Angular.js</a></li>
                                                 <li><a href="hot-technology/python-page.html" target="_blank">Python</a></li>

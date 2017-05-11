@@ -18,29 +18,49 @@
 
 				<div id="root-container" class="container">
 						<div id="wrapper" class="columns">
-							  
+
 
 								<!-- 导航条 -->
                 <div class="menu-nav">
 										<nav class="nav navbar-default navbar-inverse" role="navigation">
-												<div class="nav-container">
+												<div class="nav-container" style="width: 510px;">
 														<div class="collapse navbar-collapse" id="demo-navbar">
 																<ul class="nav navbar-nav">
-																	  <li><a href="../index.html">首页</a></li>
-																		<li style="background: #0f6d46;"><a href="html5-page.html">HTML5</a></li>
-																		<li><a href="javascript-page.html">JavaScript</a></li>
-																		<li><a href="angularjs-page.html">Angular.js</a></li>
-																		<li><a href="python-page.html">Python</a></li>
-																		<li><a href="nodejs-page.html">Node.js</a></li>
+																	  <li><a href="../index.php">首页</a></li>
+																		<!-- <li style="background: #0f6d46;"><a href="html5-page.php">HTML5</a></li> -->
+                                    <li><a href="html5-page.php">HTML5</a></li>
+																		<li><a href="javascript-page.php">JavaScript</a></li>
+																		<li><a href="angularjs-page.php">Angular.js</a></li>
+																		<li><a href="python-page.php">Python</a></li>
+																		<li><a href="nodejs-page.php">Node.js</a></li>
 
 																</ul>
 														</div>
 												</div>
 										</nav>
 								</div>
-
+                <?php
+                //content
+                    $technology_content_id = $_GET['technology_content_id'];
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "xuzihui";
+                    $conn = new mysqli($servername, $username, $password);  //连接数据库
+                    mysqli_query($conn, "set names 'utf8'");
+                    mysqli_select_db($conn, "graduation-data");  //打开数据库
+                    $result = mysqli_query($conn, "select * from hot_technology_content where technology_content_id=$technology_content_id");
+                    $row = mysqli_fetch_array($result);
+                    echo '<div class=blog-content>';
+                    echo '<div class="blog-item">';
+                    echo '<h2 class="blog">'.$row['technology_content_title'].'</h2>';
+                    echo '<p class="blog-item-meta">'.$row['technology_content_time'].'</p>';
+                    echo '<blockquote class="post float-left"><p>'.$row['technology_content_abstract'].'</p></blockquote>';
+                    echo '<p>'.$row['technology_content'].'</p>';
+                    echo '</div>';
+                    echo '</div>';
+                ?>
 								<!--content-->
-                <div class="blog-content">
+                <!-- <div class="blog-content">
                     <div class="blog-item">
                         <img src="../bootstrap/images/blogshow-top-photo.jpg" alt="" />
                         <h2 class="blog">Duis aute irure dolor in reprehenderit in voluptate</h2>
@@ -75,7 +95,7 @@
 
 
                     </div>
-                </div>
+                </div> -->
 
                 <!--comment-->
                 <div class="comment">

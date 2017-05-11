@@ -244,33 +244,33 @@
                                         <div style="max-width: 450px">
                                             <p>选择文章的语言类型:</p>
                                             <label class="radio-inline">
-                                                <input type="radio" name="language_type" value="html5">HTML5
+                                                <input type="radio" name="technology_content_type" value="html5">HTML5
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="language_type" value="javascript">JavaScript
+                                                <input type="radio" name="technology_content_type" value="javascript">JavaScript
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="language_type" value="angularjs">Angularjs
+                                                <input type="radio" name="technology_content_type" value="angularjs">Angularjs
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="language_type" value="python">Python
+                                                <input type="radio" name="technology_content_type" value="python">Python
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="language_type" value="nodejs">Node.js
+                                                <input type="radio" name="technology_content_type" value="nodejs">Node.js
                                             </label>
 
                                         </div>
                                         <div class="form-group">
                                             <label>文章题目:</label>
-                                            <input name="content_title" class="form-control" placeholder="题目">
+                                            <input name="technology_content_title" class="form-control" placeholder="题目">
                                         </div>
                                         <div class="form-group">
                                             <label>文章内容摘要:</label>
-                                            <textarea name="content_abstract" class="form-control" placeholder="摘要"></textarea>
+                                            <textarea name="technology_content_abstract" class="form-control" placeholder="摘要"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>详细内容:</label>
-                                            <div id="content" style="min-height: 150px;"></div>
+                                            <div id="technology_content" style="min-height: 150px;"></div>
                                         </div>
                                         <p><input type="button" value="提交" class="btn btn-success" id="button_hot_technology"></p>
                                     </form>
@@ -291,7 +291,7 @@
         <!-- 实例化编辑器 -->
         <script type="text/javascript">
             //实例化编辑器
-            var editor = new wangEditor('content');
+            var editor = new wangEditor('technology_content');
             //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
             editor.config.hideLinkImg = true;
             editor.create();
@@ -304,7 +304,7 @@
 
             $("#button_hot_technology").click(function(){
                 var data = new FormData($("#form")[0]);
-                data.append("technology_content", $("#content").html());
+                data.append("technology_content", $("#technology_content").html());
                 $.ajax({
                     url: 'hot-technology-upload.php',
                     type: 'POST',
