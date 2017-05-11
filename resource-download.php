@@ -54,40 +54,56 @@
 								<!--message-board-list -->
 								<div id="message-board-list">
 									  <div class="row a-message" v-for="message in messages">
-											  <div class="col-md-2" style="text-align: center; margin: auto 0;">
-													  <img v-bind:src="message.headphoto" />
-												</div>
-												<div class="col-md-10">
-													  <span style="font-weight: bold">{{message.name}}</span>
-														<span style="font-style: italic; color: #aaa;">{{message.time}}</span>
-														<p style="font-size: 15px; margin-top: 10px">{{message.detail}}</p>
-												</div>
+                    <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "xuzihui";
+                        //连接数据库
+                        $conn = new mysqli($servername, $username, $password);
+                        if (!$conn) {
+                            die('error'.mysqli_error);
+                        }
+                        mysqli_query($conn, "set names 'utf8'");
+                        mysqli_select_db($conn, "graduation-data");  //打开数据库
+                        $sql = "select * from upload_file_info";
+                        $result = mysqli_query($conn, $sql);
+
+                        if (!$result) {
+                            printf("error:%s\n", mysqli_error($conn));
+                            exit();
+                        }
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo '<div style="font-size: 1px">';
+                            echo '<table style="margin: 0" class="table table-hover">';
+                            echo '<tr>';
+                            echo '<td style="width: 30px">';
+                            echo $row['id'];
+                            echo '</td>';
+                            echo '<td class="active" style="width: 190px">';
+                            echo $row['filename'];
+                            echo '</td>';
+                            echo '<td class="success">';
+                            echo $row['fileabstract'];
+                            echo '</td>';
+                            echo '<td class="warning" style="width: 100px">';
+                            echo $row['filesize']."byte";
+                            echo '</td>';
+                            echo '<td style="width: 100px">';
+                            echo $row['file_upload_time'];
+                            echo '</td>';
+                            echo '<td style="width: 50px">';
+                            //echo '<a href="'.$row['file_tmp_name'].'/'.$row['identification'].'">下载</a>';
+                            echo '<a href="do_download_file.php?filename='.$row['filename'].'&file_tmp_name='.$row['file_tmp_name'].'&identification='.$row['identification'].'">下载</a>';
+                            echo '</td>';
+                            echo '</tr>';
+                            echo '</table>';
+                            echo '</div>';
+                        }
+                    ?>
 										</div>
 								</div>
 
-								<!--message-board-->
-								<div class="message-board">
-										<div style="margin-top: 50px">
-												<div class="form-group">
-														<label>姓名:</label>
-														<input class="form-control" id="messageInputname" placeholder="Name">
-												</div>
-												<div class="form-group">
-														<label>邮箱:</label>
-														<input class="form-control" id="messageInputemail" placeholder="Email">
-												</div>
-												<div class="form-group">
-														<label>评论:</label><br>
-														<textarea style="width: 100%; height: 200px;" id="messageInput" placeholder="please input comment in here...">
-														</textarea>
-												</div>
-												<div class="form-group">
-														<div class="submit">
-																<button style="width: 100px" type="submit" class="btn btn-success">提交</button>
-														</div>
-												</div>
-										</div>
-								</div>
+
 
 								<!-- Copyright -->
                 <div id="copyright">
@@ -103,47 +119,6 @@
 
 				<script src="bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="bootstrap/js/bootstrap.min.js"></script>
-				<script src="bootstrap/js/vue.js"></script>
 
-				<script type="text/javascript">
-            var demo = new Vue({
-							  el: '#message-board-list',
-								data:{
-										messages: [
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head1.jpg",
-														"name": "message-board-head1",
-														"time": "2017-02-11 10:45:33",
-														"detail": "I am chinese!!"
-												},
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head2.jpg",
-														"name": "message-board-head2",
-														"time": "2017-02-11 10:45:33",
-														"detail": "I am in China, i love China!"
-												},
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head3.jpg",
-														"name": "message-board-head3",
-														"time": "2017-02-11 10:45:33",
-														"detail": "i use H5 CSS3 JavaScript"
-												},
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head4.jpg",
-														"name": "message-board-head4",
-														"time": "2017-02-11 10:45:33",
-														"detail": "bootstrap ionic Yii2"
-												},
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head5.jpg",
-														"name": "message-board-head15",
-														"time": "2017-02-11 10:45:33",
-														"detail": "jQuery Angulerjs Nodejs"
-												}
-										]
-								}
-
-						});
-				</script>
 		</body>
 </html>

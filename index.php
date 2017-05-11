@@ -90,19 +90,19 @@
                             <div class="nav-container">
                                 <div class="collapse navbar-collapse" id="demo-navbar">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="index.html">首页</a></li>
+                                        <li><a href="index.php">首页</a></li>
                                         <li><a href="aboutme.php">关于</a></li>
                                         <li><a href="blog-catalog.html">归档</a></li>
-                                        <li><a href="#">资源下载</a></li>
+                                        <li><a href="resource-download.php">资源下载</a></li>
                                         <li><a href="message-board.html">留言</a></li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="hot-technology/html5-page.php" target="_blank">HTML5</a></li>
-                                                <li><a href="hot-technology/javascript-page.html" target="_blank">JavaScript</a></li>
-                                                <li><a href="hot-technology/angularjs-page.html" target="_blank">Angular.js</a></li>
-                                                <li><a href="hot-technology/python-page.html" target="_blank">Python</a></li>
-                                                <li><a href="hot-technology/nodejs-page.html" target="_blank">Node.js</a></li>
+                                                <li><a href="hot-technology/javascript-page.php" target="_blank">JavaScript</a></li>
+                                                <li><a href="hot-technology/angularjs-page.php" target="_blank">Angular.js</a></li>
+                                                <li><a href="hot-technology/python-page.php" target="_blank">Python</a></li>
+                                                <li><a href="hot-technology/nodejs-page.php" target="_blank">Node.js</a></li>
                                             </ul>
                                         </li>
                                     </ul>

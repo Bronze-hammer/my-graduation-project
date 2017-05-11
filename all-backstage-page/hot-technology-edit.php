@@ -114,130 +114,71 @@
                             <li><a href="#tab-edit" role="tab" data-toggle="tab">编辑新文章</a></li>
                         </ul>
 
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab-html5">
-                                <div>
-                                    <table class="table table-hover">
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
+                        <div class="tab-content" style="margin: 50px 100px;">
+                            <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "xuzihui";
+                            $conn = new mysqli($servername, $username, $password);  //连接数据库
+                            mysqli_query($conn, "set names 'utf8'");
+                            mysqli_select_db($conn, "graduation-data");  //打开数据库
 
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
+                            echo '<div class="tab-pane active" id="tab-html5">';
+                            $select_html5 = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='html5'");
+                            while ($row = mysqli_fetch_array($select_html5)) {
+                                echo '<div>';
+                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<h6>'.$row['technology_content_time'].'</h6>';
+                                echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '</div>';
+                            }
+                            echo '</div>';
 
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
+                            echo '<div class="tab-pane" id="tab-javascript">';
+                            $select_javascript = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='javascript'");
+                            while ($row = mysqli_fetch_array($select_javascript)) {
+                                echo '<div>';
+                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<h6>'.$row['technology_content_time'].'</h6>';
+                                echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '</div>';
+                            }
+                            echo '</div>';
 
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab-javascript">
-                                <div>
-                                    <table class="table table-hover">
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
+                            echo '<div class="tab-pane" id="tab-angularjs">';
+                            $select_angularjs = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='angularjs'");
+                            while ($row = mysqli_fetch_array($select_angularjs)) {
+                                echo '<div>';
+                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<h6>'.$row['technology_content_time'].'</h6>';
+                                echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '</div>';
+                            }
+                            echo '</div>';
 
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
+                            echo '<div class="tab-pane" id="tab-python">';
+                            $select_python = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='python'");
+                            while ($row = mysqli_fetch_array($select_python)) {
+                                echo '<div>';
+                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<h6>'.$row['technology_content_time'].'</h6>';
+                                echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '</div>';
+                            }
+                            echo '</div>';
 
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                    </table>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane" id="tab-angularjs">
-                                <div>
-                                    <table class="table table-hover">
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                    </table>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane" id="tab-python">
-                                <div>
-                                    <table class="table table-hover">
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                    </table>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane" id="tab-nodejs">
-                                <div>
-                                    <table class="table table-hover">
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                        <tr class="active">
-                                            <td class="active">1</td>
-                                            <td class="success">2</td>
-                                            <td class="warning">3</td>
-
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
+                            echo '<div class="tab-pane" id="tab-nodejs">';
+                            $select_nodejs = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='nodejs'");
+                            while ($row = mysqli_fetch_array($select_nodejs)) {
+                                echo '<div>';
+                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<h6>'.$row['technology_content_time'].'</h6>';
+                                echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '</div>';
+                            }
+                            echo '</div>';
+                            ?>
+                            
                             <div class="tab-pane" id="tab-edit">
                                 <div>
                                     <form name="form" id="form">

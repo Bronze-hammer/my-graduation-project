@@ -77,39 +77,23 @@
                     $password = "xuzihui";
                     //连接数据库
                     $conn = new mysqli($servername, $username, $password);
-                    if (!$conn) {
-                        die('error'.mysqli_error);
-                    }
                     mysqli_query($conn, "set names 'utf8'");
                     mysqli_select_db($conn, "graduation-data");  //打开数据库
                     $select_action = "select * from personalinfo";
                     $select_result = mysqli_query($conn, $select_action);
-                    while ($row = mysqli_fetch_array($select_result)) {
-                        echo '<div class="my-detail">';
-                        echo '<div class="avatar">
-    												  <img style="width: 150px" src="bootstrap/images/avatar.png">
-    										      </div>';
-                        echo '<div style="margin: 40px 0;">';
-                        echo '<p>';
-                        echo "姓名：".$row['name'];
-                        echo '</p>';
-                        echo '<p>';
-                        echo "邮箱：".$row['email'];
-                        echo '</p>';
-                        echo '<p>';
-                        echo "Github：".$row['github_id'];
-                        echo '</p>';
-                        echo '<p>';
-                        echo "Blog：".$row['blog_id'];
-                        echo '</p>';
-                        echo '<div class="introduce">';
-                        echo '<p style="margin: 40px 0;">';
-                        echo $row['self_introduction'];
-                        echo '</p>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
+                    $row = mysqli_fetch_array($select_result);
+                    echo '<div class="my-detail">';
+                    echo '<div class="avatar"><img style="width: 150px" src="bootstrap/images/avatar.png"></div>';
+                    echo '<div style="margin: 40px 0;">';
+                    echo '<p>姓名:'.$row['name'].'</p>';
+                    echo '<p>邮箱:'.$row['email'].'</p>';
+                    echo '<p>Github:'.$row['github_id'].'</p>';
+                    echo '<p>Blog'.$row['blog_id'].'</p>';
+                    echo '<div class="introduce">';
+                    echo '<p style="margin: 40px 0;">'.$row['self_introduction'].'</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
                 ?>
                 <!-- footer -->
                 <div id="footer">
@@ -131,7 +115,7 @@
                             </div>
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>共享资源</h4>
-                                <p>下载资料</p>
+                                <a href="resource-download.php"<p>下载资料</p>
                             </div>
                         </div>
                     </div>
