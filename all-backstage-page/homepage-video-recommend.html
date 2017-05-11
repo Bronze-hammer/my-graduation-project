@@ -102,18 +102,36 @@
 								<div class="slide-photo-content-recommend">
 									  <h2>页面页首热门视频推荐</h2>
                     <div>
-                        <form>
-
+                        <form name="form" id="form">
                             <div class="form-group">
                                 <label>热门视频主题:</label>
-                                <input class="form-control" placeholder="题目">
+                                <input name="video_name" class="form-control" placeholder="视频主题">
                             </div>
                             <div class="form-group">
                                 <label>热门视频摘要介绍:</label>
-                                <textarea class="form-control" placeholder="摘要"></textarea>
+                                <textarea name="video_abstract" class="form-control" placeholder="视频摘要"></textarea>
                             </div>
-
+                            <div class="form-group">
+                                <label>选择上传的视频地址:</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="video" value="video_address">视频地址
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="video" value="flash_address">flash地址
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="video" value="html_code">html代码
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="video" value="currency_code">通用代码
+                                </label>
+                                <div class="form-group">
+                                    <input name="video_url" class="form-control" placeholder="视频链接代码">
+                                </div>
+                                <p><input type="button" value="提交" id="button_video" class="btn btn-success"></p>
+                            </div>
                         </form>
+                        <div id="result"></div>
                     </div>
 								</div>
 						</div>
@@ -122,7 +140,37 @@
 
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script>
+            $("#button_video").click(function(){
+                var data = new FormData($("#form")[0]);
+                $.ajax({
+                    url: 'video-recommend-upload.php',
+                    type: 'POST',
+                    data: data,
+                    dataType: 'JSON',
+                    cache: false,
+                    processData: false,
+                    contentType: false
+                }).done(function(ret){
+                    switch (ret) {
+                        case 0:
+                          alert("视频上传成功！");
+                          window.location.reload();
+                          break;
+                        case 1:
+                          alert("视频上传失败！");
+                          break;
 
+                    }
+                    // var result = '';
+                    // result += 'video_name=' + ret['video_name'] + '<br>';
+                    // result += 'video_abstract=' + ret['video_abstract'] + '<br>';
+                    // result += 'video_type=' + ret['video_type'] + '<br>';
+                    // result += 'video_url=' + ret['video_url'] + '<br>';
+                    // $('#result').html(result);
+                })
+            });
+        </script>
 		</body>
 
 </html>
