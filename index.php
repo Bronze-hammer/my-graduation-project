@@ -32,16 +32,16 @@
                     // $result = mysqli_query($conn, "select * from recommend_content_info");
                     // echo '<div>'.mysqli_num_rows($result).'</div>';
                     echo '<ol class="carousel-indicators">';
-                    $count = mysqli_query($conn, "select * from recommend_content_info");
-                    for ($i=0; $i < mysqli_num_rows($count) || $i > 4; $i++) {
+                    $count_result = mysqli_query($conn, "select * from recommend_content_info");
+                    for ($i=0; $i < mysqli_num_rows($count_result) || $i > 4; $i++) {
                         echo '<li data-target="#carousel-example-generic" data-slide-to="'.$i.'"></li>';
                     }
                     echo '</ol>';
                     // Wrapper for slides
                     echo '<div class="carousel-inner" role="listbox">';
-                    $result = mysqli_query($conn, "select * from recommend_content_info");
+                    $content_result = mysqli_query($conn, "select * from recommend_content_info");
                     $a = 0;
-                    while ($row = mysqli_fetch_array($result)) {
+                    while ($row = mysqli_fetch_array($content_result)) {
                         if ($a == 0) {
                             echo '<div class="item active">';
                             echo '<img src="all-backstage-page/recommend-content-img/'.$row['backgroundImg'].'" alt="">';
@@ -83,107 +83,48 @@
                     echo '</a>';
                     echo '</div>';
 
-
-                    // <!-- 轮播图片 -->
-                    // <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    //     <!-- Indicators -->
-                    //     <ol class="carousel-indicators">
-                    //         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    //         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    //         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    //         <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                    //         <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-                    //     </ol>
-                    //
-                    //     <!-- Wrapper for slides -->
-                    //     <div class="carousel-inner" role="listbox">
-                    //         <div class="item active">
-                    //             <img src="bootstrap/images/slide_photo/head1.jpg" alt="">
-                    //             <div class="carousel-caption">
-                    //                 <h1>Hello World</h1>
-                    //                 <p>A book is the same today as it always was and it will never change.</p>
-                    //                 <button type="button" class="btn btn-success">点击进入</button>
-                    //             </div>
-                    //         </div>
-                    //
-                    //         <div class="item">
-                    //           <img src="bootstrap/images/slide_photo/head2.jpg" alt="">
-                    //           <div class="carousel-caption">
-                    //               <h1>Candle</h1>
-                    //               <p>A candle lights others and consumes itself.</p>
-                    //               <button type="button" class="btn btn-success">点击进入</button>
-                    //           </div>
-                    //         </div>
-                    //
-                    //         <div class="item">
-                    //           <img src="bootstrap/images/slide_photo/head3.jpg" alt="">
-                    //           <div class="carousel-caption">
-                    //               <h1>Candle</h1>
-                    //               <p>A candle lights others and consumes itself.</p>
-                    //               <button type="button" class="btn btn-success">点击进入</button>
-                    //           </div>
-                    //         </div>
-                    //
-                    //         <div class="item">
-                    //           <img src="bootstrap/images/slide_photo/head4.jpg" alt="">
-                    //           <div class="carousel-caption">
-                    //               <h1>Candle</h1>
-                    //               <p>A candle lights others and consumes itself.</p>
-                    //               <button type="button" class="btn btn-success">点击进入</button>
-                    //           </div>
-                    //         </div>
-                    //
-                    //         <div class="item">
-                    //           <img src="bootstrap/images/slide_photo/head5.jpg" alt="">
-                    //           <div class="carousel-caption">
-                    //               <h1>Candle</h1>
-                    //               <p>A candle lights others and consumes itself.</p>
-                    //               <button type="button" class="btn btn-success">点击进入</button>
-                    //           </div>
-                    //         </div>
-                    //
-                    //     </div>
-                    //
-                    //     <!-- Controls -->
-                    //     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    //         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    //         <span class="sr-only">Previous</span>
-                    //     </a>
-                    //     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    //         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    //         <span class="sr-only">Next</span>
-                    //     </a>
-                    // </div>
-                    //
                     // <!-- 导航条 -->
-                    // <div id="menu_nav" class="menu-nav">
-                    //     <nav class="navbar navbar-inverse navigation">
-                    //         <div class="nav-container">
-                    //             <div class="collapse navbar-collapse" id="demo-navbar">
-                    //                 <ul class="nav navbar-nav">
-                    //                     <li><a href="index.html">首页</a></li>
-                    //                     <li><a href="aboutme.php">关于</a></li>
-                    //                     <li><a href="blog-catalog.html">归档</a></li>
-                    //                     <li><a href="#">资源下载</a></li>
-                    //                     <li><a href="message-board.html">留言</a></li>
-                    //                     <li class="dropdown">
-                    //                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
-                    //                         <ul class="dropdown-menu" role="menu">
-                    //                             <li><a href="hot-technology/html5-page.html" target="_blank">HTML5</a></li>
-                    //                             <li><a href="hot-technology/javascript-page.html" target="_blank">JavaScript</a></li>
-                    //                             <li><a href="hot-technology/angularjs-page.html" target="_blank">Angular.js</a></li>
-                    //                             <li><a href="hot-technology/python-page.html" target="_blank">Python</a></li>
-                    //                             <li><a href="hot-technology/nodejs-page.html" target="_blank">Node.js</a></li>
-                    //                         </ul>
-                    //                     </li>
-                    //                 </ul>
-                    //             </div>
-                    //
-                    //         </div>
-                    //     </nav>
-                    // </div>
-                    //
-                    // <!-- 视频 -->
+                    echo '
+                    <div id="menu_nav" class="menu-nav">
+                        <nav class="navbar navbar-inverse navigation">
+                            <div class="nav-container">
+                                <div class="collapse navbar-collapse" id="demo-navbar">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="index.html">首页</a></li>
+                                        <li><a href="aboutme.php">关于</a></li>
+                                        <li><a href="blog-catalog.html">归档</a></li>
+                                        <li><a href="#">资源下载</a></li>
+                                        <li><a href="message-board.html">留言</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="hot-technology/html5-page.html" target="_blank">HTML5</a></li>
+                                                <li><a href="hot-technology/javascript-page.html" target="_blank">JavaScript</a></li>
+                                                <li><a href="hot-technology/angularjs-page.html" target="_blank">Angular.js</a></li>
+                                                <li><a href="hot-technology/python-page.html" target="_blank">Python</a></li>
+                                                <li><a href="hot-technology/nodejs-page.html" target="_blank">Node.js</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>
+                    ';
+
+                    // 视频
+                    echo '<div class="grid-video">';
+                    $video_result = mysqli_query($conn, "select * from recommend_video_info");
+                    $video_row = mysqli_fetch_array($video_result);
+                    echo '<h3>'.$video_row['video_name'].'</h3>';
+                    echo '<p style="text-indent: 30px; margin: 50px 60px;">'.$video_row['video_abstract'].'</p>';
+                    if($video_row['video_type'] === "video_address" || $video_row['video_type'] === "flash_address"){
+                        echo '<video src="'.$video_row['video_url'].'"></video>';
+                    } else {
+                        echo $video_row['video_url'];
+                    }
+                    echo '</div>';
                     // <div class="grid-video">
                     //
                     //     <p style="text-indent:30px; margin: 50px 60px;">2016苹果秋季新品发布会于美国当地时间9月7日上午10点（北京时间9月8日凌晨1点）在比尔·格雷厄姆市政礼堂举行。发布会宣布超级马里奥兄弟登录iPhone平台，iWork新增远程实时协作功能，精灵宝可梦GO登录Apple Watch。发布了Apple Watch 2、iPhone 7、iPhone 7 Plus、Apple AirPods等新产品</p>

@@ -154,10 +154,17 @@
                 }).done(function(ret){
                     switch (ret) {
                         case 0:
-                          alert("视频上传成功！");
+                          alert("视频更新成功！");
                           window.location.reload();
                           break;
                         case 1:
+                          alert("视频更新失败！");
+                          break;
+                        case 2:
+                          alert("视频上传成功！");
+                          window.location.reload();
+                          break;
+                        case 3:
                           alert("视频上传失败！");
                           break;
 
