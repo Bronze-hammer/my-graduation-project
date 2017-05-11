@@ -45,7 +45,9 @@
                             <i class="glyphicon glyphicon-triangle-bottom"></i>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Log out</a></li>
+                            <li style="padding-left: 46px;">
+                                <a id="exit">Exit</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -141,6 +143,11 @@
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
         <script>
+            $("#exit").click(function(){
+                localStorage.setItem("useremail", "");
+                window.location.href="../login.html";
+
+            });
             $("#button_video").click(function(){
                 var data = new FormData($("#form")[0]);
                 $.ajax({
