@@ -56,7 +56,7 @@
             <nav class="navbar-side navbar-side-style" role="navigation">
                 <ul class="nav">
                     <li>
-                        <a class="active-menu" href="personal-info.html">
+                        <a class="active-menu" href="personal-info.php">
                             <i>个人信息</i>
                         </a>
                     </li>
@@ -66,7 +66,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-vedio-recommend.html">
+                        <a class="active-menu" href="homepage-vedio-recommend.php">
                             <i>精彩视频</i>
                         </a>
                     </li>
@@ -76,7 +76,7 @@
                         </a>
                       </li>
                       <li>
-                          <a class="active-menu" href="hot-technology-edit.html">
+                          <a class="active-menu" href="hot-technology-edit.php">
                               <i>热门语言</i>
                           </a>
                       </li>
@@ -91,7 +91,7 @@
                           </a>
                       </li>
                       <li>
-                          <a class="active-menu" href="user-administration.html">
+                          <a class="active-menu" href="user-administration.php">
                               <i>用户管理</i>
                           </a>
                       </li>

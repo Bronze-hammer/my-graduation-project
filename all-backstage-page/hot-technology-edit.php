@@ -127,7 +127,11 @@
                             $select_html5 = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='html5'");
                             while ($row = mysqli_fetch_array($select_html5)) {
                                 echo '<div>';
-                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<a onclick="location.href=';
+                                echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '" target="_blank">';
+                                echo '<h4 style="font-weight: bold;">'.$row['technology_content_title'].'</h4>';
+                                echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
                                 echo '</div>';
@@ -138,7 +142,11 @@
                             $select_javascript = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='javascript'");
                             while ($row = mysqli_fetch_array($select_javascript)) {
                                 echo '<div>';
-                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<a onclick="location.href=';
+                                echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '" target="_blank">';
+                                echo '<h4 style="font-weight: bold;">'.$row['technology_content_title'].'</h4>';
+                                echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
                                 echo '</div>';
@@ -149,7 +157,11 @@
                             $select_angularjs = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='angularjs'");
                             while ($row = mysqli_fetch_array($select_angularjs)) {
                                 echo '<div>';
-                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<a onclick="location.href=';
+                                echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '" target="_blank">';
+                                echo '<h4 style="font-weight: bold;">'.$row['technology_content_title'].'</h4>';
+                                echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
                                 echo '</div>';
@@ -160,7 +172,11 @@
                             $select_python = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='python'");
                             while ($row = mysqli_fetch_array($select_python)) {
                                 echo '<div>';
-                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<a onclick="location.href=';
+                                echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '" target="_blank">';
+                                echo '<h4 style="font-weight: bold;">'.$row['technology_content_title'].'</h4>';
+                                echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
                                 echo '</div>';
@@ -171,14 +187,18 @@
                             $select_nodejs = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='nodejs'");
                             while ($row = mysqli_fetch_array($select_nodejs)) {
                                 echo '<div>';
-                                echo '<h4>'.$row['technology_content_title'].'</h4>';
+                                echo '<a onclick="location.href=';
+                                echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '" target="_blank">';
+                                echo '<h4 style="font-weight: bold;">'.$row['technology_content_title'].'</h4>';
+                                echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
                                 echo '</div>';
                             }
                             echo '</div>';
                             ?>
-                            
+
                             <div class="tab-pane" id="tab-edit">
                                 <div>
                                     <form name="form" id="form">

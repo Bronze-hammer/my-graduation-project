@@ -8,7 +8,8 @@
 				<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 				<link href="../bootstrap/css/back-stage-share.css" rel="stylesheet">
 				<link href="../bootstrap/css/back-stage-style.css" rel="stylesheet">
-				<link href="../wangeditor/css/wangEditor.min.css" rel="stylesheet">
+				<link href="../bootstrap/css/font-awesome.css" rel="stylesheet">
+        <link href="../wangeditor/css/wangEditor.min.css" rel="stylesheet">
 
 		</head>
 
@@ -56,7 +57,7 @@
             <nav class="navbar-side navbar-side-style" role="navigation">
                 <ul class="nav">
                     <li>
-                        <a class="active-menu" href="personal-info.php">
+                        <a class="active-menu" href="personal-info.html">
                             <i>个人信息</i>
                         </a>
                     </li>
@@ -100,83 +101,46 @@
 
             <!-- 右侧内容 -->
             <div class="page-wrapper">
-							  <!-- 页面页首滑动图片内容推荐 -->
-								<div class="slide-photo-content-recommend">
-									  <h2>页面页首滑动图片内容推荐</h2>
-                        <form name="form" id="form">
-                            <div class="form-group">
-                                <label>详细内容：</label>
-                                <div id="content" style="min-height: 150px;"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>图片上所显示的题目：</label>
-                                <input name="content_title" class="form-control" placeholder="题目">
-                            </div>
-                            <div class="form-group">
-                                <label>图片上所显示的内容摘要：</label>
-                                <textarea name="content_abstract" class="form-control" placeholder="摘要"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>选择文章顶头背景图片：</label>
-                                <input type="file" name="photo" id="photo">
-                            </div>
-                            <p><input type="button" value="提交" id="button_recommend_content"></p>
-                        </form>
-                    </div>
-								</div>
+                <div style="margin-top: 25px;">
+                    <a href="javascript:;" onclick="javascript:history.back(-1);"><kbd>返回</kbd></a>
+                </div>
+                <div style="margin: 25px 80px 80px 80px;">
+                <?php
+                //content
+                    $technology_content_id = $_GET['technology_content_id'];
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "xuzihui";
+                    $conn = new mysqli($servername, $username, $password);  //连接数据库
+                    mysqli_query($conn, "set names 'utf8'");
+                    mysqli_select_db($conn, "graduation-data");  //打开数据库
+                    $result = mysqli_query($conn, "select * from hot_technology_content where technology_content_id=$technology_content_id");
+                    $row = mysqli_fetch_array($result);
+                    echo '<div class=blog-content>';
+                    echo '<div class="blog-item">';
+                    echo '<h2 class="blog">'.$row['technology_content_title'].'</h2>';
+                    echo '<p class="blog-item-meta">'.$row['technology_content_time'].'</p>';
+                    echo '<blockquote class="post float-left"><p>'.$row['technology_content_abstract'].'</p></blockquote>';
+                    echo '<p>'.$row['technology_content'].'</p>';
+                    echo '</div>';
+                    echo '</div>';
+                ?>
+                </div>
 						</div>
 				</div>
 
 
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
-        <script src="../wangeditor/js/wangEditor.min.js"></script>
         <script type="text/javascript">
-            //实例化编辑器
-            var editor = new wangEditor('content');
-            //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
-            editor.config.hideLinkImg = true;
-            editor.create();
-
             $("#exit").click(function(){
                 localStorage.setItem("useremail", "");
                 window.location.href="../login.html";
 
             });
-            $("#button_recommend_content").click(function(){
-                var data = new FormData($('#form')[0]);
-                data.append("content", $("#content").html());
-                $.ajax({
-                    url: 'slide-recommend-upload.php',
-                    type: 'POST',
-                    data: data,
-                    dataType: 'JSON',
-                    cache: false,
-                    processData: false,
-                    contentType: false
-                }).done(function(ret){
-                    switch (ret) {
-                        case 0:
-                          alert("文章上传成功！");
-                          window.location.reload();
-                          break;
-                        case 1:
-                          alert("文章上传失败！");
-                          break;
-                        case 2:
-                          alert("图片上传失败！");
-                          break;
-                        case 3:
-                          alert("请补全要上传的信息！");
-                          break;
-
-                    }
-                });
-                return false;
-            })
-
         </script>
+
+
 		</body>
 
 </html>

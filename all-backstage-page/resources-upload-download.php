@@ -74,7 +74,7 @@
                         </a>
                       </li>
                       <li>
-                          <a class="active-menu" href="hot-technology-edit.html">
+                          <a class="active-menu" href="hot-technology-edit.php">
                               <i>热门语言</i>
                           </a>
                       </li>

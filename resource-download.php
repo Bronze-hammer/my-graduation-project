@@ -29,7 +29,7 @@
                         <div class="nav-container">
                             <div class="collapse navbar-collapse" id="demo-navbar">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="index.html">首页</a></li>
+                                    <li><a href="index.php">首页</a></li>
                                     <li><a href="aboutme.php">关于</a></li>
                                     <li><a href="blog-catalog.html">归档</a></li>
                                     <li><a href="#">资源下载</a></li>

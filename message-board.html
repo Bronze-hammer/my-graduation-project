@@ -53,39 +53,32 @@
 
 								<!--message-board-list -->
 								<div id="message-board-list">
-									  <div class="row a-message" v-for="message in messages">
-											  <div class="col-md-2" style="text-align: center; margin: auto 0;">
-													  <img v-bind:src="message.headphoto" />
-												</div>
-												<div class="col-md-10">
-													  <span style="font-weight: bold">{{message.name}}</span>
-														<span style="font-style: italic; color: #aaa;">{{message.time}}</span>
-														<p style="font-size: 15px; margin-top: 10px">{{message.detail}}</p>
-												</div>
-										</div>
+
 								</div>
 
 								<!--message-board-->
 								<div class="message-board">
 										<div style="margin-top: 50px">
-												<div class="form-group">
-														<label>姓名:</label>
-														<input class="form-control" id="messageInputname" placeholder="Name">
-												</div>
-												<div class="form-group">
-														<label>邮箱:</label>
-														<input class="form-control" id="messageInputemail" placeholder="Email">
-												</div>
-												<div class="form-group">
-														<label>评论:</label><br>
-														<textarea style="width: 100%; height: 200px;" id="messageInput" placeholder="please input comment in here...">
-														</textarea>
-												</div>
-												<div class="form-group">
-														<div class="submit">
-																<button style="width: 100px" type="submit" class="btn btn-success">提交</button>
-														</div>
-												</div>
+                        <form id="form" name="form">
+    												<div class="form-group">
+    														<label>姓名:</label>
+    														<input name="commenter_name" class="form-control" placeholder="Name">
+    												</div>
+    												<div class="form-group">
+    														<label>邮箱:</label>
+    														<input name="commenter_email" class="form-control" placeholder="Email">
+    												</div>
+    												<div class="form-group">
+    														<label>评论:</label><br>
+    														<textarea style="width: 100%; height: 200px;" name="message_content" placeholder="please input comment in here...">
+    														</textarea>
+    												</div>
+    												<div class="form-group">
+    														<div class="submit">
+    																<button id="submit_message" style="width: 100px" type="submit" class="btn btn-success">提交</button>
+    														</div>
+    												</div>
+                        </form>
 										</div>
 								</div>
 
@@ -103,47 +96,22 @@
 
 				<script src="bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="bootstrap/js/bootstrap.min.js"></script>
-				<script src="bootstrap/js/vue.js"></script>
+        <script>
+            $("#submit_message").click(function(){
+                var data = new FormData($("#form")[0]);
+                $.ajax({
+                    url: 'message-upload.php',
+                    type: 'POST',
+                    data: data,
+                    dataType: 'JSON',
+                    cache: false,
+                    processData: false,
+                    contentType: false
+                }).done(function(){
+                    
+                });
+            });
+        </script>
 
-				<script type="text/javascript">
-            var demo = new Vue({
-							  el: '#message-board-list',
-								data:{
-										messages: [
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head1.jpg",
-														"name": "message-board-head1",
-														"time": "2017-02-11 10:45:33",
-														"detail": "I am chinese!!"
-												},
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head2.jpg",
-														"name": "message-board-head2",
-														"time": "2017-02-11 10:45:33",
-														"detail": "I am in China, i love China!"
-												},
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head3.jpg",
-														"name": "message-board-head3",
-														"time": "2017-02-11 10:45:33",
-														"detail": "i use H5 CSS3 JavaScript"
-												},
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head4.jpg",
-														"name": "message-board-head4",
-														"time": "2017-02-11 10:45:33",
-														"detail": "bootstrap ionic Yii2"
-												},
-												{
-														"headphoto": "bootstrap/images/message-board-head/message-board-head5.jpg",
-														"name": "message-board-head15",
-														"time": "2017-02-11 10:45:33",
-														"detail": "jQuery Angulerjs Nodejs"
-												}
-										]
-								}
-
-						});
-				</script>
 		</body>
 </html>
