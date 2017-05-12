@@ -5,7 +5,7 @@
 				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 				<meta http-equiv="X-UA-Compalible" content="IE=edge">
 
-				<title>About me</title>
+				<title>Message board</title>
 
 				<link rel="stylesheet" type="text/css" href="bootstrap/css/message-board.css">
 				<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
@@ -69,30 +69,26 @@
                     ?>
                     </div>
 								</div>
-
+                <div id="result"></div>
 								<!--message-board-->
 								<div class="message-board">
 										<div style="margin-top: 50px">
                         <form id="form" name="form">
-    												<div class="form-group">
-    														<label>姓名:</label>
-    														<input name="commenter_name" class="form-control" placeholder="Name">
-    												</div>
-    												<div class="form-group">
-    														<label>邮箱:</label>
-    														<input name="commenter_email" class="form-control" placeholder="Email">
-    												</div>
-    												<div class="form-group">
-    														<label>评论:</label><br>
-    														<textarea style="width: 100%; height: 200px;" name="message_content" placeholder="please input comment in here...">
-    														</textarea>
-    												</div>
-    												<div class="form-group">
-    														<div class="submit">
-    																<button id="submit_message" style="width: 100px" type="submit" class="btn btn-success">提交</button>
-    														</div>
-    												</div>
+                            <div class="form-group">
+                                <label>姓名:</label>
+                                <input name="commenter_name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>邮箱:</label>
+                                <input name="commenter_email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>留言:</label>
+                                <textarea name="message_content" class="form-control"></textarea>
+                            </div>
+                            <p><input type="button" value="提交" id="submit_message" class="btn btn-success"></p>
                         </form>
+
 										</div>
 								</div>
 
@@ -125,12 +121,14 @@
                     switch (ret) {
                       case 0:
                         alert("留言成功！");
+                        window.location.reload();
                         break;
                       case 1:
                         alert("留言失败！");
                         break;
+
                     }
-                });
+                })
             });
         </script>
 

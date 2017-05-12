@@ -5,10 +5,6 @@
     date_default_timezone_set('PRC');
     $content_upload_time = date('Y-m-d H:i:s', time());
     $time = time();
-    // $content_type = isset($_POST['technology_content_type'])? $_POST['technology_content_type'] : '';
-    // $content_title = isset($_POST['technology_content_title'])? $_POST['technology_content_title'] : '';
-    // $content_abstract = isset($_POST['technology_content_abstract'])? $_POST['technology_content_abstract'] : '';
-    // $content = isset($_POST['technology_content'])? $_POST['technology_content'] : '';
     $content_type = $_POST['technology_content_type'];
     $content_title = $_POST['technology_content_title'];
     $content_abstract = $_POST['technology_content_abstract'];

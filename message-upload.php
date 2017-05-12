@@ -18,9 +18,10 @@
     mysqli_select_db($conn, "graduation-data");  //打开数据库
     $insert_action = "insert into message_info values ('$time', '$commenter_name', '$commenter_email', '$message_content', '$message_upload_time')";
     $insert_result = mysqli_query($conn, $insert_action);
-    if($insert_result){
+    if($insert_result) {
         echo 0;
     } else {
         echo 1;
     }
+
 ?>
