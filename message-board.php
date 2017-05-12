@@ -64,7 +64,13 @@
                         mysqli_select_db($conn, "graduation-data");  //打开数据库
                         $result = mysqli_query($conn, "select * from message_info");
                         while ($row = mysqli_fetch_array($result)) {
-                            echo '<p>'.$row['commenter_name'].'</p>';
+                            echo '<div style="margin: 50px 10px 10px 10px">';
+                            echo '<div class="row">';
+                            echo '<div class="col-md-2" style="font-size:17px;"><strong>'.$row['commenter_name'].'</strong></div>';
+                            echo '<div class="col-md-10">'.$row['message_time'].'</div>';
+                            echo '</div>';
+                            echo '<p style="margin-top: 15px;">'.$row['message_content'].'</p>';
+                            echo '</div>';
                         }
                     ?>
                     </div>
