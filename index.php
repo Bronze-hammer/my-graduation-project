@@ -94,7 +94,7 @@
                                         <li><a href="aboutme.php">关于</a></li>
                                         <li><a href="blog-catalog.html">归档</a></li>
                                         <li><a href="resource-download.php">资源下载</a></li>
-                                        <li><a href="message-board.html">留言</a></li>
+                                        <li><a href="message-board.php">留言</a></li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
                                             <ul class="dropdown-menu" role="menu">
@@ -175,7 +175,7 @@
                             </div>
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>共享资源</h4>
-                                <p>下载资料</p>
+                                <a href="resource-download.php"<p>下载资料</p><a>
                             </div>
                         </div>
                     </div>

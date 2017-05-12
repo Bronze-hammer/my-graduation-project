@@ -29,7 +29,7 @@
                         <div class="nav-container">
                             <div class="collapse navbar-collapse" id="demo-navbar">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="index.html">首页</a></li>
+                                    <li><a href="index.php">首页</a></li>
                                     <li><a href="aboutme.php">关于</a></li>
                                     <li><a href="blog-catalog.html">归档</a></li>
                                     <li><a href="#">资源下载</a></li>
@@ -53,7 +53,21 @@
 
 								<!--message-board-list -->
 								<div id="message-board-list">
-
+                    <div>
+                    <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "xuzihui";
+                        //连接数据库
+                        $conn = new mysqli($servername, $username, $password);
+                        mysqli_query($conn, "set names 'utf8'");
+                        mysqli_select_db($conn, "graduation-data");  //打开数据库
+                        $result = mysqli_query($conn, "select * from message_info");
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo '<p>'.$row['commenter_name'].'</p>';
+                        }
+                    ?>
+                    </div>
 								</div>
 
 								<!--message-board-->
@@ -107,8 +121,15 @@
                     cache: false,
                     processData: false,
                     contentType: false
-                }).done(function(){
-                    
+                }).done(function(ret){
+                    switch (ret) {
+                      case 0:
+                        alert("留言成功！");
+                        break;
+                      case 1:
+                        alert("留言失败！");
+                        break;
+                    }
                 });
             });
         </script>

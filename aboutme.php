@@ -33,7 +33,7 @@
                                     <li><a href="aboutme.html">关于</a></li>
                                     <li><a href="blog-catalog.html">归档</a></li>
                                     <li><a href="#">资源下载</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#remind-no-content">留言</a></li>
+                                    <li><a href="message-board.php">留言</a></li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
@@ -53,24 +53,6 @@
                 </div>
 
 								<!--my detail-->
-								<!-- <div class="my-detail">
-										<div class="avatar">
-												<img style="width: 150px" src="bootstrap/images/avatar.png">
-										</div>
-										<div class="basic-info">
-												<p>姓名: xuzihui</p>
-												<p>邮箱: zihui_xu@126.com</p>
-												<p>Github: https://github.com/Bronze-hammer</p>
-												<p>Blog: http://specterxu.iteye.com</p>
-
-										</div>
-										<div class="introduce">
-											  <p style="text-indent: 30px; margin: 40px 0">
-												本人学生一枚，幽默风趣，易于交友，爱生活，爱学习，对计算机科学感兴趣，喜欢学习编程语言。
-												有事喜欢读读书，有时喜欢去外面旅游，见识见识美好的事物。但总体上来说，我其实是个宅男。
-												这样的表现我就得用一个词形容自己:程序猿+单身狗！！！好吧，这是两个词 -_-||</p>
-										</div>
-								</div> -->
                 <?php
                     $servername = "localhost";
                     $username = "root";
@@ -115,7 +97,7 @@
                             </div>
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>共享资源</h4>
-                                <a href="resource-download.php"<p>下载资料</p>
+                                <a href="resource-download.php"<p>下载资料</p><a>
                             </div>
                         </div>
                     </div>

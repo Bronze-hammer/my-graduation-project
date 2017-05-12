@@ -39,34 +39,32 @@
 
 								<!--content-->
 								<div class="hot-tachnology-article-catalog">
-									  <form id="hot-technology-article-catalog-main" v-clock>
-												<ul style="list-style: none;">
-                        <?php
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "xuzihui";
-                            //连接数据库
-                            $conn = new mysqli($servername, $username, $password);
-                            mysqli_query($conn, "set names 'utf8'");
-                            mysqli_select_db($conn, "graduation-data");  //打开数据库
-                            $result = mysqli_query($conn, "select * from hot_technology_content");
-                            while ($row = mysqli_fetch_array($result)) {
-                                if($row['technology_content_type'] == "html5"){
-                                    echo '<li style="margin: 40px 60px 0 0">';
-                                    echo '<a onclick="location.href=';
-                                    echo "'../hot-technology/hot-technology-article-show.php?technology_content_id=".$row['technology_content_id']."'";
-                                    echo '" target="_blank">';
-                                    echo '<h4 style="font-weight: bold;">'.$row['technology_content_title'].'</h4>';
-                                    echo '</a>';
-                                    echo '<p>'.$row['technology_content_abstract'].'</p>';
-                                    echo '</li>';
-                                }
-
+										<ul style="list-style: none;">
+                    <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "xuzihui";
+                        //连接数据库
+                        $conn = new mysqli($servername, $username, $password);
+                        mysqli_query($conn, "set names 'utf8'");
+                        mysqli_select_db($conn, "graduation-data");  //打开数据库
+                        $result = mysqli_query($conn, "select * from hot_technology_content");
+                        while ($row = mysqli_fetch_array($result)) {
+                            if($row['technology_content_type'] == "html5"){
+                                echo '<li style="margin: 40px 60px 0 0">';
+                                echo '<a onclick="location.href=';
+                                echo "'../hot-technology/hot-technology-article-show.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '" target="_blank">';
+                                echo '<h4 style="font-weight: bold;">'.$row['technology_content_title'].'</h4>';
+                                echo '</a>';
+                                echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '</li>';
                             }
-                        ?>
 
-												</ul>
-										</form>
+                        }
+                    ?>
+
+										</ul>
 								</div>
 
 								<!-- Copyright-->
