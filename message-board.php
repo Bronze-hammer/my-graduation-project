@@ -70,11 +70,25 @@
                             echo '<div class="col-md-10">'.$row['message_time'].'</div>';
                             echo '</div>';
                             echo '<p style="margin-top: 15px;">'.$row['message_content'].'</p>';
+                            $result1 = mysqli_query($conn, "select * from reply_message_info");
+                            while ($reply_row = mysqli_fetch_array($result1)) {
+                                if($reply_row['reply_object'] === $row['message_id']){
+                                    echo '<blockquote>';
+                                    echo '<div class="row">';
+                                    echo '<div class="col-md-2" style="font-size:15px;"><strong>'.$reply_row['reply_commenter_name'].'</strong></div>';
+                                    echo '<div class="col-md-10" style="font-size:14px;">'.$reply_row['reply_message_time'].'</div>';
+                                    echo '</div>';
+                                    echo '<p style="margin-top:10px;">'.$reply_row['reply_message_content'].'</p>';
+                                    echo '</blockquote>';
+                                }
+                            }
                             echo '<p id="'.$row['message_id'].'reply"><kbd>'."回复".'</kbd></p>';
                             echo '<p id="'.$row['message_id'].'submit" style="display:none;float:right;"><kbd>'."提交".'</kbd></p>';
                             echo '<p id="'.$row['message_id'].'cancel" style="display:none;float:right;"><kbd>'."取消".'</kbd></p><br>';
-                            echo '<input name="commenter_name" style="display: none;max-width: 200px;" class="'.$row['message_id'].' form-control" placeholder="姓名">';
-                            echo '<textarea name="message_content" style="display:none;margin-top:10px;" class="'.$row['message_id'].' form-control"></textarea>';
+                            echo '<form name="form" id="form">';
+                            echo '<input name="reply_commenter_name" style="display: none;max-width: 200px;" class="'.$row['message_id'].' form-control" placeholder="姓名">';
+                            echo '<textarea name="reply_message_content" style="display:none;margin-top:10px;" class="'.$row['message_id'].' form-control"></textarea>';
+                            echo '</form>';
                             echo '</div>';
                         }
                     ?>
@@ -137,6 +151,36 @@
                         }
                     }
                 echo '});';
+
+                echo '$("#'.$row1['message_id'].'cancel").click(function(){
+                    $("#'.$row1['message_id'].'cancel").hide();
+                    $("#'.$row1['message_id'].'submit").hide();
+                    $(".'.$row1['message_id'].'").hide();
+                    $("#'.$row1['message_id'].'reply").show();
+                });';
+
+                echo '$("#'.$row1['message_id'].'submit").click(function(){
+                    var data = new FormData($("#form")[0]);
+                    $.ajax({
+                        url: "reply-message-upload.php?reply_object='.$row1['message_id'].'",
+                        type: "POST",
+                        data: data,
+                        dataType: "JSON",
+                        cache: false,
+                        processData: false,
+                        contentType: false
+                    }).done(function(data){
+                        switch(data){
+                          case 00:
+                            alert("回复成功");
+                            window.location.reload();
+                            break;
+                          case 11:
+                            alert("回复失败");
+                            break;
+                        }
+                    });
+                });';
             }
 
             ?>
