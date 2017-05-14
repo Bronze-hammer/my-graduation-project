@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-slidephoto-recommend.html">
+                        <a class="active-menu" href="homepage-slidephoto-recommend.php">
                             <i>首页推荐</i>
                         </a>
                     </li>
@@ -76,7 +76,7 @@
                         </a>
                       </li>
                       <li>
-                          <a class="active-menu" href="hot-technology-edit.html">
+                          <a class="active-menu" href="hot-technology-edit.php">
                               <i>热门语言</i>
                           </a>
                       </li>
@@ -97,47 +97,68 @@
                       </li>
                   </ul>
             </nav>
-
-            <!-- 右侧内容 -->
             <div class="page-wrapper">
-							  <!-- 页面页首滑动图片内容推荐 -->
-								<div class="slide-photo-content-recommend">
-									  <h2>页面页首滑动图片内容推荐</h2>
-                        <form name="form" id="form">
-                            <div class="form-group">
-                                <label>详细内容：</label>
-                                <div id="content" style="min-height: 150px;"></div>
-                            </div>
+                <!-- 页面页首滑动图片内容推荐 -->
+                <div class="slide-photo-content-recommend">
+                    <h2>页面页首滑动图片内容推荐</h2>
+                    <form name="form" id="form">
+                        <div class="form-group">
+                            <label>详细内容：</label>
+                            <div id="content" style="min-height: 150px;"></div>
+                        </div>
 
-                            <div class="form-group">
-                                <label>图片上所显示的题目：</label>
-                                <input name="content_title" class="form-control" placeholder="题目">
-                            </div>
-                            <div class="form-group">
-                                <label>图片上所显示的内容摘要：</label>
-                                <textarea name="content_abstract" class="form-control" placeholder="摘要"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>选择文章顶头背景图片：</label>
-                                <input type="file" name="photo" id="photo">
-                            </div>
-                            <p><input type="button" value="提交" id="button_recommend_content"></p>
-                        </form>
-                    </div>
-								</div>
-						</div>
+                        <div class="form-group">
+                            <label>图片上所显示的题目：</label>
+                            <!-- <input name="content_title" class="form-control" placeholder="题目"> -->
+                            <input id="title" name="content_title" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>图片上所显示的内容摘要：</label>
+                            <textarea id="abstract" name="content_abstract" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>选择文章顶头背景图片：</label>
+                            <input type="file" name="photo" id="photo">
+                        </div>
+                        <p><input type="button" value="提交" id="button_recommend_content"></p>
+                    </form>
+                </div>
+            </div>
 				</div>
-
 
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../wangeditor/js/wangEditor.min.js"></script>
+        <?php
+            $edit_content_id = $_GET['edit_content_id'];
+            $servername = "localhost";
+            $username = "root";
+            $password = "xuzihui";
+            $conn = new mysqli($servername, $username, $password);  //连接数据库
+            mysqli_query($conn, "set names 'utf8'");
+            mysqli_select_db($conn, "graduation-data");  //打开数据库
+            $result = mysqli_query($conn, "select * from recommend_content_info");
+            while ($row = mysqli_fetch_array($result)) {
+                if($row['content_id'] === $edit_content_id){
+                    echo '<script>';
+                    // echo '$("#content").html('.$row['detail_content'].');';
+                    echo 'var editor = new wangEditor("content");';
+                    echo 'editor.config.hideLinkImg = true;';
+                    echo 'editor.create();';
+                    $content = stripcslashes($row['detail_content']);
+                    echo 'editor.$txt.append("'.$content.'");';
+                    echo '$("#title").val("'.$row['content_title'].'");';
+                    echo '$("#abstract").val("'.$row['content_abstract'].'");';
+                    echo '</script>';
+                }
+            }
+        ?>
         <script type="text/javascript">
             //实例化编辑器
-            var editor = new wangEditor('content');
+            // var editor = new wangEditor('content');
             //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
-            editor.config.hideLinkImg = true;
-            editor.create();
+            // editor.config.hideLinkImg = true;
+            // editor.create();
 
             $("#exit").click(function(){
                 localStorage.setItem("useremail", "");

@@ -288,6 +288,9 @@
                     $("#userpassword").val("");
                 };
             });
+            $("#gotoBackstage").click(function(){
+                window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+            })
             // $("#gotoBackstage").click(function(){
             //     var useremail = localStorage.getItem("useremail");
             //

@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-slidephoto-recommend.html">
+                        <a class="active-menu" href="homepage-slidephoto-recommend.php">
                             <i>首页推荐</i>
                         </a>
                     </li>
