@@ -75,18 +75,19 @@
                                 if($reply_row['reply_object'] === $row['message_id']){
                                     echo '<blockquote>';
                                     echo '<div class="row">';
-                                    echo '<div class="col-md-2" style="font-size:15px;"><strong>'.$reply_row['reply_commenter_name'].'</strong></div>';
-                                    echo '<div class="col-md-10" style="font-size:14px;">'.$reply_row['reply_message_time'].'</div>';
+                                    echo '<div class="col-md-6" style="font-size:15px;"><strong>'.$reply_row['reply_commenter_name'].'</strong></div>';
+                                    echo '<div class="col-md-6" style="font-size:14px;">'.$reply_row['reply_message_time'].'</div>';
                                     echo '</div>';
-                                    echo '<p style="margin-top:10px;">'.$reply_row['reply_message_content'].'</p>';
+                                    echo '<p style="margin-top:10px;font-size:13px;">'.$reply_row['reply_message_content'].'</p>';
                                     echo '</blockquote>';
                                 }
                             }
                             echo '<p id="'.$row['message_id'].'reply"><kbd>'."回复".'</kbd></p>';
+
                             echo '<p id="'.$row['message_id'].'submit" style="display:none;float:right;"><kbd>'."提交".'</kbd></p>';
                             echo '<p id="'.$row['message_id'].'cancel" style="display:none;float:right;"><kbd>'."取消".'</kbd></p><br>';
-                            echo '<form name="form" id="form">';
-                            echo '<input name="reply_commenter_name" style="display: none;max-width: 200px;" class="'.$row['message_id'].' form-control" placeholder="姓名">';
+                            echo '<form id="'.$row['message_id'].'form" name="'.$row['message_id'].'form">';
+                            //echo '<input name="reply_commenter_name" style="display: none;max-width: 200px;" class="'.$row['message_id'].' form-control" placeholder="姓名">';
                             echo '<textarea name="reply_message_content" style="display:none;margin-top:10px;" class="'.$row['message_id'].' form-control"></textarea>';
                             echo '</form>';
                             echo '</div>';
@@ -97,7 +98,7 @@
 								<!--message-board-->
 								<div class="message-board">
 										<div style="margin-top: 50px">
-                        <form id="form" name="form">
+                        <form id="form1" name="form1">
                             <div class="form-group">
                                 <label>姓名:</label>
                                 <input name="commenter_name" class="form-control">
@@ -111,7 +112,6 @@
                                 <textarea name="message_content" class="form-control" style="min-height: 100px;"></textarea>
                             </div>
                             <p><input type="button" value="提交" id="submit_message" class="btn btn-success"></p>
-
                         </form>
 
 										</div>
@@ -133,6 +133,7 @@
 				<script src="bootstrap/js/bootstrap.min.js"></script>
 
         <script>
+
             <?php
             $result1 = mysqli_query($conn, "select * from message_info");
             while ($row1 = mysqli_fetch_array($result1)) {
@@ -160,7 +161,9 @@
                 });';
 
                 echo '$("#'.$row1['message_id'].'submit").click(function(){
-                    var data = new FormData($("#form")[0]);
+                    var data = new FormData($("#'.$row1['message_id'].'form")[0]);
+                    var reply_commenter_name = localStorage.getItem("useremail");
+                    data.append("reply_commenter_name", reply_commenter_name);
                     $.ajax({
                         url: "reply-message-upload.php?reply_object='.$row1['message_id'].'",
                         type: "POST",
@@ -185,7 +188,7 @@
 
             ?>
             $("#submit_message").click(function(){
-                var data = new FormData($("#form")[0]);
+                var data = new FormData($("#form1")[0]);
                 $.ajax({
                     url: 'message-upload.php',
                     type: 'POST',

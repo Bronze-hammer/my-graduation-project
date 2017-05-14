@@ -192,27 +192,113 @@
                 </div>
             </div>
         </div>
+        <!-- 模态框（Modal） -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+								<div class="modal-content">
 
+										<div class="modal-header">
+												<!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+												<h4 class="modal-title" id="myModalLabel">请登录</h4>
+										</div>
+
+										<div class="modal-body">
+                        <div style="margin:50px;">
+                            <form class="form-horizontal" action="logincheck.php" method="post">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">登录邮箱</label>
+                                    <input type="email" name="email" class="form-control" id="useremail" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">登录密码</label>
+                                    <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <div class="login-button">
+                                        <button id="loginbutton" type="button" class="btn btn-success">Log in</button>
+                                    </div>
+                                    <!-- <div class="login-button">
+                                        <button id="gotohomepage" type="button" class="btn btn-success">Back HomePage</button>
+                                    </div> -->
+                                </div>
+                                <div class="goto-register">
+                                    <a href="register.html"><p class="text-primary">No account? Please click me to register...</p></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+										<div class="modal-footer">
+												<!-- <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> -->
+												<button type="button" class="btn btn-primary">提交更改</button>
+										</div>
+
+								</div><!-- /.modal-content -->
+						</div><!-- /.modal -->
+				</div>
 
         <script src="bootstrap/js/jquery-3.1.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
-            // $("button").click(function(){
-            //   window.location.href="slide-photo-content-show.html"
-            // });
-
-            $("#gotoBackstage").click(function(){
+            $(document).ready(function(){
                 var useremail = localStorage.getItem("useremail");
-
-                if (useremail == null || useremail == "") {
-
-                    window.location.href="login.html";
-                } else {
-                    window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+                if(useremail == null || useremail == ""){
+                    $('#myModal').modal();
                 }
-
             });
+            $("#loginbutton").click(function(){
+                var useremail = $("#useremail").val();
+                var userpassword = $("#userpassword").val();
+                if( useremail != "" && userpassword != "") {
+                    //localStorage.setItem("username", useremail);
+                    //localStorage.setItem("password", userpassword);
+                    //window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+
+                    $.ajax({
+                        type: "POST",
+                        url: "userlogin.php",
+                        dataType: "JSON",
+                        data: {
+                            "useremail": useremail,
+                            "userpassword": userpassword
+                        },
+                        success: function(data){
+                            switch(data){
+                                case 1:  //登录成功
+                                    //$.cookie("useremail", useremail);
+                                    //$.cookie("limit", 0);
+                                    localStorage.setItem("useremail", useremail);
+                                    localStorage.setItem("limit", 0);
+                                    // window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+                                    window.location.href="index.php"
+                                    break;
+                                case 2:
+                                    alert("密码错误！");
+                                    break;
+                                case 3:
+                                    alert("用户不存在！")
+                                    break;
+                            }
+                        }
+                    })
+                } else {
+                    //$("#tishi").text("密码错误！");
+                    alert('请检查你的输入！');
+                    $("#userpassword").val("");
+                };
+            });
+            // $("#gotoBackstage").click(function(){
+            //     var useremail = localStorage.getItem("useremail");
+            //
+            //     if (useremail == null || useremail == "") {
+            //
+            //         window.location.href="login.html";
+            //     } else {
+            //         window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+            //     }
+            //
+            // });
         </script>
 
     </body>
