@@ -64,18 +64,22 @@
                         mysqli_select_db($conn, "graduation-data");  //打开数据库
                         $result = mysqli_query($conn, "select * from message_info");
                         while ($row = mysqli_fetch_array($result)) {
-                            echo '<div style="margin: 50px 10px 10px 10px">';
+                            echo '<div style="margin: 30px 10px 10px 10px">';
                             echo '<div class="row">';
                             echo '<div class="col-md-2" style="font-size:17px;"><strong>'.$row['commenter_name'].'</strong></div>';
                             echo '<div class="col-md-10">'.$row['message_time'].'</div>';
                             echo '</div>';
                             echo '<p style="margin-top: 15px;">'.$row['message_content'].'</p>';
+                            echo '<p id="'.$row['message_id'].'reply"><kbd>'."回复".'</kbd></p>';
+                            echo '<p id="'.$row['message_id'].'submit" style="display:none;float:right;"><kbd>'."提交".'</kbd></p>';
+                            echo '<p id="'.$row['message_id'].'cancel" style="display:none;float:right;"><kbd>'."取消".'</kbd></p><br>';
+                            echo '<input name="commenter_name" style="display: none;max-width: 200px;" class="'.$row['message_id'].' form-control" placeholder="姓名">';
+                            echo '<textarea name="message_content" style="display:none;margin-top:10px;" class="'.$row['message_id'].' form-control"></textarea>';
                             echo '</div>';
                         }
                     ?>
                     </div>
 								</div>
-                <div id="result"></div>
 								<!--message-board-->
 								<div class="message-board">
 										<div style="margin-top: 50px">
@@ -90,9 +94,10 @@
                             </div>
                             <div class="form-group">
                                 <label>留言:</label>
-                                <textarea name="message_content" class="form-control"></textarea>
+                                <textarea name="message_content" class="form-control" style="min-height: 100px;"></textarea>
                             </div>
                             <p><input type="button" value="提交" id="submit_message" class="btn btn-success"></p>
+
                         </form>
 
 										</div>
@@ -112,7 +117,29 @@
 
 				<script src="bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="bootstrap/js/bootstrap.min.js"></script>
+
         <script>
+            <?php
+            $result1 = mysqli_query($conn, "select * from message_info");
+            while ($row1 = mysqli_fetch_array($result1)) {
+                echo '$("#'.$row1['message_id'].'reply").click(function(){
+                    $("#'.$row1['message_id'].'reply").hide();
+                    $("#'.$row1['message_id'].'submit").show();
+                    $("#'.$row1['message_id'].'cancel").show();
+                    $(".'.$row1['message_id'].'").show();';
+                    $result2 = mysqli_query($conn, "select * from message_info");
+                    while ($row2 = mysqli_fetch_array($result2)) {
+                        if($row2['message_id'] != $row1['message_id']){
+                            echo '$("#'.$row2['message_id'].'reply").show();';
+                            echo '$("#'.$row2['message_id'].'submit").hide();';
+                            echo '$("#'.$row2['message_id'].'cancel").hide();';
+                            echo '$(".'.$row2['message_id'].'").hide();';
+                        }
+                    }
+                echo '});';
+            }
+
+            ?>
             $("#submit_message").click(function(){
                 var data = new FormData($("#form")[0]);
                 $.ajax({
