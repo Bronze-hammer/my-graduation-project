@@ -231,7 +231,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>详细内容:</label>
-                                            <div id="technology_content" style="min-height: 150px;"></div>
+                                            <div id="technology_content" style="min-height: 150px;">
+                                        </div>
                                         </div>
                                         <p><input type="button" value="提交" class="btn btn-success" id="button_hot_technology"></p>
                                     </form>

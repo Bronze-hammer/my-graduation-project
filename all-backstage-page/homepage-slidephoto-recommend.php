@@ -9,6 +9,7 @@
 				<link href="../bootstrap/css/back-stage-share.css" rel="stylesheet">
 				<link href="../bootstrap/css/back-stage-style.css" rel="stylesheet">
 				<link href="../wangeditor/css/wangEditor.min.css" rel="stylesheet">
+        <link href="editormd/css/editormd.css" rel="stylesheet"/>
 
 		</head>
 
@@ -102,11 +103,36 @@
             <div class="page-wrapper">
                 <div style="margin-top:20px;">
                     <ul class="nav nav-tabs" role="tablist" id="tab-list">
-                        <li class="active"><a href="#recommend-content-list" role="tab" data-toggle="tab">推荐文章列表</a></li>
-                        <li><a href="#recommend-content-edit" role="tab" data-toggle="tab">上传推荐文章</a></li>
+                        <li class="active"><a href="#recommend-content-edit" role="tab" data-toggle="tab">上传推荐文章</a></li>
+                        <li><a href="#recommend-content-list" role="tab" data-toggle="tab">推荐文章列表</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" style="margin:50px;" id="recommend-content-list">
+                        <div class="tab-pane active" id="recommend-content-edit">
+                            <!-- 页面页首滑动图片内容推荐 -->
+                            <div class="slide-photo-content-recommend">
+                                <h2>页面页首滑动图片内容推荐</h2>
+                                <form name="form" id="form">
+                                    <div class="form-group">
+                                        <label>详细内容：</label>
+                                        <div id="content" style="min-height:150px;"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>图片上所显示的题目：</label>
+                                        <input name="content_title" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>图片上所显示的内容摘要：</label>
+                                        <textarea name="content_abstract" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>选择文章顶头背景图片：</label>
+                                        <input type="file" name="photo" id="photo">
+                                    </div>
+                                    <p><input type="button" value="提交" id="button_recommend_content"></p>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane" style="margin:50px;" id="recommend-content-list">
                             <?php
                                 $servername = "localhost";
                                 $username = "root";
@@ -133,33 +159,7 @@
                                 }
                             ?>
                         </div>
-                        <div class="tab-pane" id="recommend-content-edit">
-                            <!-- 页面页首滑动图片内容推荐 -->
-                            <div class="slide-photo-content-recommend">
-                                <h2>页面页首滑动图片内容推荐</h2>
-                                <form name="form" id="form">
-                                    <div class="form-group">
-                                        <label>详细内容：</label>
-                                        <div id="content" style="min-height: 150px;"></div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label>图片上所显示的题目：</label>
-                                        <!-- <input name="content_title" class="form-control" placeholder="题目"> -->
-                                        <input name="content_title" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>图片上所显示的内容摘要：</label>
-                                        <textarea name="content_abstract" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>选择文章顶头背景图片：</label>
-                                        <input type="file" name="photo" id="photo">
-                                    </div>
-                                    <p><input type="button" value="提交" id="button_recommend_content"></p>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -170,13 +170,15 @@
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../wangeditor/js/wangEditor.min.js"></script>
+        <script src="editormd/editormd.js"></script>
+        <script src="editormd/marked.min.js"></script>
+
         <script type="text/javascript">
             //实例化编辑器
             var editor = new wangEditor('content');
             //editor.config.uploadImgUrl = '../all-backstage-page/recommend-content-img';
             editor.config.hideLinkImg = true;
             editor.create();
-
             $("#exit").click(function(){
                 localStorage.setItem("useremail", "");
                 window.location.href="../login.html";
@@ -184,6 +186,7 @@
             });
             $("#button_recommend_content").click(function(){
                 var data = new FormData($('#form')[0]);
+                // data.append("content", $("#content").html());
                 data.append("content", $("#content").html());
                 $.ajax({
                     url: 'slide-recommend-upload.php',
@@ -213,7 +216,6 @@
                 });
                 return false;
             })
-
         </script>
 		</body>
 

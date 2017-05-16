@@ -61,12 +61,12 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-slidephoto-recommend.html">
+                        <a class="active-menu" href="homepage-slidephoto-recommend.php">
                             <i>首页推荐</i>
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-vedio-recommend.php">
+                        <a class="active-menu" href="homepage-video-recommend.html">
                             <i>精彩视频</i>
                         </a>
                     </li>

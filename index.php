@@ -289,7 +289,7 @@
                 };
             });
             $("#gotoBackstage").click(function(){
-                window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+                window.location.href="all-backstage-page/homepage-slidephoto-recommend.php";
             })
             // $("#gotoBackstage").click(function(){
             //     var useremail = localStorage.getItem("useremail");
