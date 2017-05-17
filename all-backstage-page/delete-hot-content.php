@@ -9,9 +9,9 @@
     mysqli_select_db($conn, "graduation-data");  //打开数据库
     $delete = mysqli_query($conn, "delete from hot_technology_content where technology_content_id='$technology_content_id'");
     if($delete) {
-        echo 000;
+        echo 00;
     } else {
-        echo 111;
+        echo 11;
     }
 
 ?>

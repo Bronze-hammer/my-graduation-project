@@ -57,11 +57,6 @@
             <nav class="navbar-side navbar-side-style" role="navigation">
                 <ul class="nav">
                     <li>
-                        <a class="active-menu" href="personal-info.php">
-                            <i>个人信息</i>
-                        </a>
-                    </li>
-                    <li>
                         <a class="active-menu" href="homepage-slidephoto-recommend.php">
                             <i>首页推荐</i>
                         </a>
@@ -71,11 +66,6 @@
                             <i>精彩视频</i>
                         </a>
                     </li>
-                    <li>
-                        <a class="active-menu" href="file-arrangement.html">
-                            <i>归档</i>
-                        </a>
-                      </li>
                       <li>
                           <a class="active-menu" href="hot-technology-edit.php">
                               <i>热门语言</i>

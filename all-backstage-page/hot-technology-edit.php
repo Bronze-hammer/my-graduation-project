@@ -124,7 +124,9 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
-                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="location.href=';
+                                echo "'revise-hot-content.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '">修改</a>&nbsp;';
                                 echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
@@ -141,7 +143,9 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
-                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="location.href=';
+                                echo "'revise-hot-content.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '">修改</a>&nbsp;';
                                 echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
@@ -158,7 +162,9 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
-                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="location.href=';
+                                echo "'revise-hot-content.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '">修改</a>&nbsp;';
                                 echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
@@ -175,7 +181,9 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
-                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="location.href=';
+                                echo "'revise-hot-content.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '">修改</a>&nbsp;';
                                 echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
@@ -192,7 +200,9 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
-                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="location.href=';
+                                echo "'revise-hot-content.php?technology_content_id=".$row['technology_content_id']."'";
+                                echo '">修改</a>&nbsp;';
                                 echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
@@ -288,26 +298,6 @@
                     }
                 });
             });
-            function Revise(technology_content_id){
-                $.ajax({
-                    url: 'revise-hot-content.php',
-                    type: 'POST',
-                    dataType: 'JSON',
-                    data: {
-                        'technology_content_id': technology_content_id
-                    }
-                }).done(function(data){
-                    switch (data) {
-                      case 00:
-                        alert("文章修改成功！");
-                        window.location.reload();
-                        break;
-                      case 11:
-                        alert("文章修改失败！");
-                        break;
-                    }
-                })
-            }
             function Delete(technology_content_id){
                 $.ajax({
                     url: 'delete-hot-content.php',
@@ -318,11 +308,11 @@
                     }
                 }).done(function(data){
                     switch (data) {
-                      case 000:
+                      case 00:
                         alert("文章删除成功！");
                         window.location.reload();
                         break;
-                      case 111:
+                      case 11:
                         alert("文章删除失败！");
                         break;
                     }
