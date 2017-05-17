@@ -5,6 +5,7 @@
     $file_abstract = $_POST['upload_file_abstract'];
     //设置时区(中国标准时间)
     date_default_timezone_set('PRC');
+    $file_id = time();
     $file_upload_time = date('Y-m-d H:i:s', time());
 
     $filename = $_FILES['myfile']['name'];
@@ -59,11 +60,15 @@
             }
             mysqli_query($conn, "set names 'utf8'");
             mysqli_select_db($conn, "graduation-data");  //打开数据库
-            $insert_action = "insert into upload_file_info (identification, filename, filetype, file_tmp_name, filesize, fileabstract, file_upload_time) values ('$uniName', '$filename', '$type', '$path', '$size', '$file_abstract', '$file_upload_time')";
+            $insert_action = "insert into upload_file_info (file_id, identification, filename, filetype, file_tmp_name, filesize, fileabstract, file_upload_time) values ('$file_id', '$uniName', '$filename', '$type', '$path', '$size', '$file_abstract', '$file_upload_time')";
             $insert_result = mysqli_query($conn, $insert_action);
 
             if($insert_result){
-                echo "文件".$filename."上传成功！";
+                // echo "文件".$filename."上传成功！";
+                echo '<script>';
+                echo 'alert("文件'.$filename.'上传成功");';
+                echo 'window.location.href="resources-upload-download.php";';
+                echo '</script>';
             } else {
                 echo "文件信息录入数据库失败！";
                 printf("Error:%s\n", mysqli_error($conn));
@@ -71,7 +76,10 @@
             }
 
         } else {
-            echo "文件".$filename."上传失败！";
+            // echo "文件".$filename."上传失败！";
+            echo '<script>';
+            echo 'alert("文件'.$filename.'上传失败");';
+            echo '</script>';
         }
     } else {
         switch($error){

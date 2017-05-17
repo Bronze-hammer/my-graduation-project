@@ -54,12 +54,12 @@
             <nav class="navbar-side navbar-side-style" role="navigation">
                 <ul class="nav">
                     <li>
-                        <a class="active-menu" href="homepage-slidephoto-recommend.html">
+                        <a class="active-menu" href="homepage-slidephoto-recommend.php">
                             <i>首页推荐</i>
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-vedio-recommend.html">
+                        <a class="active-menu" href="homepage-video-recommend.php">
                             <i>精彩视频</i>
                         </a>
                     </li>
@@ -92,7 +92,7 @@
 								<div class="slide-photo-content-recommend">
 									  <h2>资源上传下载</h2>
                     <div>
-                        <form action="do_upload_file.php" method="post" enctype="multipart/form-data">
+                        <form action="do-upload-file.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <input type="hidden" name="MAX_FILE_SIZE"/>
                                 <label>选择要上传的资源文件:</label>
@@ -104,54 +104,55 @@
                                 <textarea class="form-control" placeholder="摘要" name="upload_file_abstract"></textarea>
                             </div>
                             <input type="submit" value="上传文件" />
-                            <hr>
-                            <?php
-                                $servername = "localhost";
-                                $username = "root";
-                                $password = "xuzihui";
-                                //连接数据库
-                                $conn = new mysqli($servername, $username, $password);
-                                if (!$conn) {
-                                    die('error'.mysqli_error);
-                                }
-                                mysqli_query($conn, "set names 'utf8'");
-                                mysqli_select_db($conn, "graduation-data");  //打开数据库
-                                $sql = "select * from upload_file_info";
-                                $result = mysqli_query($conn, $sql);
-
-                                if (!$result) {
-                                    printf("error:%s\n", mysqli_error($conn));
-                                    exit();
-                                }
-                                while ($row = mysqli_fetch_array($result)) {
-                                    echo '<div style="font-size: 1px">';
-                                    echo '<table style="margin: 0" class="table table-hover">';
-                                    echo '<tr>';
-                                    echo '<td style="width: 30px">';
-                                    echo $row['id'];
-                                    echo '</td>';
-                                    echo '<td class="active" style="width: 190px">';
-                                    echo $row['filename'];
-                                    echo '</td>';
-                                    echo '<td class="success">';
-                                    echo $row['fileabstract'];
-                                    echo '</td>';
-                                    echo '<td class="warning" style="width: 100px">';
-                                    echo $row['filesize']."byte";
-                                    echo '</td>';
-                                    echo '<td style="width: 100px">';
-                                    echo $row['file_upload_time'];
-                                    echo '</td>';
-                                    echo '<td style="width: 50px">';
-                                    //echo '<a href="'.$row['file_tmp_name'].'/'.$row['identification'].'">下载</a>';
-                                    echo '<a href="do_download_file.php?filename='.$row['filename'].'&file_tmp_name='.$row['file_tmp_name'].'&identification='.$row['identification'].'">下载</a>';
-                                    echo '</td>';
-                                    echo '</tr>';
-                                    echo '</table>';
-                                    echo '</div>';
-                                }
-                            ?>
                         </form>
+                        <hr>
+                        <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "xuzihui";
+                            //连接数据库
+                            $conn = new mysqli($servername, $username, $password);
+                            if (!$conn) {
+                                die('error'.mysqli_error);
+                            }
+                            mysqli_query($conn, "set names 'utf8'");
+                            mysqli_select_db($conn, "graduation-data");  //打开数据库
+                            $sql = "select * from upload_file_info";
+                            $result = mysqli_query($conn, $sql);
+
+                            if (!$result) {
+                                printf("error:%s\n", mysqli_error($conn));
+                                exit();
+                            }
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo '<div style="font-size: 1px">';
+                                echo '<table style="margin: 0" class="table table-hover">';
+                                echo '<tr>';
+                                echo '<td style="width: 30px">';
+                                echo $row['id'];
+                                echo '</td>';
+                                echo '<td class="active" style="width: 190px">';
+                                echo $row['filename'];
+                                echo '</td>';
+                                echo '<td class="success">';
+                                echo $row['fileabstract'];
+                                echo '</td>';
+                                echo '<td class="warning" style="width: 100px">';
+                                echo $row['filesize']."byte";
+                                echo '</td>';
+                                echo '<td style="width: 100px">';
+                                echo $row['file_upload_time'];
+                                echo '</td>';
+                                echo '<td style="width: 50px">';
+                                //echo '<a href="'.$row['file_tmp_name'].'/'.$row['identification'].'">下载</a>';
+                                echo '<a href="do_download_file.php?filename='.$row['filename'].'&file_tmp_name='.$row['file_tmp_name'].'&identification='.$row['identification'].'">下载</a>';
+                                echo '<a onclick="Delete('.$row['file_id'].')">删除</a>';
+                                echo '</td>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</div>';
+                            }
+                        ?>
                     </div>
 								</div>
 						</div>
@@ -160,7 +161,29 @@
 
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script>
+            function Delete(file_id){
+                $.ajax({
+                    url: 'delete-file.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        'file_id': file_id
+                    }
+                }).done(function(data){
+                   switch (data) {
+                      case 0:
+                       alert("文件删除成功");
+                       window.location.reload();
+                       break;
+                     case 1:
+                       alert("文件删除失败");
+                       break;
 
+                   }
+                })
+            }
+        </script>
 		</body>
 
 </html>
