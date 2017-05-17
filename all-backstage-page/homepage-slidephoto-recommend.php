@@ -171,7 +171,7 @@
             editor.create();
             $("#exit").click(function(){
                 localStorage.setItem("useremail", "");
-                window.location.href="../login.html";
+                window.location.href="../index.php";
 
             });
             $("#button_recommend_content").click(function(){

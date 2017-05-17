@@ -93,7 +93,19 @@
 									  <h2>留言管理</h2>
                     <div>
                         <table class="table table-hover">
-                            <tr class="active">
+                        <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "xuzihui";
+                            $conn = new mysqli($servername, $username, $password);  //连接数据库
+                            mysqli_query($conn, "set names 'utf8'");
+                            mysqli_select_db($conn, "graduation-data");  //打开数据库
+                            $select = mysqli_query($conn, "select * from message_info");
+                            while ($row = mysqli_fetch_array($select)) {
+                                
+                            }
+                        ?>
+                            <!-- <tr class="active">
                                 <td class="active">1</td>
                                 <td class="success">2</td>
                                 <td class="warning">3</td>
@@ -110,7 +122,7 @@
                                 <td class="success">2</td>
                                 <td class="warning">3</td>
 
-                            </tr>
+                            </tr> -->
                         </table>
                     </div>
 								</div>

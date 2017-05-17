@@ -172,6 +172,7 @@
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>个人操作</h4>
                                 <a id="gotoBackstage" target="_blank"><p>进入控制台</p></a>
+                                <a id="sign_out"><p>退出</p></a>
                             </div>
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>共享资源</h4>
@@ -193,15 +194,12 @@
             </div>
         </div>
         <!-- 模态框（Modal） -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false">
 						<div class="modal-dialog">
 								<div class="modal-content">
-
 										<div class="modal-header">
-												<!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
 												<h4 class="modal-title" id="myModalLabel">请登录</h4>
 										</div>
-
 										<div class="modal-body">
                         <div style="margin:50px;">
                             <form class="form-horizontal" action="logincheck.php" method="post">
@@ -217,9 +215,6 @@
                                     <div class="login-button">
                                         <button id="loginbutton" type="button" class="btn btn-success">Log in</button>
                                     </div>
-                                    <!-- <div class="login-button">
-                                        <button id="gotohomepage" type="button" class="btn btn-success">Back HomePage</button>
-                                    </div> -->
                                 </div>
                                 <div class="goto-register">
                                     <a href="register.html"><p class="text-primary">No account? Please click me to register...</p></a>
@@ -227,12 +222,6 @@
                             </form>
                         </div>
                     </div>
-
-										<!-- <div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-												<button type="button" class="btn btn-primary">提交更改</button>
-										</div> -->
-
 								</div><!-- /.modal-content -->
 						</div><!-- /.modal -->
 				</div>
@@ -246,15 +235,11 @@
                 if(useremail == null || useremail == ""){
                     $('#myModal').modal();
                 }
-            });
+            })
             $("#loginbutton").click(function(){
                 var useremail = $("#useremail").val();
                 var userpassword = $("#userpassword").val();
                 if( useremail != "" && userpassword != "") {
-                    //localStorage.setItem("username", useremail);
-                    //localStorage.setItem("password", userpassword);
-                    //window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
-
                     $.ajax({
                         type: "POST",
                         url: "userlogin.php",
@@ -265,12 +250,9 @@
                         },
                         success: function(data){
                             switch(data){
-                                case 1:  //登录成功
-                                    //$.cookie("useremail", useremail);
-                                    //$.cookie("limit", 0);
+                                case 1:
                                     localStorage.setItem("useremail", useremail);
-                                    localStorage.setItem("limit", 0);
-                                    // window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
+                                    localStorage.setItem("limit", 1);
                                     window.location.href="index.php"
                                     break;
                                 case 2:
@@ -283,25 +265,21 @@
                         }
                     })
                 } else {
-                    //$("#tishi").text("密码错误！");
                     alert('请检查你的输入！');
                     $("#userpassword").val("");
-                };
-            });
-            $("#gotoBackstage").click(function(){
-                window.location.href="all-backstage-page/homepage-slidephoto-recommend.php";
+                }
             })
-            // $("#gotoBackstage").click(function(){
-            //     var useremail = localStorage.getItem("useremail");
-            //
-            //     if (useremail == null || useremail == "") {
-            //
-            //         window.location.href="login.html";
-            //     } else {
-            //         window.location.href="all-backstage-page/homepage-slidephoto-recommend.html";
-            //     }
-            //
-            // });
+            $("#gotoBackstage").click(function(){
+                if (localStorage.getItem("limit") == 0) {
+                    window.location.href="all-backstage-page/homepage-slidephoto-recommend.php";
+                } else {
+                    alert("抱歉，你当前的权限不能进入后台进行操作！");
+                }
+            })
+            $("#sign_out").click(function(){
+                localStorage.setItem("useremail", "");
+                window.location.href="index.php";
+            })
         </script>
 
     </body>

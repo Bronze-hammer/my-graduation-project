@@ -12,25 +12,25 @@
 
 		<body>
         <div class="register-page">
-					  <form class="form-horizontal">
-								<div class="form-group">
-										<label>昵称</label>
-										<input type="email" class="form-control" placeholder="username">
-								</div>
+					  <form class="form-horizontal" id="form" name="form">
 								<div class="form-group">
 		                <label for="exampleInputEmail2">邮箱</label>
-		                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+		                <input type="email" class="form-control" name="email">
 	              </div>
 	              <div class="form-group">
-		                <label for="exampleInputPassword2">密码</label>
-		                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+		                <label for="exampleInputPassword1">密码</label>
+		                <input type="password" class="form-control" name="password">
 	              </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">密码</label>
+                    <input type="password" class="form-control" name="confirm_password">
+                </div>
 
 						</form>
 						<div class="register-button">
 								<div class="row">
 										<div class="col-md-6">
-												<button type="submit" class="btn btn-success">Register</button>
+												<button id="register" type="submit" class="btn btn-success">Register</button>
 										</div>
 										<div class="col-md-6">
 												<button id="goback_loginpage" type="submit" class="btn btn-success">Go Back</button>
@@ -48,6 +48,31 @@
                     location.href="index.php";
                 });
             });
+            $("#register").click(function(){
+                var data = new FormData($("#form")[0]);
+                $.ajax({
+                    url: 'do-register.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: data,
+                    cache: false,
+                    processData: false,
+                    contentType: false
+                }).done(function(data){
+                    switch (data) {
+                      case 0:
+                        alert("注册成功");
+                        window.location.href="index.php";
+                        break;
+                      case 1:
+                        alert("注册失败");
+                        break;
+                      case 2:
+                        alert("两次输出的密码不一致");
+                        break;
+                    }
+                })
+            })
         </script>
 		</body>
 <html>
