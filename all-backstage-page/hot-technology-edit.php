@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-vedio-recommend.html">
+                        <a class="active-menu" href="homepage-video-recommend.html">
                             <i>精彩视频</i>
                         </a>
                     </li>
@@ -116,7 +116,7 @@
                             echo '<div class="tab-pane active" id="tab-html5">';
                             $select_html5 = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='html5'");
                             while ($row = mysqli_fetch_array($select_html5)) {
-                                echo '<div>';
+                                echo '<div style="margin-top:20px;">';
                                 echo '<a onclick="location.href=';
                                 echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
                                 echo '" target="_blank">';
@@ -124,6 +124,8 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
                             echo '</div>';
@@ -131,7 +133,7 @@
                             echo '<div class="tab-pane" id="tab-javascript">';
                             $select_javascript = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='javascript'");
                             while ($row = mysqli_fetch_array($select_javascript)) {
-                                echo '<div>';
+                                echo '<div style="margin-top:20px;">';
                                 echo '<a onclick="location.href=';
                                 echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
                                 echo '" target="_blank">';
@@ -139,9 +141,11 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
-                            echo '</div>';
+                            echo '</div style="margin-top:20px;">';
 
                             echo '<div class="tab-pane" id="tab-angularjs">';
                             $select_angularjs = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='angularjs'");
@@ -154,6 +158,8 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
                             echo '</div>';
@@ -161,7 +167,7 @@
                             echo '<div class="tab-pane" id="tab-python">';
                             $select_python = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='python'");
                             while ($row = mysqli_fetch_array($select_python)) {
-                                echo '<div>';
+                                echo '<div style="margin-top:20px;">';
                                 echo '<a onclick="location.href=';
                                 echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
                                 echo '" target="_blank">';
@@ -169,6 +175,8 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
                             echo '</div>';
@@ -176,7 +184,7 @@
                             echo '<div class="tab-pane" id="tab-nodejs">';
                             $select_nodejs = mysqli_query($conn, "select * from hot_technology_content where technology_content_type='nodejs'");
                             while ($row = mysqli_fetch_array($select_nodejs)) {
-                                echo '<div>';
+                                echo '<div style="margin-top:20px;">';
                                 echo '<a onclick="location.href=';
                                 echo "'hot-technology-show.php?technology_content_id=".$row['technology_content_id']."'";
                                 echo '" target="_blank">';
@@ -184,6 +192,8 @@
                                 echo '</a>';
                                 echo '<h6>'.$row['technology_content_time'].'</h6>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
+                                echo '<a onclick="Revise('.$row['technology_content_id'].')">修改</a>&nbsp;';
+                                echo '<a onclick="Delete('.$row['technology_content_id'].')">删除</a>';
                                 echo '</div>';
                             }
                             echo '</div>';
@@ -278,7 +288,46 @@
                     }
                 });
             });
-
+            function Revise(technology_content_id){
+                $.ajax({
+                    url: 'revise-hot-content.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        'technology_content_id': technology_content_id
+                    }
+                }).done(function(data){
+                    switch (data) {
+                      case 00:
+                        alert("文章修改成功！");
+                        window.location.reload();
+                        break;
+                      case 11:
+                        alert("文章修改失败！");
+                        break;
+                    }
+                })
+            }
+            function Delete(technology_content_id){
+                $.ajax({
+                    url: 'delete-hot-content.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        'technology_content_id': technology_content_id
+                    }
+                }).done(function(data){
+                    switch (data) {
+                      case 000:
+                        alert("文章删除成功！");
+                        window.location.reload();
+                        break;
+                      case 111:
+                        alert("文章删除失败！");
+                        break;
+                    }
+                })
+            }
         </script>
 
 		</body>

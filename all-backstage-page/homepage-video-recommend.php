@@ -123,9 +123,28 @@
                                 <p><input type="button" value="提交" id="button_video" class="btn btn-success"></p>
                             </div>
                         </form>
-                        <div id="result"></div>
                     </div>
 								</div>
+                <div style="text-align:center;width:70%;margin:auto;">
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "xuzihui";
+                //连接数据库
+                $conn = new mysqli($servername, $username, $password);
+                mysqli_query($conn, "set names 'utf8'");
+                mysqli_select_db($conn, "graduation-data");  //打开数据库
+                $video_result = mysqli_query($conn, "select * from recommend_video_info");
+                $video_row = mysqli_fetch_array($video_result);
+                echo '<h3>'.$video_row['video_name'].'</h3>';
+                echo '<p style="text-indent: 30px; margin: 50px 60px;">'.$video_row['video_abstract'].'</p>';
+                if($video_row['video_type'] === "video_address" || $video_row['video_type'] === "flash_address"){
+                    echo '<video src="'.$video_row['video_url'].'"></video>';
+                } else {
+                    echo $video_row['video_url'];
+                }
+                ?>
+                </div>
 						</div>
 				</div>
 
