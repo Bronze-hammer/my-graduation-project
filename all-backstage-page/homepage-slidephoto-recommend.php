@@ -57,46 +57,36 @@
             <nav class="navbar-side navbar-side-style" role="navigation">
                 <ul class="nav">
                     <li>
-                        <a class="active-menu" href="personal-info.php">
-                            <i>个人信息</i>
-                        </a>
-                    </li>
-                    <li>
                         <a class="active-menu" href="homepage-slidephoto-recommend.php">
                             <i>首页推荐</i>
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-vedio-recommend.html">
+                        <a class="active-menu" href="homepage-video-recommend.html">
                             <i>精彩视频</i>
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="file-arrangement.html">
-                            <i>归档</i>
+                        <a class="active-menu" href="hot-technology-edit.php">
+                            <i>热门语言</i>
                         </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="hot-technology-edit.php">
-                              <i>热门语言</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="messages-administration.html">
-                              <i>留言管理</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="resources-upload-download.php">
-                              <i>资源上传下载</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="user-administration.html">
-                              <i>用户管理</i>
-                          </a>
-                      </li>
-                  </ul>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="messages-administration.html">
+                            <i>留言管理</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="resources-upload-download.php">
+                            <i>资源上传下载</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="user-administration.html">
+                            <i>用户管理</i>
+                        </a>
+                    </li>
+                </ul>
             </nav>
 
             <!-- 右侧内容 -->
@@ -153,7 +143,7 @@
                                     echo '<button style="margin-top:50%;" type="button" onclick="location.href=';
                                     echo "'edit-content.php?edit_content_id=".$row['content_id']."'";
                                     echo '">编辑</button>';
-                                    echo '<button style="margin-top:50%;" type="button">'."删除".'</button>';
+                                    echo '<button style="margin-top:50%;" type="button" onclick="delete_content('.$row['content_id'].')">'."删除".'</button>';
                                     echo '</div>';
                                     echo '</div>';
                                 }
@@ -216,6 +206,28 @@
                 });
                 return false;
             })
+
+            function delete_content(content_id){
+                $.ajax({
+                    type: "POST",
+                    url: "delete-content.php",
+                    dataType: "JSON",
+                    data: {
+                        "delete_content_id": content_id
+                    }
+                }).done(function(data){
+                    switch (data) {
+                      case 00:
+                        alert("文章删除成功！");
+                        window.location.reload();
+                        break;
+                      case 11:
+                        alert("文章删除失败！");
+                        break;
+
+                    }
+                })
+            }
         </script>
 		</body>
 

@@ -57,11 +57,6 @@
             <nav class="navbar-side navbar-side-style" role="navigation">
                 <ul class="nav">
                     <li>
-                        <a class="active-menu" href="personal-info.html">
-                            <i>个人信息</i>
-                        </a>
-                    </li>
-                    <li>
                         <a class="active-menu" href="homepage-slidephoto-recommend.php">
                             <i>首页推荐</i>
                         </a>
@@ -72,31 +67,26 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="file-arrangement.html">
-                            <i>归档</i>
+                        <a class="active-menu" href="hot-technology-edit.html">
+                            <i>热门语言</i>
                         </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="hot-technology-edit.html">
-                              <i>热门语言</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="messages-administration.html">
-                              <i>留言管理</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="resources-upload-download.php">
-                              <i>资源上传下载</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="user-administration.html">
-                              <i>用户管理</i>
-                          </a>
-                      </li>
-                  </ul>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="messages-administration.html">
+                            <i>留言管理</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="resources-upload-download.php">
+                            <i>资源上传下载</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="user-administration.html">
+                            <i>用户管理</i>
+                        </a>
+                    </li>
+                </ul>
             </nav>
 
             <!-- 右侧内容 -->
