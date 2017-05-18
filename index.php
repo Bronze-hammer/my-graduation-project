@@ -202,14 +202,14 @@
 										</div>
 										<div class="modal-body">
                         <div style="margin:50px;">
-                            <form class="form-horizontal" action="logincheck.php" method="post">
+                            <form class="form-horizontal" name="form" id="form">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">登录邮箱</label>
-                                    <input type="email" name="email" class="form-control" id="useremail" placeholder="Email">
+                                    <label>登录邮箱</label>
+                                    <input name="email" class="form-control" id="useremail">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">登录密码</label>
-                                    <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password">
+                                    <label>登录密码</label>
+                                    <input type="password" name="password" class="form-control" id="userpassword">
                                 </div>
                                 <div class="form-group">
                                     <div class="login-button">
@@ -237,37 +237,26 @@
                 }
             })
             $("#loginbutton").click(function(){
-                var useremail = $("#useremail").val();
-                var userpassword = $("#userpassword").val();
-                if( useremail != "" && userpassword != "") {
-                    $.ajax({
-                        type: "POST",
-                        url: "userlogin.php",
-                        dataType: "JSON",
-                        data: {
-                            "useremail": useremail,
-                            "userpassword": userpassword
-                        },
-                        success: function(data){
-                            switch(data){
-                                case 1:
-                                    localStorage.setItem("useremail", useremail);
-                                    localStorage.setItem("limit", 1);
-                                    window.location.href="index.php"
-                                    break;
-                                case 2:
-                                    alert("密码错误！");
-                                    break;
-                                case 3:
-                                    alert("用户不存在！")
-                                    break;
-                            }
-                        }
-                    })
-                } else {
-                    alert('请检查你的输入！');
-                    $("#userpassword").val("");
-                }
+                var data = new FormData($("#form")[0]);
+                $.ajax({
+                    url: 'userlogin.php',
+                    type: 'POST',
+                    data: data,
+                    dataType: 'JSON',
+                    cache: false,
+                    processData: false,
+                    contentType: false
+                }).done(function(data){
+                    if (data['whether_login'] == 0) {
+                        localStorage.setItem("useremail", data['username']);
+                        localStorage.setItem("limit", data['identity']);
+                        window.location.href="index.php";
+                    } else if (data['whether_login'] == 1) {
+                        alert("输入密码错误");
+                    } else if (data['whether_login'] == 2) {
+                        alert("用户不存在");
+                    }
+                })
             })
             $("#gotoBackstage").click(function(){
                 if (localStorage.getItem("limit") == 0) {

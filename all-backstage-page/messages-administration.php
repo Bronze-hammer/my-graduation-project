@@ -69,7 +69,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="messages-administration.html">
+                        <a class="active-menu" href="messages-administration.php">
                             <i>留言管理</i>
                         </a>
                     </li>
@@ -102,27 +102,25 @@
                             mysqli_select_db($conn, "graduation-data");  //打开数据库
                             $select = mysqli_query($conn, "select * from message_info");
                             while ($row = mysqli_fetch_array($select)) {
-                                
+                                echo '<tr class="active">';
+                                echo '<td class="active">'.$row['commenter_name'].'</td>';
+                                echo '<td class="active" style="width:70%">'.$row['message_content'].'</td>';
+                                echo '<td class="active">'.$row['message_time'].'</td>';
+                                echo '<td class="active"><a onclick="Delete_message('.$row['message_id'].')">删除<a></td>';
+                                echo '</tr>';
+                                $select1 = mysqli_query($conn, "select * from reply_message_info");
+                                while ($row1 = mysqli_fetch_array($select1)) {
+                                    if ($row1['reply_object'] == $row['message_id']) {
+                                        echo '<tr class="active">';
+                                        echo '<td class="success">'.$row1['reply_commenter_name'].'</td>';
+                                        echo '<td class="success" style="width:70%">'.$row1['reply_message_content'].'</td>';
+                                        echo '<td class="success">'.$row1['reply_message_time'].'</td>';
+                                        echo '<td class="success"><a onclick="Delete_reply('.$row1['reply_message_id'].')">删除<a></td>';
+                                        echo '</tr>';
+                                    }
+                                }
                             }
                         ?>
-                            <!-- <tr class="active">
-                                <td class="active">1</td>
-                                <td class="success">2</td>
-                                <td class="warning">3</td>
-
-                            </tr>
-                            <tr class="active">
-                                <td class="active">1</td>
-                                <td class="success">2</td>
-                                <td class="warning">3</td>
-
-                            </tr>
-                            <tr class="active">
-                                <td class="active">1</td>
-                                <td class="success">2</td>
-                                <td class="warning">3</td>
-
-                            </tr> -->
                         </table>
                     </div>
 								</div>
@@ -132,6 +130,50 @@
 
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script>
+            function Delete_reply(reply_message_id){
+                $.ajax({
+                    url: 'delete-reply-message.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        "reply_message_id": reply_message_id
+                    }
+                }).done(function(data){
+                    switch (data) {
+                      case 0:
+                        alert("回复删除成功");
+                        window.location.reload();
+                        break;
+                      case 1:
+                        alert("回复删除失败");
+                        break;
+
+                    }
+                })
+            }
+            function Delete_message(message_id){
+                $.ajax({
+                    url: 'delete-message.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        "message_id": message_id
+                    }
+                }).done(function(data){
+                    switch (data) {
+                      case 00:
+                        alert("留言删除成功");
+                        window.location.reload();
+                        break;
+                      case 11:
+                        alert("留言删除失败");
+                        break;
+
+                    }
+                })
+            }
+        </script>
 
 		</body>
 

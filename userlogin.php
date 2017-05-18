@@ -3,9 +3,9 @@
     header("Content-type: text/html; charset=utf-8");
     session_start();
 
-    $useremail = $_POST['useremail'];
-    $userpassword = $_POST['userpassword'];
-
+    $useremail = $_POST['email'];
+    $userpassword = $_POST['password'];
+    $response = array();
     $servername = "localhost";
     $username = "root";
     $password = "xuzihui";
@@ -14,26 +14,25 @@
     if (!$conn) {
         die('error'.mysqli_error);
     }
-    mysqli_select_db($conn, "graduation_data");  //打开数据库
-    $select = mysqli_query($conn, "select password from userinfo where username='$useremail'");
-    while ($row = mysqli_fetch_array($select)) {
-        if ($row['password'] == $userpassword) {
-            echo 1;
-        }else {
-            echo 2;
+    mysqli_select_db($conn, "graduation-data");  //打开数据库
+    $select_password = mysqli_query($conn, "select username,password,identity from userinfo where username='$useremail'");
+    if ($select_password) {
+        while ($row = mysqli_fetch_array($select_password)) {
+            $pwd = $row['password'];
+            $username = $row['username'];
+            $identity = $row['identity'];
+            if ($pwd == $userpassword) {
+                $response['whether_login'] = 0;
+                $response['username'] = $username;
+                $response['identity'] = $identity;
+            }else {
+                $response['whether_login'] = 1;
+            }
         }
+    } else {
+        $response['whether_login'] = 2;
     }
-    // $sql = "select * from userinfo where username='$useremail'";
-    // $result = mysqli_query($conn, $sql);
-    //
-    // if($row = mysqli_fetch_array($result)){
-    //     if($row['password'] == $userpassword){
-    //         echo 1;  //登录成功
-    //     } else {
-    //         echo 2;  //密码错误
-    //     }
-    // } else {
-    //     echo 3;  //用户不存在
-    // }
+
+    echo json_encode($response);
 
 ?>
