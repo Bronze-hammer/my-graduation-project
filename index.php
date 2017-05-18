@@ -122,34 +122,26 @@
                         echo $video_row['video_url'];
                     }
                     echo '</div>';
-                    // <div class="grid-video">
-                    //
-                    //     <p style="text-indent:30px; margin: 50px 60px;">2016苹果秋季新品发布会于美国当地时间9月7日上午10点（北京时间9月8日凌晨1点）在比尔·格雷厄姆市政礼堂举行。发布会宣布超级马里奥兄弟登录iPhone平台，iWork新增远程实时协作功能，精灵宝可梦GO登录Apple Watch。发布了Apple Watch 2、iPhone 7、iPhone 7 Plus、Apple AirPods等新产品</p>
-                    //
-                    //     <embed src="http://player.video.qiyi.com/8f791f95f0e41919a6528e8cc44047f9/0/0/v_19rrldgn5w.swf-albumId=494767400-tvId=494767400-isPurchase=0-cnId=30" quality="high" width="90%" height="500" align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed>
-                    //
-                    // </div>
-                    //
-                    // <!-- 栅格布局，发表博客的展示 -->
-                    // <div class="grid-container">
-                    //     <div class="row">
-                    //         <div class="col-md-4">
-                    //             <img style="box-shadow: 8px 8px 5px #888888;" class="img-circle" src="bootstrap/images/grid_photo/grid-img1.jpg" alt="">
-                    //             <h3 style="text-align: center;">Mac OS</h3>
-                    //             <p style="text-indent:30px">Mac OS是一套运行于苹果Macintosh系列电脑上的操作系统，是首个在商用领域成功的图形用户界面操作系统。</p>
-                    //         </div>
-                    //         <div class="col-md-4">
-                    //             <img style="box-shadow: 8px 8px 5px #888888;" class="img-circle" src="bootstrap/images/grid_photo/grid-img2.jpg" alt="">
-                    //             <h3 style="text-align: center;">Linux</h3>
-                    //             <p style="text-indent:30px">Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统</p>
-                    //         </div>
-                    //         <div class="col-md-4">
-                    //             <img style="box-shadow: 8px 8px 5px #888888;" class="img-circle" src="bootstrap/images/grid_photo/grid-img3.jpg" alt="">
-                    //             <h3 style="text-align: center;">Window</h3>
-                    //             <p style="text-indent:30px">Microsoft Windows,是美国微软公司研发的一套操作系统，它问世于1985年。</p>
-                    //         </div>
-                    //     </div>
-                    // </div>
+                    echo '<hr>';
+                    echo '<div class="grid-container">';
+                    $news_result = mysqli_query($conn, "select * from hot_technology_content order by technology_content_time desc");
+                    $n = 0;
+                    while ($new_row = mysqli_fetch_array($news_result)) {
+                        if ($n < 3) {
+                            echo '<div style="margin: 40px 100px">';
+                            echo '<a onclick="location.href=';
+                            echo "'hot-technology/hot-technology-article-show.php?technology_content_id=".$new_row['technology_content_id']."'";
+                            echo '" target="_blank">';
+                            echo '<h4 style="font-weight: bold;">'.$new_row['technology_content_title'].'</h4>';
+                            echo '</a>';
+                            echo '<kbd>'.$new_row['technology_content_type'].'</kbd>&nbsp&nbsp&nbsp';
+                            echo '<span>'.$new_row['technology_content_time'].'</span>';
+                            echo '<p style="margin-top:10px;">'.$new_row['technology_content_abstract'].'</p>';
+                            echo '</div>';
+                            $n += 1;
+                        }
+                    }
+                    echo '</div>';
                 ?>
 
                 <!-- footer -->
