@@ -7,7 +7,7 @@
 
 				<title>About me</title>
 
-				<link rel="stylesheet" type="text/css" href="bootstrap/css/message-board.css">
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/resource-down.css">
 				<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		</head>
 
@@ -31,11 +31,10 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="index.php">首页</a></li>
                                     <li><a href="aboutme.php">关于</a></li>
-                                    <li><a href="blog-catalog.html">归档</a></li>
-                                    <li><a href="#">资源下载</a></li>
-                                    <li><a href="message-board.html">留言</a></li>
+                                    <li><a href="resource-down.php">资源下载</a></li>
+                                    <li><a href="message-board.php">留言</a></li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">归档<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="hot-technology/html5-page.php" target="_blank">HTML5</a></li>
                                             <li><a href="hot-technology/javascript-page.php" target="_blank">JavaScript</a></li>
@@ -52,7 +51,7 @@
                 </div>
 
 								<!--message-board-list -->
-								<div id="message-board-list">
+								<div id="resource-down-list">
 									  <div class="row a-message" v-for="message in messages">
                     <?php
                         $servername = "localhost";
@@ -92,8 +91,7 @@
                             echo $row['file_upload_time'];
                             echo '</td>';
                             echo '<td style="width: 50px">';
-                            //echo '<a href="'.$row['file_tmp_name'].'/'.$row['identification'].'">下载</a>';
-                            echo '<a href="do_download_file.php?filename='.$row['filename'].'&file_tmp_name='.$row['file_tmp_name'].'&identification='.$row['identification'].'">下载</a>';
+                            echo '<a href="all-backstage-page/do_download_file.php?filename='.$row['filename'].'&file_tmp_name='.$row['file_tmp_name'].'&identification='.$row['identification'].'">下载</a>';
                             echo '</td>';
                             echo '</tr>';
                             echo '</table>';

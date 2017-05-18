@@ -7,7 +7,7 @@
 
 				<title>About me</title>
 
-				<link rel="stylesheet" type="text/css" href="bootstrap/css/aboutme.css">
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/aboutme-style.css">
 				<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		</head>
 
@@ -29,29 +29,25 @@
                         <div class="nav-container">
                             <div class="collapse navbar-collapse" id="demo-navbar">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="index.html">首页</a></li>
-                                    <li><a href="aboutme.html">关于</a></li>
-                                    <li><a href="blog-catalog.html">归档</a></li>
-                                    <li><a href="#">资源下载</a></li>
+                                    <li><a href="index.php">首页</a></li>
+                                    <li><a href="aboutme.php">关于</a></li>
+                                    <li><a href="resource-download.php">资源下载</a></li>
                                     <li><a href="message-board.php">留言</a></li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">归档<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="#tab-html5">HTML5</a></li>
                                             <li><a href="#tab-javascript">JavaScript</a></li>
                                             <li><a href="#tab-angularjs">Angular.js</a></li>
                                             <li><a href="#tab-python">Python</a></li>
-                                            <!-- <li class="divider"></li> -->
                                             <li><a href="#tab-nodejs">Node.js</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </nav>
                 </div>
-
 								<!--my detail-->
                 <?php
                     $servername = "localhost";

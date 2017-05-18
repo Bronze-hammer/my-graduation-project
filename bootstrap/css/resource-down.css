@@ -51,32 +51,24 @@
 
 .nav-container {
   margin: 0 auto;
-  width: 446px;
+  width: 360px;
 }
 
-/*my detail*/
-.my-detail {
-	text-align: center;
+/*message-board-list*/
+#resource-down-list {
+	width: 870px;
+	margin: 50px auto;
 }
 
-.introduce {
+.a-message {
+	margin-top: 20px;
+	border-bottom: 1px solid #000;
+}
+
+/*message-board*/
+.message-board {
 	width: 660px;
-	text-align: center;
-	margin: 20px auto;
-}
-
-/*页脚*/
-#footer {
-  background: #eee;
-  color: #666;
-  font-size: 12px;
-  margin: 50px 0 0 0;
-  text-shadow: 1px 1px 1px #ddd;
-}
-
-.footer-content {
-  margin: 0 20px;
-  font-size: 13px;
+	margin: 50px auto;
 }
 
 #copyright {

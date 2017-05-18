@@ -4,15 +4,11 @@
 			  <meta charset="utf-8">
 				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 				<meta http-equiv="X-UA-Compalible" content="IE=edge">
-
 				<title>Message board</title>
-
-				<link rel="stylesheet" type="text/css" href="bootstrap/css/message-board.css">
+				<link rel="stylesheet" type="text/css" href="bootstrap/css/message-board-style.css">
 				<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 		</head>
-
 		<body>
-
 				<!--main background photo-->
 				<img src="bootstrap/images/background1.jpg" class="bg">
 
@@ -31,11 +27,10 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="index.php">首页</a></li>
                                     <li><a href="aboutme.php">关于</a></li>
-                                    <li><a href="blog-catalog.html">归档</a></li>
-                                    <li><a href="#">资源下载</a></li>
-                                    <li><a href="message-board.html">留言</a></li>
+                                    <li><a href="resource-download.php">资源下载</a></li>
+                                    <li><a href="message-board.php">留言</a></li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">归档<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="hot-technology/html5-page.php" target="_blank">HTML5</a></li>
                                             <li><a href="hot-technology/javascript-page.php" target="_blank">JavaScript</a></li>
@@ -46,11 +41,9 @@
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </nav>
                 </div>
-
 								<!--message-board-list -->
 								<div id="message-board-list">
                     <div>
@@ -116,7 +109,6 @@
 
 										</div>
 								</div>
-
 								<!-- Copyright -->
                 <div id="copyright">
                     <div class="copyright-end">
@@ -185,7 +177,6 @@
                     });
                 });';
             }
-
             ?>
             $("#submit_message").click(function(){
                 var data = new FormData($("#form1")[0]);
@@ -206,7 +197,6 @@
                       case 1:
                         alert("留言失败！");
                         break;
-
                     }
                 })
             });

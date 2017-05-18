@@ -9,7 +9,7 @@
         <title>Home</title>
 
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/index.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/index-style.css">
 
     </head>
     <body>
@@ -29,8 +29,6 @@
                     //图片轮播
                     echo '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
                     //Indicators
-                    // $result = mysqli_query($conn, "select * from recommend_content_info");
-                    // echo '<div>'.mysqli_num_rows($result).'</div>';
                     echo '<ol class="carousel-indicators">';
                     $count_result = mysqli_query($conn, "select * from recommend_content_info");
                     for ($i=0; $i < mysqli_num_rows($count_result) || $i > 4; $i++) {
@@ -92,11 +90,10 @@
                                     <ul class="nav navbar-nav">
                                         <li><a href="index.php">首页</a></li>
                                         <li><a href="aboutme.php">关于</a></li>
-                                        <li><a href="blog-catalog.html">归档</a></li>
                                         <li><a href="resource-download.php">资源下载</a></li>
                                         <li><a href="message-board.php">留言</a></li>
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">热门技术<span class="caret"></span></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">归档<span class="caret"></span></a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li><a href="hot-technology/html5-page.php" target="_blank">HTML5</a></li>
                                                 <li><a href="hot-technology/javascript-page.php" target="_blank">JavaScript</a></li>

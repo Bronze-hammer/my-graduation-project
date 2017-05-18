@@ -51,15 +51,33 @@
 
 .nav-container {
   margin: 0 auto;
-  width: 446px;
+  width: 360px;
 }
 
-/*all-blogs-catalog*/
-#all-blogs-catalog {
-  margin: 50px 150px;
+/*my detail*/
+.my-detail {
+	text-align: center;
 }
 
-/*copyright*/
+.introduce {
+	width: 660px;
+	text-align: center;
+	margin: 20px auto;
+}
+
+/*页脚*/
+#footer {
+  background: #eee;
+  color: #666;
+  font-size: 12px;
+  margin: 50px 0 0 0;
+  text-shadow: 1px 1px 1px #ddd;
+}
+
+.footer-content {
+  margin: 0 20px;
+  font-size: 13px;
+}
 
 #copyright {
 	background: #333;
