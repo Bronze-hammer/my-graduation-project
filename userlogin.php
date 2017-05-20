@@ -15,11 +15,11 @@
         die('error'.mysqli_error);
     }
     mysqli_select_db($conn, "graduation-data");  //打开数据库
-    $select_password = mysqli_query($conn, "select username,password,identity from userinfo where username='$useremail'");
+    $select_password = mysqli_query($conn, "select useremail,password,identity from user_info where useremail='$useremail'");
     if ($select_password) {
         while ($row = mysqli_fetch_array($select_password)) {
             $pwd = $row['password'];
-            $username = $row['username'];
+            $username = $row['useremail'];
             $identity = $row['identity'];
             if ($pwd == $userpassword) {
                 $response['whether_login'] = 0;

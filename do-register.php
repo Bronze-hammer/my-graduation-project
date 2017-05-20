@@ -1,5 +1,6 @@
 <?php
-
+    date_default_timezone_set('PRC');
+    $user_id = time();
     $email = $_POST['email'];
     $pwd = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
@@ -11,7 +12,7 @@
         $conn = new mysqli($servername, $username, $password);  //连接数据库
         mysqli_query($conn, "set names 'utf8'");
         mysqli_select_db($conn, "graduation-data");  //打开数据库
-        $insert = mysqli_query($conn, "insert into userinfo (username,password,identity) values ('$email', '$pwd', '$identity')");
+        $insert = mysqli_query($conn, "insert into user_info values ('$user_id', '$email', '$pwd', '$identity')");
         if($insert){
             echo 0;
         } else {

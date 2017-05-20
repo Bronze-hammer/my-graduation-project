@@ -183,7 +183,7 @@
             </div>
         </div>
         <!-- 模态框（Modal） -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false">
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" data-keyboard="false">
 						<div class="modal-dialog">
 								<div class="modal-content">
 										<div class="modal-header">

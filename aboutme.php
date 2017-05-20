@@ -49,29 +49,35 @@
                     </nav>
                 </div>
 								<!--my detail-->
+                <div class="my-detail">
+                    <div class="avatar">
+                        <img style="width:150px;height:190px;" src="bootstrap/images/avatar.jpg" class="img-circle">
+                    </div>
+
+                </div>
                 <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "xuzihui";
-                    //连接数据库
-                    $conn = new mysqli($servername, $username, $password);
-                    mysqli_query($conn, "set names 'utf8'");
-                    mysqli_select_db($conn, "graduation-data");  //打开数据库
-                    $select_action = "select * from personalinfo";
-                    $select_result = mysqli_query($conn, $select_action);
-                    $row = mysqli_fetch_array($select_result);
-                    echo '<div class="my-detail">';
-                    echo '<div class="avatar"><img style="width: 150px" src="bootstrap/images/avatar.png"></div>';
-                    echo '<div style="margin: 40px 0;">';
-                    echo '<p>姓名:'.$row['name'].'</p>';
-                    echo '<p>邮箱:'.$row['email'].'</p>';
-                    echo '<p>Github:'.$row['github_id'].'</p>';
-                    echo '<p>Blog'.$row['blog_id'].'</p>';
-                    echo '<div class="introduce">';
-                    echo '<p style="margin: 40px 0;">'.$row['self_introduction'].'</p>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
+                    // $servername = "localhost";
+                    // $username = "root";
+                    // $password = "xuzihui";
+                    // //连接数据库
+                    // $conn = new mysqli($servername, $username, $password);
+                    // mysqli_query($conn, "set names 'utf8'");
+                    // mysqli_select_db($conn, "graduation-data");  //打开数据库
+                    // $select_action = "select * from personalinfo";
+                    // $select_result = mysqli_query($conn, $select_action);
+                    // $row = mysqli_fetch_array($select_result);
+                    // echo '<div class="my-detail">';
+                    // echo '<div class="avatar"><img style="width: 150px" src="bootstrap/images/avatar.png"></div>';
+                    // echo '<div style="margin: 40px 0;">';
+                    // echo '<p>姓名:'.$row['name'].'</p>';
+                    // echo '<p>邮箱:'.$row['email'].'</p>';
+                    // echo '<p>Github:'.$row['github_id'].'</p>';
+                    // echo '<p>Blog'.$row['blog_id'].'</p>';
+                    // echo '<div class="introduce">';
+                    // echo '<p style="margin: 40px 0;">'.$row['self_introduction'].'</p>';
+                    // echo '</div>';
+                    // echo '</div>';
+                    // echo '</div>';
                 ?>
                 <!-- footer -->
                 <div id="footer">
