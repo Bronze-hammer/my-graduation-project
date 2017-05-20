@@ -29,18 +29,6 @@
                 <ul class="nav navbar-right information-prompt">
                     <li class="dropdown">
                         <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <i class="glyphicon glyphicon-envelope"></i>
-                            <i class="glyphicon glyphicon-triangle-bottom"></i>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <i class="glyphicon glyphicon-bell"></i>
-                            <i class="glyphicon glyphicon-triangle-bottom"></i>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                             <i class="glyphicon glyphicon-user"></i>
                             <i class="glyphicon glyphicon-triangle-bottom"></i>
                         </a>
@@ -61,17 +49,17 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-video-recommend.html">
+                        <a class="active-menu" href="homepage-video-recommend.php">
                             <i>精彩视频</i>
                         </a>
                     </li>
                     <li>
                         <a class="active-menu" href="hot-technology-edit.php">
-                            <i>热门语言</i>
+                            <i>分类文章</i>
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="messages-administration.html">
+                        <a class="active-menu" href="messages-administration.php">
                             <i>留言管理</i>
                         </a>
                     </li>
@@ -81,7 +69,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="user-administration.html">
+                        <a class="active-menu" href="user-administration.php">
                             <i>用户管理</i>
                         </a>
                     </li>
@@ -92,7 +80,7 @@
             <div class="page-wrapper">
 							  <!-- 页面页首热门视频推荐 -->
 								<div class="slide-photo-content-recommend">
-									  <h2>页面页首热门视频推荐</h2>
+									  <h2>首页热门视频推荐</h2>
                     <div>
                         <form name="form" id="form">
                             <div class="form-group">

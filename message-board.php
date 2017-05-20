@@ -96,10 +96,10 @@
                                 <label>姓名:</label>
                                 <input name="commenter_name" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>邮箱:</label>
                                 <input name="commenter_email" class="form-control">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label>留言:</label>
                                 <textarea name="message_content" class="form-control" style="min-height: 100px;"></textarea>
@@ -180,6 +180,8 @@
             ?>
             $("#submit_message").click(function(){
                 var data = new FormData($("#form1")[0]);
+                var commenter_email = localStorage.getItem("useremail");
+                data.append("commenter_email", commenter_email);
                 $.ajax({
                     url: 'message-upload.php',
                     type: 'POST',

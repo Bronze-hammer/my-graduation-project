@@ -58,6 +58,7 @@
                                 echo '" target="_blank">';
                                 echo '<h4 style="font-weight: bold">'.$row['technology_content_title'].'</h4>';
                                 echo '</a>';
+                                echo '<p>'.$row['technology_content_time'].'</p>';
                                 echo '<p>'.$row['technology_content_abstract'].'</p>';
                                 echo '</li>';
                             }

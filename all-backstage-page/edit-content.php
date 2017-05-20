@@ -62,17 +62,17 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-vedio-recommend.html">
+                        <a class="active-menu" href="homepage-vedio-recommend.php">
                             <i>精彩视频</i>
                         </a>
                     </li>
                       <li>
                           <a class="active-menu" href="hot-technology-edit.php">
-                              <i>热门语言</i>
+                              <i>分类文章</i>
                           </a>
                       </li>
                       <li>
-                          <a class="active-menu" href="messages-administration.html">
+                          <a class="active-menu" href="messages-administration.php">
                               <i>留言管理</i>
                           </a>
                       </li>
@@ -82,7 +82,7 @@
                           </a>
                       </li>
                       <li>
-                          <a class="active-menu" href="user-administration.html">
+                          <a class="active-menu" href="user-administration.php">
                               <i>用户管理</i>
                           </a>
                       </li>
