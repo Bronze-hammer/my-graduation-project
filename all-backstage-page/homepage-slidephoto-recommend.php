@@ -72,7 +72,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="messages-administration.html">
+                        <a class="active-menu" href="messages-administration.php">
                             <i>留言管理</i>
                         </a>
                     </li>

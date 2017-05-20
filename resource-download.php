@@ -75,9 +75,6 @@
                             echo '<div style="font-size: 1px">';
                             echo '<table style="margin: 0" class="table table-hover">';
                             echo '<tr>';
-                            echo '<td style="width: 30px">';
-                            echo $row['id'];
-                            echo '</td>';
                             echo '<td class="active" style="width: 190px">';
                             echo $row['filename'];
                             echo '</td>';

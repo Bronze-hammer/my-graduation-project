@@ -53,32 +53,25 @@
                     <div class="avatar">
                         <img style="width:150px;height:190px;" src="bootstrap/images/avatar.jpg" class="img-circle">
                     </div>
-
+                    <div style="margin: 40px 0;">
+                        <p>姓名：徐子辉</p>
+                        <p>邮箱：zihui_xu@126.com</p>
+                        <p>Github：https://github.com/Bronze-hammer</p>
+                        <p>Blog：specterxu.iteye.com</p>
+                        <div class="introduce">
+                            <blockquote>
+                                <p style="font-size:15px;">有时候，我多么希望能有一双睿智的眼睛能够看穿我，能够明白了解我的一切，包括所有的斑斓和荒芜。
+                                  那双眼眸能够穿透我的最为本质的灵魂，
+                                  直抵我心灵深处那个真实的自己，她的话语能解决我所有的迷惑，或是对我的所作所为能有一针见血的评价。</p>
+                                <footer style="float:right;">三毛</fonter>
+                            </blockquote>
+                        </div>
+                        <div style="margin-top:100px;">
+                            <h5>项目1 <cite>个人博客网站</cite></h5>
+                            <img style="width:70%;box-shadow:0 5px 20px #444;" src = "bootstrap/images/project.png">
+                        </div>
+                    </div>
                 </div>
-                <?php
-                    // $servername = "localhost";
-                    // $username = "root";
-                    // $password = "xuzihui";
-                    // //连接数据库
-                    // $conn = new mysqli($servername, $username, $password);
-                    // mysqli_query($conn, "set names 'utf8'");
-                    // mysqli_select_db($conn, "graduation-data");  //打开数据库
-                    // $select_action = "select * from personalinfo";
-                    // $select_result = mysqli_query($conn, $select_action);
-                    // $row = mysqli_fetch_array($select_result);
-                    // echo '<div class="my-detail">';
-                    // echo '<div class="avatar"><img style="width: 150px" src="bootstrap/images/avatar.png"></div>';
-                    // echo '<div style="margin: 40px 0;">';
-                    // echo '<p>姓名:'.$row['name'].'</p>';
-                    // echo '<p>邮箱:'.$row['email'].'</p>';
-                    // echo '<p>Github:'.$row['github_id'].'</p>';
-                    // echo '<p>Blog'.$row['blog_id'].'</p>';
-                    // echo '<div class="introduce">';
-                    // echo '<p style="margin: 40px 0;">'.$row['self_introduction'].'</p>';
-                    // echo '</div>';
-                    // echo '</div>';
-                    // echo '</div>';
-                ?>
                 <!-- footer -->
                 <div id="footer">
                     <div class="footer-content">

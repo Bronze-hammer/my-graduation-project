@@ -94,7 +94,7 @@
                     <div>
                         <form action="do-upload-file.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <input type="hidden" name="MAX_FILE_SIZE"/>
+                                <!-- <input type="hidden" name="MAX_FILE_SIZE"/> -->
                                 <label>选择要上传的资源文件:</label>
                                 <input type="file" name="myfile" />
 
@@ -128,9 +128,6 @@
                                 echo '<div style="font-size: 1px">';
                                 echo '<table style="margin: 0" class="table table-hover">';
                                 echo '<tr>';
-                                echo '<td style="width: 30px">';
-                                echo $row['id'];
-                                echo '</td>';
                                 echo '<td class="active" style="width: 190px">';
                                 echo $row['filename'];
                                 echo '</td>';
@@ -144,7 +141,6 @@
                                 echo $row['file_upload_time'];
                                 echo '</td>';
                                 echo '<td style="width: 50px">';
-                                //echo '<a href="'.$row['file_tmp_name'].'/'.$row['identification'].'">下载</a>';
                                 echo '<a href="do_download_file.php?filename='.$row['filename'].'&file_tmp_name='.$row['file_tmp_name'].'&identification='.$row['identification'].'">下载</a>';
                                 echo '<a onclick="Delete('.$row['file_id'].')">删除</a>';
                                 echo '</td>';

@@ -14,7 +14,7 @@
     $size = $_FILES['myfile']['size'];
     $error = $_FILES['myfile']['error'];
 
-    $maxSize = 2097152;  //允许上传文件的最大值
+    $maxSize = 838860800;  //允许上传文件的最大值
 
     /*错误信息说明
     UPLOAD_ERR_OK: 其值为0，没有错误发生，文件上传成功
