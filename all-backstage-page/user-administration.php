@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
     <head>
-			  <meta charset="utf8">
+			  <meta charset="utf-8">
 			  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
         <title>Back stage</title>
 
@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-video-recommend.php">
+                        <a class="active-menu" href="homepage-vedio-recommend.php">
                             <i>精彩视频</i>
                         </a>
                     </li>
@@ -76,67 +76,44 @@
 
             <!-- 右侧内容 -->
             <div class="page-wrapper">
-							  <!-- 资源上传下载 -->
+							  <!-- 用户管理 -->
 								<div class="slide-photo-content-recommend">
-									  <h2>资源上传下载</h2>
+									  <h2>用户管理</h2>
                     <div>
-                        <form action="do-upload-file.php" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <!-- <input type="hidden" name="MAX_FILE_SIZE"/> -->
-                                <label>选择要上传的资源文件:</label>
-                                <input type="file" name="myfile" />
-
-                            </div>
-                            <div class="form-group">
-                                <label>上传文件的摘要介绍:</label>
-                                <textarea class="form-control" placeholder="摘要" name="upload_file_abstract"></textarea>
-                            </div>
-                            <input type="submit" value="上传文件" />
-                        </form>
-                        <hr>
+                        <table class="table table-hover">
                         <?php
                             $servername = "localhost";
                             $username = "root";
                             $password = "xuzihui";
-                            //连接数据库
-                            $conn = new mysqli($servername, $username, $password);
-                            if (!$conn) {
-                                die('error'.mysqli_error);
-                            }
+                            $conn = new mysqli($servername, $username, $password);  //连接数据库
                             mysqli_query($conn, "set names 'utf8'");
                             mysqli_select_db($conn, "graduation-data");  //打开数据库
-                            $sql = "select * from upload_file_info";
-                            $result = mysqli_query($conn, $sql);
-
-                            if (!$result) {
-                                printf("error:%s\n", mysqli_error($conn));
-                                exit();
-                            }
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo '<div style="font-size: 1px">';
-                                echo '<table style="margin: 0" class="table table-hover">';
-                                echo '<tr>';
-                                echo '<td class="active" style="width: 190px">';
-                                echo $row['filename'];
+                            $select = mysqli_query($conn, "select * from user_info");
+                            while ($row = mysqli_fetch_array($select)) {
+                                echo '<tr class="active" id="one">';
+                                echo '<td style="width:30%;" class="success">'.$row['useremail'].'</td>';
+                                echo '<td style="width:30%;" class="info">'.$row['password'].'</td>';
+                                echo '<td style="width:15%;" class="warning">'.$row['identity'].'</td>';
+                                echo '<td style="width:25%;" class="danger">';
+                                echo '<a onclick="Delete_user('.$row['user_id'].')">删除<a>&nbsp&nbsp';
+                                echo '<a id="revise">修改<a>';
                                 echo '</td>';
-                                echo '<td class="success">';
-                                echo $row['fileabstract'];
-                                echo '</td>';
-                                echo '<td class="warning" style="width: 100px">';
-                                echo $row['filesize']."byte";
-                                echo '</td>';
-                                echo '<td style="width: 100px">';
-                                echo $row['file_upload_time'];
-                                echo '</td>';
-                                echo '<td style="width: 50px">';
-                                echo '<a href="do_download_file.php?filename='.$row['filename'].'&file_tmp_name='.$row['file_tmp_name'].'&identification='.$row['identification'].'">下载</a>';
-                                echo '<a onclick="Delete('.$row['file_id'].')">删除</a>';
-                                echo '</td>';
+                                echo '<td style="width:25%;" class="danger"></td>';
                                 echo '</tr>';
-                                echo '</table>';
-                                echo '</div>';
+                                echo '<tr id="two" style="display:none;">';
+                                echo '<form name="form" id="form">';
+                                echo '<td style="width:30%;"><input name="useremail" class="form-control" value="'.$row['useremail'].'"></td>';
+                                echo '<td style="width:30%;"><input name="password" class="form-control" value="'.$row['password'].'"></td>';
+                                echo '<td style="width:15%;"><input name="identity" class="form-control" value="'.$row['identity'].'"></td>';
+                                echo '<td style="width:25%;">';
+                                echo '<a onclick="Save('.$row['user_id'].')">保存</a>&nbsp&nbsp';
+                                echo '<a id="cancel">取消</a>';
+                                echo '</td>';
+                                echo '</form>';
+                                echo '</tr>';
                             }
                         ?>
+                        </table>
                     </div>
 								</div>
 						</div>
@@ -146,28 +123,59 @@
 				<script src="../bootstrap/js/jquery-3.1.1.min.js"></script>
 				<script src="../bootstrap/js/bootstrap.min.js"></script>
         <script>
-            function Delete(file_id){
+            function Delete_user(user_id){
                 $.ajax({
-                    url: 'delete-file.php',
+                    url: 'delete-user.php',
                     type: 'POST',
                     dataType: 'JSON',
                     data: {
-                        'file_id': file_id
+                        "user_id": user_id
                     }
                 }).done(function(data){
-                   switch (data) {
+                    switch (data) {
                       case 0:
-                       alert("文件删除成功");
-                       window.location.reload();
-                       break;
-                     case 1:
-                       alert("文件删除失败");
-                       break;
-
-                   }
+                        alert("用户删除成功！");
+                        window.location.reload();
+                        break;
+                      case 1:
+                        alert("用户删除失败！");
+                        break;
+                    }
+                })
+            }
+            $("#revise").click(function(){
+                $("#one").hide();
+                $("#two").show();
+            })
+            $("#cancel").click(function(){
+                $("#one").show();
+                $("#two").hide();
+            })
+            function Save(user_id){
+                var data = new FormData($('#form')[0]);
+                data.append("user_id", user_id);
+                $.ajax({
+                    url: 'revise-user.php',
+                    type: 'POST',
+                    data: data,
+                    dataType: 'JSON',
+                    cache: false,
+                    processData: false,
+                    contentType: false
+                }).done(function(data){
+                    switch (data) {
+                      case 00:
+                        alert("用户信息修改成功！");
+                        window.location.reload();
+                        break;
+                      case 11:
+                        alert("用户信息修改失败！");
+                        break;
+                    }
                 })
             }
         </script>
+
 		</body>
 
 </html>

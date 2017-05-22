@@ -30,18 +30,6 @@
                 <ul class="nav navbar-right information-prompt">
                     <li class="dropdown">
                         <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <i class="glyphicon glyphicon-envelope"></i>
-                            <i class="glyphicon glyphicon-triangle-bottom"></i>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <i class="glyphicon glyphicon-bell"></i>
-                            <i class="glyphicon glyphicon-triangle-bottom"></i>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                             <i class="glyphicon glyphicon-user"></i>
                             <i class="glyphicon glyphicon-triangle-bottom"></i>
                         </a>
@@ -57,45 +45,35 @@
             <nav class="navbar-side navbar-side-style" role="navigation">
                 <ul class="nav">
                     <li>
-                        <a class="active-menu" href="personal-info.html">
-                            <i>个人信息</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="active-menu" href="homepage-slidephoto-recommend.html">
+                        <a class="active-menu" href="homepage-slidephoto-recommend.php">
                             <i>首页推荐</i>
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="homepage-vedio-recommend.html">
+                        <a class="active-menu" href="homepage-vedio-recommend.php">
                             <i>精彩视频</i>
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="file-arrangement.html">
-                            <i>归档</i>
+                        <a class="active-menu" href="hot-technology-edit.php">
+                            <i>分类文章</i>
                         </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="hot-technology-edit.html">
-                              <i>热门语言</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="messages-administration.html">
-                              <i>留言管理</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="resources-upload-download.php">
-                              <i>资源上传下载</i>
-                          </a>
-                      </li>
-                      <li>
-                          <a class="active-menu" href="user-administration.html">
-                              <i>用户管理</i>
-                          </a>
-                      </li>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="messages-administration.php">
+                            <i>留言管理</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="resources-upload-download.php">
+                            <i>资源上传下载</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="user-administration.php">
+                            <i>用户管理</i>
+                        </a>
+                    </li>
                   </ul>
             </nav>
 

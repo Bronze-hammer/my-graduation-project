@@ -24,22 +24,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="personal-info.html">Back Stage</a>
+                    <a class="navbar-brand" href="homepage-slidephoto-recommend.html">Back Stage</a>
                 </div>
 
                 <ul class="nav navbar-right information-prompt">
-                    <li class="dropdown">
-                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <i class="glyphicon glyphicon-envelope"></i>
-                            <i class="glyphicon glyphicon-triangle-bottom"></i>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <i class="glyphicon glyphicon-bell"></i>
-                            <i class="glyphicon glyphicon-triangle-bottom"></i>
-                        </a>
-                    </li>
                     <li class="dropdown">
                         <a style="background-color: transparent;" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                             <i class="glyphicon glyphicon-user"></i>
@@ -68,11 +56,11 @@
                     </li>
                     <li>
                         <a class="active-menu" href="hot-technology-edit.php">
-                            <i>热门语言</i>
+                            <i>分类文章</i>
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="messages-administration.html">
+                        <a class="active-menu" href="messages-administration.php">
                             <i>留言管理</i>
                         </a>
                     </li>
@@ -82,7 +70,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active-menu" href="user-administration.html">
+                        <a class="active-menu" href="user-administration.php">
                             <i>用户管理</i>
                         </a>
                     </li>

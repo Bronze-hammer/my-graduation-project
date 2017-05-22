@@ -173,12 +173,6 @@
                           break;
 
                     }
-                    // var result = '';
-                    // result += 'video_name=' + ret['video_name'] + '<br>';
-                    // result += 'video_abstract=' + ret['video_abstract'] + '<br>';
-                    // result += 'video_type=' + ret['video_type'] + '<br>';
-                    // result += 'video_url=' + ret['video_url'] + '<br>';
-                    // $('#result').html(result);
                 })
             });
         </script>
