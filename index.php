@@ -155,8 +155,8 @@
                             </div>
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>友情链接</h4>
-                                <a href="www.runoob.com" target="_blank"><p>RUNOOB.COM</p></a>
-                                <a href="www.w3school.com.cn" target="_blank"><p>W3C</p></a>
+                                <a href="http://www.runoob.com" target="_blank"><p>RUNOOB.COM</p></a>
+                                <a href="http://www.w3school.com.cn" target="_blank"><p>W3C</p></a>
                             </div>
                             <div class="col-md-3" style="margin: 20px 0">
                                 <h4>个人操作</h4>

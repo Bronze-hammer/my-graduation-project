@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="personal-info.html">Back Stage</a>
+                    <a class="navbar-brand" href="../index.php">返回前台</a>
                 </div>
                 <ul class="nav navbar-right information-prompt">
                     <li class="dropdown">

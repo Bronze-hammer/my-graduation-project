@@ -22,7 +22,7 @@
 		                <input type="password" class="form-control" name="password">
 	              </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword2">密码</label>
+                    <label for="exampleInputPassword2">确认密码</label>
                     <input type="password" class="form-control" name="confirm_password">
                 </div>
 
@@ -69,6 +69,12 @@
                         break;
                       case 2:
                         alert("两次输出的密码不一致");
+                        break;
+                      case 3:
+                        alert("请补全表单");
+                        break;
+                      case 4:
+                        alert("无效的email格式");
                         break;
                     }
                 })

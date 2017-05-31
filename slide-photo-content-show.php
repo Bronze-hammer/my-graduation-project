@@ -25,6 +25,9 @@
                        </div>
       		         </nav>
       		      </div>
+                <div style="margin-left:50px;margin-top: 25px;">
+                    <a href="javascript:;" onclick="javascript:history.back(-1);"><kbd>返回</kbd></a>
+                </div>
                 <?php
                     $content_id = $_GET['content_id'];
                     //echo $content_id;
