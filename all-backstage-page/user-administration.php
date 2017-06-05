@@ -81,6 +81,13 @@
 									  <h2>用户管理</h2>
                     <div>
                         <table class="table table-hover">
+                        <tr class="active" style="text-align: center">
+                          <td style="width:30%;" class="success">用户名</td>
+                          <td style="width:30%;" class="info">密码</td>
+                          <td style="width:15%;" class="warning">用户权限</td>
+                          <td style="width:25%;" class="danger">操作</td>
+
+                        </tr>
                         <?php
                             $servername = "localhost";
                             $username = "root";
@@ -98,7 +105,6 @@
                                 echo '<a onclick="Delete_user('.$row['user_id'].')">删除<a>&nbsp&nbsp';
                                 echo '<a id="revise">修改<a>';
                                 echo '</td>';
-                                echo '<td style="width:25%;" class="danger"></td>';
                                 echo '</tr>';
                                 echo '<tr id="two" style="display:none;">';
                                 echo '<form name="form" id="form">';

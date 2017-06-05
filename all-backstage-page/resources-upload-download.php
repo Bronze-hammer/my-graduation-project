@@ -112,6 +112,27 @@
                                 printf("error:%s\n", mysqli_error($conn));
                                 exit();
                             }
+                            echo '<div style="text-align:center;font-size: 15px">';
+                            echo '<table style="margin: 0" class="table table-hover">';
+                            echo '<tr>';
+                            echo '<td class="active" style="width: 190px">';
+                            echo '资源名称';
+                            echo '</td>';
+                            echo '<td class="success">';
+                            echo '资源简介';
+                            echo '</td>';
+                            echo '<td class="warning" style="width: 100px">';
+                            echo '资源大小';
+                            echo '</td>';
+                            echo '<td style="width: 100px">';
+                            echo '上传时间';
+                            echo '</td>';
+                            echo '<td style="width: 50px">';
+                            echo '操作';
+                            echo '</td>';
+                            echo '</tr>';
+                            echo '</table>';
+                            echo '</div>';
                             while ($row = mysqli_fetch_array($result)) {
                                 echo '<div style="font-size: 1px">';
                                 echo '<table style="margin: 0" class="table table-hover">';

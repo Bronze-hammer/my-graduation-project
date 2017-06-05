@@ -167,7 +167,7 @@
                     switch (ret) {
                       case 0:
                         alert("文章更新成功！");
-                        window.location.reload();
+                        window.location.href="homepage-slidephoto-recommend.php";
                         break;
                       case 1:
                         alert("文章更新失败！");

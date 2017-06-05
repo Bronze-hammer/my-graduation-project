@@ -71,6 +71,24 @@
                             printf("error:%s\n", mysqli_error($conn));
                             exit();
                         }
+                        echo '<div style="font-size: 1px">';
+                        echo '<table style="margin: 0" class="table table-hover">';
+                        echo '<tr>';
+                        echo '<td class="active" style="width: 190px">';
+                        echo '资料';
+                        echo '</td>';
+                        echo '<td class="success">';
+                        echo '资料简介';
+                        echo '</td>';
+                        echo '<td class="warning" style="width: 100px">';
+                        echo '资料大小';
+                        echo '</td>';
+                        echo '<td style="width: 150px">';
+                        echo '资料上传时间';
+                        echo '</td>';
+                        echo '</tr>';
+                        echo '</table>';
+                        echo '</div>';
                         while ($row = mysqli_fetch_array($result)) {
                             echo '<div style="font-size: 1px">';
                             echo '<table style="margin: 0" class="table table-hover">';
